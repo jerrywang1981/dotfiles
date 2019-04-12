@@ -4,6 +4,8 @@
   "suggest.timeout": 500,
   "suggest.minTriggerInputLength": 2,
   "suggest.echodocSupport": true,
+	"suggest.snippetIndicator": "⭐︎",
+	"suggest.enablePreview": true,
   "diagnostic.errorSign": "😡",
 	"diagnostic.warningSign": "🤔",
   "prettier.eslintIntegration": true,

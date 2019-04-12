@@ -28,7 +28,7 @@ noremap <c-n> :Leaderf --nameOnly mru<cr>
 " option key + f
 noremap ƒ :LeaderfFunction!<cr>
 " option key + b
-noremap ∫ :Leaderf! --nameOnly buffer<cr>
+" noremap ∫ :Leaderf! --nameOnly buffer<cr>
 " option key + t
 noremap † :Leaderf --nameOnly tag<cr>
 " noremap <Leader>c :Leaderf rg<cr>

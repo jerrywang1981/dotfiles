@@ -1,4 +1,4 @@
-source ~/.vim/pluginrc.vim
+source ~/.vim/config/pluginrc.vim
 set nocompatible
 set path+=**
 set updatetime=5000
@@ -58,18 +58,13 @@ set background=dark
 " let g:solarized_term_italics=1
 colorscheme dracula
 
-let g:ctrlp_working_path_mode = 'ra'
+" let g:ctrlp_working_path_mode = 'ra'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/venv/*,*/node_modules/*
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|venv|hg|svn)$'
-let g:ctrlp_by_filename = 1
+" let g:ctrlp_custom_ignore = '\v[\/]\.(git|venv|hg|svn)$'
+" let g:ctrlp_by_filename = 1
 let g:pymode_python = 'python3'
 
-" NERD tree settings  "
-let g:NERDSpaceDelims = 1
-let g:NERDCompactSexyComs = 1
-let g:NERDCommentEmptyLines = 1
-let g:NERDTrimTrailingWhitespace = 1
-let g:NERDToggleCheckAllLines = 1
+source ~/.vim/config/nerdcommenter.vim
 
 let g:winManagerWindowLayout="NERDTree"
 let g:winManagerWidth=30
@@ -79,9 +74,12 @@ let NERDTreeRespectWildIgnore=1
 
 let g:rooter_silent_chdir = 1
 
-
+" leaderf configuration "
 let g:Lf_ShortcutF = '<c-p>'
 let g:Lf_CommandMap = {'<Tab>': ['<ESC>']}
+let g:Lf_DefaultMode = 'NameOnly'
+let g:Lf_WindowHeight = 0.3
+let g:Lf_WorkingDirectoryMode = 'Ac'
 
 let g:jsx_ext_required = 0
 
@@ -92,10 +90,9 @@ let g:user_emmet_install_global = 0
 autocmd FileType html,css,javascript.jsx,vue.html.javascript.css,vue EmmetInstall
 
 "--------------------mapping-------
-source ~/.vim/mapping.vim
-
+source ~/.vim/config/mapping.vim
 "--------------------terminal-------
-source ~/.vim/terminal.vim
+source ~/.vim/config/terminal.vim
 
 " let g:tsuquyomi_completion_detail = 1
 " let g:tsuquyomi_search_term_min_length = 3
@@ -113,7 +110,7 @@ let g:startify_custom_header = ['']
 let g:startify_enable_special = 0
 
 " -------------------------ctags------------------"
-source ~/.vim/ctags.vim
+source ~/.vim/config/ctags.vim
 :py3 sys.executable='/usr/local/bin/python3'
 let g:python3_host_prog  = '/usr/local/Cellar/python/3.7.3/bin/python3'
 let g:python_host_prog  = '/usr/bin/python'
@@ -123,7 +120,7 @@ let g:loaded_python_provider = 1
 " let g:ale_sign_warning = '.'
 
 "----------------------coc----------------------------"
-source ~/.vim/coc.vim
+source ~/.vim/config/coc.vim
 
 autocmd FileType json syntax match Comment +\/\/.\+$+
 " --------------------netrw----------------"
