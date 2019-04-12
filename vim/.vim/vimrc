@@ -66,10 +66,10 @@ let g:pymode_python = 'python3'
 
 source ~/.vim/config/nerdcommenter.vim
 
-let g:winManagerWindowLayout="NERDTree"
-let g:winManagerWidth=30
+" let g:winManagerWindowLayout="NERDTree"
+" let g:winManagerWidth=30
 
-let NERDTreeRespectWildIgnore=1
+" let NERDTreeRespectWildIgnore=1
 
 
 let g:rooter_silent_chdir = 1
@@ -94,8 +94,6 @@ source ~/.vim/config/mapping.vim
 "--------------------terminal-------
 source ~/.vim/config/terminal.vim
 
-" let g:tsuquyomi_completion_detail = 1
-" let g:tsuquyomi_search_term_min_length = 3
 
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
@@ -123,24 +121,18 @@ let g:loaded_python_provider = 1
 source ~/.vim/config/coc.vim
 
 autocmd FileType json syntax match Comment +\/\/.\+$+
+"
+"
+"
+"
 " --------------------netrw----------------"
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
-" augroup ProjectDrawer
-"   autocmd!
-"   autocmd VimEnter * :Vexplore
-" augroup END
+
 
 " markdown preview settings"
 let g:mkdp_auto_start = 1
 
-if has("termguicolors")
-    " fix bug for vim
-    " let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-    " let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-
-    " enable true color
-endif
