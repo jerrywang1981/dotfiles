@@ -1,0 +1,149 @@
+source ~/.vim/pluginrc.vim
+set nocompatible
+set path+=**
+set updatetime=5000
+set directory=~/tmp,/tmp
+set foldmethod=indent
+set foldlevel=99
+set autoindent
+set encoding=utf-8
+set clipboard+=unnamed  " use the clipboards of vim and win
+" set paste               " Paste from a windows or from vim
+set go+=a               " Visual selection automatically copied to the clipboard
+set number
+set relativenumber
+set guioptions-=r
+set guioptions-=R
+set guioptions-=l
+set guioptions-=L
+set guioptions-=b
+set nowrap
+set fileformat=unix
+set cindent
+set colorcolumn=80
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set showmatch
+set scrolloff=5
+set laststatus=2
+set fenc=utf-8
+set backspace=2
+set mouse=a
+set selection=exclusive
+set selectmode=mouse,key
+set matchtime=5
+set ignorecase
+set incsearch
+set hlsearch
+set expandtab
+set whichwrap+=<,>,h,l
+set autoread
+set cursorline
+set cursorcolumn
+set history=200
+set fixendofline
+" set conceallevel=0
+" set transparency=10
+
+let g:vim_json_syntax_conceal = 0
+let python_highlight_all=1
+set t_Co=256
+
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+set background=dark
+" colorscheme solarized8_high
+" let g:solarized_term_italics=1
+colorscheme dracula
+
+let g:ctrlp_working_path_mode = 'ra'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/venv/*,*/node_modules/*
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|venv|hg|svn)$'
+let g:ctrlp_by_filename = 1
+let g:pymode_python = 'python3'
+
+" NERD tree settings  "
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDCommentEmptyLines = 1
+let g:NERDTrimTrailingWhitespace = 1
+let g:NERDToggleCheckAllLines = 1
+
+let g:winManagerWindowLayout="NERDTree"
+let g:winManagerWidth=30
+
+let NERDTreeRespectWildIgnore=1
+
+
+let g:rooter_silent_chdir = 1
+
+
+let g:Lf_ShortcutF = '<c-p>'
+let g:Lf_CommandMap = {'<Tab>': ['<ESC>']}
+
+let g:jsx_ext_required = 0
+
+" autocmd FileType typescript,html,javascript.jsx set ts=2 | set shiftwidth=2
+autocmd FileType python set ts=4 | set shiftwidth=4 | set softtabstop=4
+let g:SuperTabDefaultCompletionType = "<c-n>"
+let g:user_emmet_install_global = 0
+autocmd FileType html,css,javascript.jsx,vue.html.javascript.css,vue EmmetInstall
+
+"--------------------mapping-------
+source ~/.vim/mapping.vim
+
+"--------------------terminal-------
+source ~/.vim/terminal.vim
+
+" let g:tsuquyomi_completion_detail = 1
+" let g:tsuquyomi_search_term_min_length = 3
+
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+
+autocmd FileType vue syntax sync fromstart
+" autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
+
+
+" ------------startify configuration----------------
+let g:startify_change_to_vcs_root = 1
+let g:startify_change_to_dir = 0
+let g:startify_custom_header = ['']
+let g:startify_enable_special = 0
+
+" -------------------------ctags------------------"
+source ~/.vim/ctags.vim
+:py3 sys.executable='/usr/local/bin/python3'
+let g:python3_host_prog  = '/usr/local/Cellar/python/3.7.3/bin/python3'
+let g:python_host_prog  = '/usr/bin/python'
+let g:loaded_python_provider = 1
+
+" let g:ale_sign_error = '●' " Less aggressive than the default '>>'
+" let g:ale_sign_warning = '.'
+
+"----------------------coc----------------------------"
+source ~/.vim/coc.vim
+
+autocmd FileType json syntax match Comment +\/\/.\+$+
+" --------------------netrw----------------"
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
+" augroup ProjectDrawer
+"   autocmd!
+"   autocmd VimEnter * :Vexplore
+" augroup END
+
+" markdown preview settings"
+let g:mkdp_auto_start = 1
+
+if has("termguicolors")
+    " fix bug for vim
+    " let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    " let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+    " enable true color
+endif

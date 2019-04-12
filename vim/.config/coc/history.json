@@ -1,0 +1,38 @@
+{
+  "commands": {
+    "": {
+      "": [
+        "Pyt",
+        "python.sel",
+        "python.enable",
+        "tsserver",
+        "esl",
+        "tsserver.ope",
+        "tsse",
+        "fix"
+      ]
+    },
+    "%2FUsers%2Fjerry%2Frepo%2Fdigital-marketing-be": [
+      "for",
+      "tslin",
+      "esl",
+      "eslin",
+      "eslint",
+      "es"
+    ],
+    "%2FUsers%2Fjerry%2Frepo%2Fwebapp_angular": [
+      "tsser",
+      "eslin",
+      "eslint",
+      "es",
+      "ts"
+    ]
+  },
+  "diagnostics": {
+    "": {
+      "": [
+        "ap"
+      ]
+    }
+  }
+}

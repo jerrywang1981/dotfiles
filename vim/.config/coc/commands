@@ -1,0 +1,8 @@
+tslint.fixAllProblems
+eslint.executeAutofix
+eslint.createConfig
+tsserver.executeAutofix
+prettier.formatFile
+tsserver.openTsServerLog
+python.enableLinting
+python.setLinter
