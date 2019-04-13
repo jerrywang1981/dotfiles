@@ -80,6 +80,19 @@ let g:Lf_CommandMap = {'<Tab>': ['<ESC>']}
 let g:Lf_DefaultMode = 'NameOnly'
 let g:Lf_WindowHeight = 0.3
 let g:Lf_WorkingDirectoryMode = 'Ac'
+" let g:Lf_NormalMap = {
+    " \ "File":   [],
+    " \ "Buffer": [],
+    " \ "Mru":    [],
+    " \ "Tag":    [],
+    " \ "BufTag": [],
+    " \ "Function": [],
+    " \ "Line":   [],
+    " \ "History":[],
+    " \ "Help":   [],
+    " \ "Self":   [],
+    " \ "Colorscheme": []
+    " \}
 
 let g:jsx_ext_required = 0
 
@@ -136,3 +149,7 @@ let g:netrw_winsize = 25
 " markdown preview settings"
 let g:mkdp_auto_start = 1
 
+" vim-workspace
+let g:workspace_autosave = 0
+let g:workspace_persist_undo_history = 0
+let g:workspace_autosave_untrailspaces = 0

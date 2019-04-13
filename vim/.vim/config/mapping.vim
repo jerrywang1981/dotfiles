@@ -21,7 +21,12 @@ map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
 
+
+nmap <silent> ¡ :Lex<CR>
 " nmap <D-1> :NERDTreeToggle<CR>
+
+" vim-workspace
+" nnoremap <leader>s :ToggleWorkspace<CR>
 
 " leaderF mapping
 noremap <c-n> :Leaderf --nameOnly mru<cr>
@@ -75,12 +80,6 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 " to switch buffer
 nnoremap <C-tab> :bn<CR>
 nnoremap <C-s-tab> :bp<CR>
-
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 " For conceal markers.
 if has('conceal')
