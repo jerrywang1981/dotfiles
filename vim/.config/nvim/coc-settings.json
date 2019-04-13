@@ -1,1 +1,24 @@
-/Users/jerry/.vim/coc-settings.json
+{
+  "suggest.triggerAfterInsertEnter": true,
+  "suggest.noselect": false,
+  "suggest.timeout": 500,
+  "suggest.minTriggerInputLength": 2,
+  "suggest.echodocSupport": true,
+	"suggest.snippetIndicator": "⭐︎",
+	"suggest.enablePreview": true,
+  "diagnostic.errorSign": "😡",
+	"diagnostic.warningSign": "🤔",
+  "prettier.eslintIntegration": true,
+  "prettier.tslintIntegration": true,
+  "prettier.stylelintIntegration": true,
+  "tslint.autoFixOnSave": true,
+  "eslint.packageManager": "yarn",
+  "eslint.filetypes": [
+    "javascript",
+    "javascript.jsx",
+    "javascriptreact"
+  ],
+  "eslint.autoFix": true,
+  "eslint.autoFixOnSave": true,
+  "tsserver.log": "verbose"
+}
