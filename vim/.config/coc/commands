@@ -1,6 +1,6 @@
 eslint.executeAutofix
-prettier.formatFile
 tslint.fixAllProblems
+prettier.formatFile
 eslint.createConfig
 tsserver.executeAutofix
 tsserver.openTsServerLog

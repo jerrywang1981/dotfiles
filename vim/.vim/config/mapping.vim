@@ -8,6 +8,10 @@ imap <up> <Nop>
 imap <down> <Nop>
 imap <left> <Nop>
 imap <right> <Nop>
+inoremap <c-h> <Left>
+inoremap <c-j> <Down>
+inoremap <c-k> <Up>
+inoremap <c-l> <Right>
 vmap <up> <Nop>
 vmap <down> <Nop>
 vmap <left> <Nop>
@@ -22,7 +26,21 @@ map <c-l> <c-w>l
 map <c-h> <c-w>h
 
 
+" option key + 1
 nmap <silent> ¡ :Lex<CR>
+" option key + 4
+nmap ¢ :vert belowright sb zsh
+" quickly toggle terminal
+" nnoremap <silent> <leader>o :vertical botright Ttoggle<cr><C-w>l
+" nnoremap <silent> <leader>O :horizontal rightbelow Ttoggle<cr><C-w>j
+nnoremap <silent> <leader><space> :vertical botright Ttoggle<cr><C-w>l
+
+" tnoremap <silent> <leader>o <C-\><C-n>:Ttoggle<cr>
+tnoremap <silent> <leader><space> <C-\><C-n>:Ttoggle<cr>
+
+nnoremap <silent> <c-s>l :TREPLSendLine<CR>
+vnoremap <silent> <c-s>s :TREPLSendSelection<CR>
+
 " nmap <D-1> :NERDTreeToggle<CR>
 
 " vim-workspace

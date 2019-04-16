@@ -14,7 +14,7 @@ endif
 
 call plug#begin('~/.vim/plugged')
 Plug 'easymotion/vim-easymotion'
-Plug 'majutsushi/tagbar'
+" Plug 'majutsushi/tagbar'
 Plug 'tomtom/tlib_vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'mhinz/vim-startify'
@@ -72,6 +72,7 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 " Plug 'morhetz/gruvbox'
 " Plug 'tomasr/molokai'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'machakann/vim-highlightedyank'
 call plug#end()
 
 
