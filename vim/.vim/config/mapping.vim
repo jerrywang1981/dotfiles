@@ -27,7 +27,8 @@ map <c-h> <c-w>h
 
 
 " option key + 1
-nmap <silent> ¡ :Lex<CR>
+" nmap <silent> ¡ :Lex<CR>
+nmap <silent> ¡ :Defx<CR>
 " option key + 4
 nmap ¢ :vert belowright sb zsh
 " quickly toggle terminal
@@ -112,3 +113,5 @@ cnoremap <C-n> <Down>
 noremap <Leader>n nzz
 noremap <Leader>N Nzz
 
+" write to the file
+noremap <Leader>w :w<cr>

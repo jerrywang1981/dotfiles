@@ -26,7 +26,7 @@
         "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
         "fileHash": "ed1b1eed43e04943afd25276f4678c5bb7bc09b3fb5cefa5c61d2214b89acad9a7e2d20db32cb07ff7c2ba91984d4b00a545412c30a687bbc97f56e82cd63705"
       },
-      "expiry": 1555390903861
+      "expiry": 1555509484968
     },
     "/usr/bin/python.v3": {
       "data": {
@@ -51,7 +51,7 @@
         "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
         "fileHash": "8c2d44b822de4f3bc01a6e69d8e13a7cf1208ea2f0793cf04196d01b54c9feedda59594c0acd4f06ed17b05d7d39ddd3c62e81c5a606f10a04c887f8b801bd41"
       },
-      "expiry": 1555390903875
+      "expiry": 1555509484969
     },
     "/usr/local/bin/python3.7.v3": {
       "data": {
@@ -76,7 +76,7 @@
         "sysPrefix": "/usr/local/Cellar/python/3.7.3/Frameworks/Python.framework/Versions/3.7",
         "fileHash": "dc76dde16e7e0565c53de60d3c6515c012aaf2fa1d98be3a873f0fb000ec4bf9c7d1609faa60df7acb4d0fe7b9b82c6d369f06f101bf8cf67365228bf334c88d"
       },
-      "expiry": 1555390903844
+      "expiry": 1555509484947
     },
     "/usr/local/bin/python3.v3": {
       "data": {
@@ -101,7 +101,7 @@
         "sysPrefix": "/usr/local/Cellar/python/3.7.3/Frameworks/Python.framework/Versions/3.7",
         "fileHash": "733c9c5fe7eec3a30aa658cd69d92b5c4353e38ab8901c20d67b43d237b321b4bfd2bdf49c5da93d853fcf0dd17f9c61844c6e886c946801477c652eb5106110"
       },
-      "expiry": 1555390903841
+      "expiry": 1555509484948
     },
     "INTERPRETERS_CACHE_v3_KnownPathsService": [
       {
@@ -387,7 +387,7 @@
         "sysPrefix": "/usr/local/Cellar/python/3.7.3/Frameworks/Python.framework/Versions/3.7",
         "fileHash": "0afc831a07c9f611080a846bcbf85fe00cff31ac4dd8877be86b1d826316c826e6bd7c722ec8dc25a6b3fe28a4e10e01d2aeb82615f5dd29bc832c0c60da76f6"
       },
-      "expiry": 1555390903868
+      "expiry": 1555509485025
     },
     "InterpreterAutoSeletionRule-workspaceEnvs": {
       "architecture": 3,
@@ -544,21 +544,21 @@
         "displayName": "Python 3.7.3 64-bit",
         "hash": "733c9c5fe7eec3a30aa658cd69d92b5c4353e38ab8901c20d67b43d237b321b4bfd2bdf49c5da93d853fcf0dd17f9c61844c6e886c946801477c652eb5106110-e2c0083f8dc5aeea22a44d80a0e529dd"
       },
-      "expiry": 1555390904258
+      "expiry": 1555509485181
     },
     "/usr/bin/python.interpreter.displayName.v7": {
       "data": {
         "displayName": "Python 2.7.10 64-bit",
         "hash": "8c2d44b822de4f3bc01a6e69d8e13a7cf1208ea2f0793cf04196d01b54c9feedda59594c0acd4f06ed17b05d7d39ddd3c62e81c5a606f10a04c887f8b801bd41-4307b0015ceeb5025d555a6be68ee3dc"
       },
-      "expiry": 1555390904261
+      "expiry": 1555509485182
     },
     "/usr/local/opt/python/bin/python3.7.interpreter.displayName.v7": {
       "data": {
         "displayName": "Python 3.7.3 64-bit",
         "hash": "0afc831a07c9f611080a846bcbf85fe00cff31ac4dd8877be86b1d826316c826e6bd7c722ec8dc25a6b3fe28a4e10e01d2aeb82615f5dd29bc832c0c60da76f6-d777fabed3a05918cd8d10f15a9ef582"
       },
-      "expiry": 1555390904486
+      "expiry": 1555509485274
     },
     "InterpreterAutoSeletionRule-system": {
       "architecture": 3,
@@ -643,7 +643,7 @@
           "displayName": "Python 3.7.3 64-bit"
         }
       },
-      "expiry": 1555390904291
+      "expiry": 1555509485213
     },
     "/usr/bin/python.interpreter.Details.v7": {
       "data": {
@@ -673,7 +673,7 @@
           "displayName": "Python 2.7.10 64-bit"
         }
       },
-      "expiry": 1555390904295
+      "expiry": 1555509485215
     },
     "/usr/local/opt/python/bin/python3.7.interpreter.Details.v7": {
       "data": {
@@ -704,7 +704,7 @@
           "__store": true
         }
       },
-      "expiry": 1555390904335
+      "expiry": 1555509485230
     },
     "InterpreterAutoSeletionRule-cachedInterpreters": {
       "architecture": 3,
@@ -757,80 +757,7 @@
   },
   "coc-python|/Users/jerry/repo/ibmwnr-se-provenance": {
     "INTERPRETERS_CACHE_v3_PipEnvService:ac5b3f7e858220464a080bca885350bc": [],
-    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:ac5b3f7e858220464a080bca885350bc": [
-      {
-        "architecture": 3,
-        "path": "/Users/jerry/repo/ibmwnr-se-provenance/venv/bin/python",
-        "version": {
-          "options": {
-            "loose": false,
-            "includePrerelease": false
-          },
-          "loose": false,
-          "raw": "3.7.1-final",
-          "major": 3,
-          "minor": 7,
-          "patch": 1,
-          "prerelease": [
-            "final"
-          ],
-          "build": [],
-          "version": "3.7.1-final"
-        },
-        "sysPrefix": "/Users/jerry/repo/ibmwnr-se-provenance/venv/bin/..",
-        "fileHash": "459c8d5a56be0036849e5b93e33e6dd6312efd840074d999c10aa80b6070ad4466a2a7d31cbf76a9ba8e7d33c92464a32a4ad1102a4eceab0d0baa3bed051d26",
-        "envName": "venv",
-        "type": "VirtualEnv"
-      },
-      {
-        "architecture": 3,
-        "path": "/Users/jerry/repo/ibmwnr-se-provenance/venv/bin/python3",
-        "version": {
-          "options": {
-            "loose": false,
-            "includePrerelease": false
-          },
-          "loose": false,
-          "raw": "3.7.1-final",
-          "major": 3,
-          "minor": 7,
-          "patch": 1,
-          "prerelease": [
-            "final"
-          ],
-          "build": [],
-          "version": "3.7.1-final"
-        },
-        "sysPrefix": "/Users/jerry/repo/ibmwnr-se-provenance/venv/bin/..",
-        "fileHash": "a6ad52d049cce3887f7ccc2c22be1d9260b515249fee27f91dc0f94cf387b69b94552cc8e775ce6554e78a337f870e68ff78cdf87fbfde9bd7d3340b3617d67c",
-        "envName": "venv",
-        "type": "VirtualEnv"
-      },
-      {
-        "architecture": 3,
-        "path": "/Users/jerry/repo/ibmwnr-se-provenance/venv/bin/python3.7",
-        "version": {
-          "options": {
-            "loose": false,
-            "includePrerelease": false
-          },
-          "loose": false,
-          "raw": "3.7.1-final",
-          "major": 3,
-          "minor": 7,
-          "patch": 1,
-          "prerelease": [
-            "final"
-          ],
-          "build": [],
-          "version": "3.7.1-final"
-        },
-        "sysPrefix": "/Users/jerry/repo/ibmwnr-se-provenance/venv/bin/..",
-        "fileHash": "a4152825f17f435f20224c0351088f2294ad8c8013d643d007dfdfbb6b129e472b1283507718fa791e30b96f1ac9171c8f95c8d5cdb15b4f0ad4480df346daa4",
-        "envName": "venv",
-        "type": "VirtualEnv"
-      }
-    ],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:ac5b3f7e858220464a080bca885350bc": [],
     "autoSelectedWorkspacePythonInterpreter-/Users/jerry/repo/ibmwnr-se-provenance": {
       "architecture": 3,
       "path": "/usr/local/opt/python/bin/python3.7",
@@ -855,80 +782,7 @@
       "type": "Unknown"
     },
     "INTERPRETERS_CACHE_v3_PipEnvService": [],
-    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": [
-      {
-        "architecture": 3,
-        "path": "/Users/jerry/repo/ibmwnr-se-provenance/venv/bin/python",
-        "version": {
-          "options": {
-            "loose": false,
-            "includePrerelease": false
-          },
-          "loose": false,
-          "raw": "3.7.1-final",
-          "major": 3,
-          "minor": 7,
-          "patch": 1,
-          "prerelease": [
-            "final"
-          ],
-          "build": [],
-          "version": "3.7.1-final"
-        },
-        "sysPrefix": "/Users/jerry/repo/ibmwnr-se-provenance/venv/bin/..",
-        "fileHash": "459c8d5a56be0036849e5b93e33e6dd6312efd840074d999c10aa80b6070ad4466a2a7d31cbf76a9ba8e7d33c92464a32a4ad1102a4eceab0d0baa3bed051d26",
-        "envName": "venv",
-        "type": "VirtualEnv"
-      },
-      {
-        "architecture": 3,
-        "path": "/Users/jerry/repo/ibmwnr-se-provenance/venv/bin/python3",
-        "version": {
-          "options": {
-            "loose": false,
-            "includePrerelease": false
-          },
-          "loose": false,
-          "raw": "3.7.1-final",
-          "major": 3,
-          "minor": 7,
-          "patch": 1,
-          "prerelease": [
-            "final"
-          ],
-          "build": [],
-          "version": "3.7.1-final"
-        },
-        "sysPrefix": "/Users/jerry/repo/ibmwnr-se-provenance/venv/bin/..",
-        "fileHash": "a6ad52d049cce3887f7ccc2c22be1d9260b515249fee27f91dc0f94cf387b69b94552cc8e775ce6554e78a337f870e68ff78cdf87fbfde9bd7d3340b3617d67c",
-        "envName": "venv",
-        "type": "VirtualEnv"
-      },
-      {
-        "architecture": 3,
-        "path": "/Users/jerry/repo/ibmwnr-se-provenance/venv/bin/python3.7",
-        "version": {
-          "options": {
-            "loose": false,
-            "includePrerelease": false
-          },
-          "loose": false,
-          "raw": "3.7.1-final",
-          "major": 3,
-          "minor": 7,
-          "patch": 1,
-          "prerelease": [
-            "final"
-          ],
-          "build": [],
-          "version": "3.7.1-final"
-        },
-        "sysPrefix": "/Users/jerry/repo/ibmwnr-se-provenance/venv/bin/..",
-        "fileHash": "a4152825f17f435f20224c0351088f2294ad8c8013d643d007dfdfbb6b129e472b1283507718fa791e30b96f1ac9171c8f95c8d5cdb15b4f0ad4480df346daa4",
-        "envName": "venv",
-        "type": "VirtualEnv"
-      }
-    ]
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": []
   },
   "coc-python|/Users/jerry/repo/webapp_angular": {
     "INTERPRETERS_CACHE_v3_PipEnvService": [],

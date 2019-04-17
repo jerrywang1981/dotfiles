@@ -164,3 +164,6 @@ let g:workspace_session_directory = $HOME . '/.vim/sessions/'
 
 
 let g:highlightedyank_highlight_duration = 500
+
+
+source ~/.vim/config/defx.vim

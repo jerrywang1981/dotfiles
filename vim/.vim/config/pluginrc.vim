@@ -73,6 +73,13 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 " Plug 'tomasr/molokai'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 Plug 'machakann/vim-highlightedyank'
+if has('nvim')
+  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/defx.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 call plug#end()
 
 
