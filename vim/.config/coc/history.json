@@ -26,6 +26,9 @@
       "eslint",
       "es",
       "ts"
+    ],
+    "%2FUsers%2Fjerry%2Frepo%2Fibmwnr-se-provenance": [
+      "repl"
     ]
   },
   "diagnostics": {

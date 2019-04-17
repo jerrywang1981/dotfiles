@@ -167,3 +167,4 @@ let g:highlightedyank_highlight_duration = 500
 
 
 source ~/.vim/config/defx.vim
+

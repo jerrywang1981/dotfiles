@@ -30,14 +30,16 @@ map <c-h> <c-w>h
 " nmap <silent> ¡ :Lex<CR>
 nmap <silent> ¡ :Defx<CR>
 " option key + 4
-nmap ¢ :vert belowright sb zsh
+" nmap ¢ :vert belowright sb zsh
 " quickly toggle terminal
 " nnoremap <silent> <leader>o :vertical botright Ttoggle<cr><C-w>l
 " nnoremap <silent> <leader>O :horizontal rightbelow Ttoggle<cr><C-w>j
-nnoremap <silent> <leader><space> :vertical botright Ttoggle<cr><C-w>l
+" nnoremap <silent> <leader><space> :vertical botright Ttoggle<cr><C-w>l
+nnoremap <silent> ¢ :vertical botright Ttoggle<cr><C-w>l
 
 " tnoremap <silent> <leader>o <C-\><C-n>:Ttoggle<cr>
-tnoremap <silent> <leader><space> <C-\><C-n>:Ttoggle<cr>
+" tnoremap <silent> <leader><space> <C-\><C-n>:Ttoggle<cr>
+tnoremap <silent> ¢ <C-\><C-n>:Ttoggle<cr>
 
 nnoremap <silent> <c-s>l :TREPLSendLine<CR>
 vnoremap <silent> <c-s>s :TREPLSendSelection<CR>
@@ -114,4 +116,6 @@ noremap <Leader>n nzz
 noremap <Leader>N Nzz
 
 " write to the file
-noremap <Leader>w :w<cr>
+" noremap <Leader>w :w<cr>
+"
+" nnoremap <leader>r :REPLToggle<Cr>

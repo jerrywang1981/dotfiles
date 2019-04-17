@@ -1,3 +1,4 @@
+python.startREPL
 prettier.formatFile
 eslint.executeAutofix
 tslint.fixAllProblems
