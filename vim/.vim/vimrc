@@ -151,7 +151,8 @@ let g:netrw_winsize = 25
 
 
 " markdown preview settings"
-let g:mkdp_auto_start = 1
+" let g:mkdp_auto_start = 1
+" let g:mkdp_markdown_css = '/Users/jerry/.vim/github-markdown.css'
 
 " auto pair
 let g:AutoPairsMapCh = 0
@@ -168,3 +169,5 @@ let g:highlightedyank_highlight_duration = 500
 
 source ~/.vim/config/defx.vim
 
+let $NVIM_COC_LOG_LEVEL = 'debug'
+" let g:coc_node_args = ['--nolazy', '--inspect-brk=6046']

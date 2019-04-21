@@ -80,6 +80,7 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
+Plug 'andys8/vscode-jest-snippets'
 call plug#end()
 
 

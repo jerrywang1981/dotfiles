@@ -12,6 +12,12 @@
   "prettier.tslintIntegration": true,
   "prettier.stylelintIntegration": true,
   "tslint.autoFixOnSave": true,
+  "tslint.jsEnable": false,
+  "typescript.preferences.quoteStyle": "single",
+  "typescript.suggest.autoImports": true,
+  "typescript.format.insertSpaceAfterConstructor": false,
+  "tslint.suppressWhileTypeErrorsPresent": false,
+  "tslint.alwaysShowRuleFailuresAsWarnings": false,
   "eslint.packageManager": "yarn",
   "eslint.filetypes": [
     "javascript",
@@ -20,5 +26,7 @@
   ],
   "eslint.autoFix": true,
   "eslint.autoFixOnSave": true,
-  "tsserver.log": "verbose"
+  "tsserver.log": "verbose",
+  "tsserver.npm": "/usr/local/bin/",
+  "tsserver.trace.server": "verbose"
 }

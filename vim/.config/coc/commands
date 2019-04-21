@@ -1,9 +1,13 @@
-python.startREPL
+snippets.editSnippets
 prettier.formatFile
+tsserver.openTsServerLog
+tsserver.executeAutofix
+tsserver.goToProjectConfig
+tsserver.organizeImports
+workspace.showOutput
 eslint.executeAutofix
 tslint.fixAllProblems
 eslint.createConfig
-tsserver.executeAutofix
-tsserver.openTsServerLog
+python.startREPL
 python.enableLinting
 python.setLinter
