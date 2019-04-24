@@ -35,7 +35,10 @@ nmap <silent> ¡ :Defx<CR>
 " nnoremap <silent> <leader>o :vertical botright Ttoggle<cr><C-w>l
 " nnoremap <silent> <leader>O :horizontal rightbelow Ttoggle<cr><C-w>j
 " nnoremap <silent> <leader><space> :vertical botright Ttoggle<cr><C-w>l
+" option key + 4
 nnoremap <silent> ¢ :vertical botright Ttoggle<cr><C-w>l
+" option key + 0
+nnoremap <silent> º :Goyo<cr>
 
 " tnoremap <silent> <leader>o <C-\><C-n>:Ttoggle<cr>
 " tnoremap <silent> <leader><space> <C-\><C-n>:Ttoggle<cr>
@@ -77,7 +80,7 @@ let g:airline#extensions#whitespace#symbol = '!'
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
-
+"
 let g:airline_left_sep = '⮀'
 let g:airline_left_alt_sep = '⮁'
 let g:airline_right_sep = '⮂'
@@ -119,3 +122,35 @@ noremap <Leader>N Nzz
 " noremap <Leader>w :w<cr>
 "
 " nnoremap <leader>r :REPLToggle<Cr>
+
+
+
+" incsearch
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
+let g:incsearch#auto_nohlsearch = 1
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
+
+
+
+function! s:config_fuzzyall(...) abort
+  return extend(copy({
+  \   'converters': [
+  \     incsearch#config#fuzzy#converter(),
+  \     incsearch#config#fuzzyspell#converter()
+  \   ],
+  \ }), get(a:, 1, {}))
+endfunction
+
+noremap <silent><expr> z/ incsearch#go(<SID>config_fuzzyall())
+noremap <silent><expr> z? incsearch#go(<SID>config_fuzzyall({'command': '?'}))
+noremap <silent><expr> zg? incsearch#go(<SID>config_fuzzyall({'is_stay': 1}))
+
+

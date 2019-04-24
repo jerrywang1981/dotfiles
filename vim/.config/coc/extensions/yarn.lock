@@ -1375,10 +1375,10 @@ coc-prettier@^1.1.0:
     vscode-languageserver-protocol "^3.15.0-next.1"
     vscode-uri "^1.0.6"
 
-coc-python@^1.1.5:
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/coc-python/-/coc-python-1.1.5.tgz#5121ecb6ee8c15fbe764c6161651d224b3e779e0"
-  integrity sha512-ohb94vnT61qHraKgLMFNHpel9ztjhf0QZ9VLSOu2R4RIsRYc6HMaiEsLJxINblgLpRAVM4otwoAx+Yfzhjbyuw==
+coc-python@^1.1.6:
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/coc-python/-/coc-python-1.1.6.tgz#07e1f69cedea350bd84b9650cac4b8496e697949"
+  integrity sha512-iCNfu972uY5vyjcNllxIClX6NmVawQeVil9uLsqDF73omvVZn5zROU9+zydvYKiJB7BE+XJT/ntpbBDrrCnx6g==
   dependencies:
     "@jupyterlab/services" "^3.2.1"
     arch "^2.1.0"

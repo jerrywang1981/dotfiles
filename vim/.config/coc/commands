@@ -1,5 +1,5 @@
-snippets.editSnippets
 prettier.formatFile
+snippets.editSnippets
 tsserver.openTsServerLog
 tsserver.executeAutofix
 tsserver.goToProjectConfig

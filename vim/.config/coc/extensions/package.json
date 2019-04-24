@@ -9,7 +9,7 @@
     "coc-json": "^1.0.14",
     "coc-pairs": "^1.2.4",
     "coc-prettier": "^1.1.0",
-    "coc-python": "^1.1.5",
+    "coc-python": "^1.1.6",
     "coc-snippets": "^2.0.9",
     "coc-svg": "^0.0.9",
     "coc-tslint-plugin": "^1.0.4",

@@ -19,13 +19,14 @@ Plug 'tomtom/tlib_vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'mhinz/vim-startify'
 Plug 'jiangmiao/auto-pairs'
+Plug 'ryanoasis/vim-devicons'
 Plug 'thaerkh/vim-workspace'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 " Plug 'tpope/vim-commentary'
 Plug 'scrooloose/nerdcommenter'
 " Plug 'vim-scripts/winmanager'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
@@ -81,6 +82,14 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 Plug 'andys8/vscode-jest-snippets'
+Plug 'wincent/terminus'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'luochen1990/rainbow'
+Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/incsearch-fuzzy.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'mengelbrecht/lightline-bufferline'
 call plug#end()
 
 
