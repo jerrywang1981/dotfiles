@@ -25,8 +25,8 @@ Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 " Plug 'tpope/vim-commentary'
 Plug 'scrooloose/nerdcommenter'
 " Plug 'vim-scripts/winmanager'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
@@ -89,8 +89,8 @@ Plug 'junegunn/limelight.vim'
 " Plug 'luochen1990/rainbow'
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
-" Plug 'itchyny/lightline.vim'
-" Plug 'mengelbrecht/lightline-bufferline'
+Plug 'itchyny/lightline.vim'
+Plug 'mengelbrecht/lightline-bufferline'
 call plug#end()
 
 
