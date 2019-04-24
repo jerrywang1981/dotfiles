@@ -142,12 +142,13 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 "
 "
 " --------------------netrw----------------"
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 4
-let g:netrw_altv = 1
-let g:netrw_winsize = 25
+" let g:netrw_banner = 0
+" let g:netrw_liststyle = 3
+" let g:netrw_browse_split = 4
+" let g:netrw_altv = 1
+" let g:netrw_winsize = 25
 
+" let g:rainbow_active = 1
 
 " markdown preview settings"
 " let g:mkdp_auto_start = 1
@@ -155,6 +156,7 @@ let g:netrw_winsize = 25
 
 " auto pair
 let g:AutoPairsMapCh = 0
+let g:AutoPairsMapCR = 1
 " vim-workspace
 let g:workspace_autosave = 0
 let g:workspace_persist_undo_history = 0
@@ -181,5 +183,4 @@ autocmd! User GoyoLeave Limelight!
 
 
 " -------lightline-----------
-source ~/.vim/config/lightline.vim
-" let g:rainbow_active = 1
+" source ~/.vim/config/lightline.vim
