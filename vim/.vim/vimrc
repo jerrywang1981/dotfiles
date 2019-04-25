@@ -114,6 +114,8 @@ let g:python3_host_prog  = '/usr/local/Cellar/python/3.7.3/bin/python3'
 let g:python_host_prog  = '/usr/bin/python'
 let g:loaded_python_provider = 1
 
+let g:rainbow_active = 1
+
 "----------------------coc----------------------------"
 source ~/.vim/config/coc.vim
 
@@ -151,6 +153,7 @@ let g:goyo_width=100
 let g:goyo_linenr=1
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
+
 
 
 " -------lightline-----------
