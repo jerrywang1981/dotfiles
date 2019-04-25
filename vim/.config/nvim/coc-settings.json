@@ -11,7 +11,7 @@
   "prettier.eslintIntegration": true,
   "prettier.tslintIntegration": true,
   "prettier.stylelintIntegration": true,
-  "tslint.autoFixOnSave": true,
+  "tslint.autoFixOnSave": false,
   "tslint.jsEnable": false,
   "typescript.preferences.quoteStyle": "single",
   "typescript.suggest.autoImports": true,

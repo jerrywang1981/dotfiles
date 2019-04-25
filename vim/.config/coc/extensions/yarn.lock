@@ -1415,10 +1415,10 @@ coc-python@^1.1.6:
     winreg "^1.2.4"
     xml2js "^0.4.19"
 
-coc-snippets@^2.0.9:
-  version "2.0.9"
-  resolved "https://registry.yarnpkg.com/coc-snippets/-/coc-snippets-2.0.9.tgz#124fbd2a5b5d418d80123438c6a6d730c8aa062d"
-  integrity sha512-k6Hb8xTWIzXlHXlMYF6l586eU6XKP9d/UJmiIr+CNPCjvBZ3mtLsE8l01tn/XxXUBe50FZSzErPDqwTbbpPglg==
+coc-snippets@^2.0.10:
+  version "2.0.10"
+  resolved "https://registry.yarnpkg.com/coc-snippets/-/coc-snippets-2.0.10.tgz#557c86027eb7d1e545290da675ccff17e7b5fe63"
+  integrity sha512-1/XuDOD7KpJDxeGiUQZvC6KfNXZOKaBw45ZSgjYPm+olxynx8RoT5Sn+Ar/o6KGpoNQraYEUtATndumdkhA+MA==
   dependencies:
     jsonc-parser "^2.0.3"
     pify "^4.0.1"

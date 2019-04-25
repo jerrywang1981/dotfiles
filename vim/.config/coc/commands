@@ -1,11 +1,12 @@
-prettier.formatFile
 snippets.editSnippets
+eslint.executeAutofix
+python.execInTerminal
+prettier.formatFile
 tsserver.openTsServerLog
 tsserver.executeAutofix
 tsserver.goToProjectConfig
 tsserver.organizeImports
 workspace.showOutput
-eslint.executeAutofix
 tslint.fixAllProblems
 eslint.createConfig
 python.startREPL

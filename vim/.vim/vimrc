@@ -155,3 +155,4 @@ autocmd! User GoyoLeave Limelight!
 
 " -------lightline-----------
 source ~/.vim/config/lightline.vim
+source ~/.vim/config/abbr.vim

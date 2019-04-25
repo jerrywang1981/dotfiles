@@ -18,7 +18,8 @@
       "esl",
       "eslint",
       "es",
-      "eslin"
+      "eslin",
+      "fix"
     ],
     "%2FUsers%2Fjerry%2Frepo%2Fwebapp_angular": [
       "eslin",
@@ -38,13 +39,17 @@
       "tsserv",
       "pre",
       "sni",
-      "sn"
+      "sn",
+      "snip"
     ],
     "%2FUsers%2Fjerry%2Frepo%2Fibmwnr-se-provenance": [
       "repl"
     ],
     "%2FUsers%2Fjerry%2Frepo%2Fwebapp_angular%2Fsrc%2Fapp%2Fcomponent%2Fapplications": [
       "tslint"
+    ],
+    "%2FUsers%2Fjerry%2Frepo%2Fopencv-study": [
+      "python."
     ]
   },
   "diagnostics": {

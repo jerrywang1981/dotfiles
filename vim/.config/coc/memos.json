@@ -26,7 +26,7 @@
         "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
         "fileHash": "ed1b1eed43e04943afd25276f4678c5bb7bc09b3fb5cefa5c61d2214b89acad9a7e2d20db32cb07ff7c2ba91984d4b00a545412c30a687bbc97f56e82cd63705"
       },
-      "expiry": 1555509484968
+      "expiry": 1556235742571
     },
     "/usr/bin/python.v3": {
       "data": {
@@ -51,7 +51,7 @@
         "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
         "fileHash": "8c2d44b822de4f3bc01a6e69d8e13a7cf1208ea2f0793cf04196d01b54c9feedda59594c0acd4f06ed17b05d7d39ddd3c62e81c5a606f10a04c887f8b801bd41"
       },
-      "expiry": 1555509484969
+      "expiry": 1556235742573
     },
     "/usr/local/bin/python3.7.v3": {
       "data": {
@@ -76,7 +76,7 @@
         "sysPrefix": "/usr/local/Cellar/python/3.7.3/Frameworks/Python.framework/Versions/3.7",
         "fileHash": "dc76dde16e7e0565c53de60d3c6515c012aaf2fa1d98be3a873f0fb000ec4bf9c7d1609faa60df7acb4d0fe7b9b82c6d369f06f101bf8cf67365228bf334c88d"
       },
-      "expiry": 1555509484947
+      "expiry": 1556235742544
     },
     "/usr/local/bin/python3.v3": {
       "data": {
@@ -101,147 +101,9 @@
         "sysPrefix": "/usr/local/Cellar/python/3.7.3/Frameworks/Python.framework/Versions/3.7",
         "fileHash": "733c9c5fe7eec3a30aa658cd69d92b5c4353e38ab8901c20d67b43d237b321b4bfd2bdf49c5da93d853fcf0dd17f9c61844c6e886c946801477c652eb5106110"
       },
-      "expiry": 1555509484948
+      "expiry": 1556235742545
     },
     "INTERPRETERS_CACHE_v3_KnownPathsService": [
-      {
-        "architecture": 3,
-        "path": "/Users/jerry/repo/ibmwnr-se-provenance/venv/bin/python",
-        "version": {
-          "options": {
-            "loose": false,
-            "includePrerelease": false
-          },
-          "loose": false,
-          "raw": "3.7.3-final",
-          "major": 3,
-          "minor": 7,
-          "patch": 3,
-          "prerelease": [
-            "final"
-          ],
-          "build": [],
-          "version": "3.7.3-final"
-        },
-        "sysPrefix": "/Users/jerry/repo/ibmwnr-se-provenance/venv/bin/..",
-        "fileHash": "902e2cb51fcd9367d002f238ef5fdc92ed5ca5944a4c50c194d010e48bf4531f7d530256639fdf0d52c27389899990fc7b15f069268aaa2d9d29207d090e4e06",
-        "type": "Unknown"
-      },
-      {
-        "architecture": 3,
-        "path": "/Users/jerry/repo/ibmwnr-se-provenance/venv/bin/python3",
-        "version": {
-          "options": {
-            "loose": false,
-            "includePrerelease": false
-          },
-          "loose": false,
-          "raw": "3.7.3-final",
-          "major": 3,
-          "minor": 7,
-          "patch": 3,
-          "prerelease": [
-            "final"
-          ],
-          "build": [],
-          "version": "3.7.3-final"
-        },
-        "sysPrefix": "/Users/jerry/repo/ibmwnr-se-provenance/venv/bin/..",
-        "fileHash": "ba52ed6cb3de682938f88b40736749f7906a9adcd5455ad234286b58d6af3db0ea7280a64ec6e1858b64eb1a664bfb36b2066793fd9f47b61fdb85b814c16879",
-        "type": "Unknown"
-      },
-      {
-        "architecture": 3,
-        "path": "/Users/jerry/repo/ibmwnr-se-provenance/venv/bin/python3.7",
-        "version": {
-          "options": {
-            "loose": false,
-            "includePrerelease": false
-          },
-          "loose": false,
-          "raw": "3.7.3-final",
-          "major": 3,
-          "minor": 7,
-          "patch": 3,
-          "prerelease": [
-            "final"
-          ],
-          "build": [],
-          "version": "3.7.3-final"
-        },
-        "sysPrefix": "/Users/jerry/repo/ibmwnr-se-provenance/venv/bin/..",
-        "fileHash": "cbd12bb59a57dd5b5a8769db5190c3df988648bb30efcf21772996a08216ca5d28f15b5d749e160719d35a1d0fb2ce25c6dcac202fc1976bb9f3bd1e03e756bc",
-        "type": "Unknown"
-      },
-      {
-        "architecture": 3,
-        "path": "/Users/jerry/repo/ibmwnr-se-provenance/venv/bin/python",
-        "version": {
-          "options": {
-            "loose": false,
-            "includePrerelease": false
-          },
-          "loose": false,
-          "raw": "3.7.3-final",
-          "major": 3,
-          "minor": 7,
-          "patch": 3,
-          "prerelease": [
-            "final"
-          ],
-          "build": [],
-          "version": "3.7.3-final"
-        },
-        "sysPrefix": "/Users/jerry/repo/ibmwnr-se-provenance/venv/bin/..",
-        "fileHash": "902e2cb51fcd9367d002f238ef5fdc92ed5ca5944a4c50c194d010e48bf4531f7d530256639fdf0d52c27389899990fc7b15f069268aaa2d9d29207d090e4e06",
-        "type": "Unknown"
-      },
-      {
-        "architecture": 3,
-        "path": "/Users/jerry/repo/ibmwnr-se-provenance/venv/bin/python3",
-        "version": {
-          "options": {
-            "loose": false,
-            "includePrerelease": false
-          },
-          "loose": false,
-          "raw": "3.7.3-final",
-          "major": 3,
-          "minor": 7,
-          "patch": 3,
-          "prerelease": [
-            "final"
-          ],
-          "build": [],
-          "version": "3.7.3-final"
-        },
-        "sysPrefix": "/Users/jerry/repo/ibmwnr-se-provenance/venv/bin/..",
-        "fileHash": "ba52ed6cb3de682938f88b40736749f7906a9adcd5455ad234286b58d6af3db0ea7280a64ec6e1858b64eb1a664bfb36b2066793fd9f47b61fdb85b814c16879",
-        "type": "Unknown"
-      },
-      {
-        "architecture": 3,
-        "path": "/Users/jerry/repo/ibmwnr-se-provenance/venv/bin/python3.7",
-        "version": {
-          "options": {
-            "loose": false,
-            "includePrerelease": false
-          },
-          "loose": false,
-          "raw": "3.7.3-final",
-          "major": 3,
-          "minor": 7,
-          "patch": 3,
-          "prerelease": [
-            "final"
-          ],
-          "build": [],
-          "version": "3.7.3-final"
-        },
-        "sysPrefix": "/Users/jerry/repo/ibmwnr-se-provenance/venv/bin/..",
-        "fileHash": "cbd12bb59a57dd5b5a8769db5190c3df988648bb30efcf21772996a08216ca5d28f15b5d749e160719d35a1d0fb2ce25c6dcac202fc1976bb9f3bd1e03e756bc",
-        "type": "Unknown"
-      },
       {
         "architecture": 3,
         "path": "/usr/local/bin/python3",
@@ -332,6 +194,75 @@
         },
         "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
         "fileHash": "ed1b1eed43e04943afd25276f4678c5bb7bc09b3fb5cefa5c61d2214b89acad9a7e2d20db32cb07ff7c2ba91984d4b00a545412c30a687bbc97f56e82cd63705",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/jerry/repo/opencv-study/venv/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.3-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 3,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.3-final"
+        },
+        "sysPrefix": "/Users/jerry/repo/opencv-study/venv/bin/..",
+        "fileHash": "fce687b18a9dc76d5b6a8459fcf03a62b3c7c56fed05d0307aa41a1a1d49273e17b0f08d9b6199cfb4715a718fceba1b0ffedcf5e2a927beb10152119622f1aa",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/jerry/repo/opencv-study/venv/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.3-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 3,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.3-final"
+        },
+        "sysPrefix": "/Users/jerry/repo/opencv-study/venv/bin/..",
+        "fileHash": "916600521c2a3ec838534d346e5a596a727a008e19c72f186bf09470a8932d25a16d81a0de9231dc65d51f6b520c85f3939cf7aaa20e3b6ea0bb4f954621aa3a",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/jerry/repo/opencv-study/venv/bin/python3.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.3-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 3,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.3-final"
+        },
+        "sysPrefix": "/Users/jerry/repo/opencv-study/venv/bin/..",
+        "fileHash": "39901cdef9f985c617b84b94bc347ee516f35746eedb1a48623efbef83c62962b67931f74e06854ec223cec7a46568fd263cbacc5a45424ca25b6b9c260df261",
         "type": "Unknown"
       },
       {
@@ -525,11 +456,11 @@
         "sysPrefix": "/usr/local/Cellar/python/3.7.3/Frameworks/Python.framework/Versions/3.7",
         "fileHash": "0afc831a07c9f611080a846bcbf85fe00cff31ac4dd8877be86b1d826316c826e6bd7c722ec8dc25a6b3fe28a4e10e01d2aeb82615f5dd29bc832c0c60da76f6"
       },
-      "expiry": 1555509485025
+      "expiry": 1556235742621
     },
     "InterpreterAutoSeletionRule-workspaceEnvs": {
       "architecture": 3,
-      "path": "/Users/jerry/repo/ibmwnr-se-provenance/venv/bin/python3.7",
+      "path": "/Users/jerry/repo/opencv-study/venv/bin/python3.7",
       "version": {
         "options": {
           "loose": false,
@@ -546,15 +477,15 @@
         "build": [],
         "version": "3.7.3-final"
       },
-      "sysPrefix": "/Users/jerry/repo/ibmwnr-se-provenance/venv/bin/..",
-      "fileHash": "cbd12bb59a57dd5b5a8769db5190c3df988648bb30efcf21772996a08216ca5d28f15b5d749e160719d35a1d0fb2ce25c6dcac202fc1976bb9f3bd1e03e756bc",
+      "sysPrefix": "/Users/jerry/repo/opencv-study/venv/bin/..",
+      "fileHash": "39901cdef9f985c617b84b94bc347ee516f35746eedb1a48623efbef83c62962b67931f74e06854ec223cec7a46568fd263cbacc5a45424ca25b6b9c260df261",
       "envName": "venv",
       "type": "VirtualEnv"
     },
     "INTERPRETERS_CACHE_v3_CurrentPathService": [
       {
         "architecture": 3,
-        "path": "/Users/jerry/repo/ibmwnr-se-provenance/venv/bin/python3.7",
+        "path": "/usr/local/opt/python/bin/python3.7",
         "version": {
           "options": {
             "loose": false,
@@ -571,13 +502,13 @@
           "build": [],
           "version": "3.7.3-final"
         },
-        "sysPrefix": "/Users/jerry/repo/ibmwnr-se-provenance/venv/bin/..",
-        "fileHash": "cbd12bb59a57dd5b5a8769db5190c3df988648bb30efcf21772996a08216ca5d28f15b5d749e160719d35a1d0fb2ce25c6dcac202fc1976bb9f3bd1e03e756bc",
+        "sysPrefix": "/usr/local/Cellar/python/3.7.3/Frameworks/Python.framework/Versions/3.7",
+        "fileHash": "0afc831a07c9f611080a846bcbf85fe00cff31ac4dd8877be86b1d826316c826e6bd7c722ec8dc25a6b3fe28a4e10e01d2aeb82615f5dd29bc832c0c60da76f6",
         "type": "Unknown"
       },
       {
         "architecture": 3,
-        "path": "/Users/jerry/repo/ibmwnr-se-provenance/venv/bin/python3",
+        "path": "/usr/local/opt/python/bin/python3.7",
         "version": {
           "options": {
             "loose": false,
@@ -594,36 +525,36 @@
           "build": [],
           "version": "3.7.3-final"
         },
-        "sysPrefix": "/Users/jerry/repo/ibmwnr-se-provenance/venv/bin/..",
-        "fileHash": "ba52ed6cb3de682938f88b40736749f7906a9adcd5455ad234286b58d6af3db0ea7280a64ec6e1858b64eb1a664bfb36b2066793fd9f47b61fdb85b814c16879",
+        "sysPrefix": "/usr/local/Cellar/python/3.7.3/Frameworks/Python.framework/Versions/3.7",
+        "fileHash": "0afc831a07c9f611080a846bcbf85fe00cff31ac4dd8877be86b1d826316c826e6bd7c722ec8dc25a6b3fe28a4e10e01d2aeb82615f5dd29bc832c0c60da76f6",
         "type": "Unknown"
       },
       {
         "architecture": 3,
-        "path": "/Users/jerry/repo/ibmwnr-se-provenance/venv/bin/python",
+        "path": "/usr/bin/python",
         "version": {
           "options": {
             "loose": false,
             "includePrerelease": false
           },
           "loose": false,
-          "raw": "3.7.3-final",
-          "major": 3,
+          "raw": "2.7.10-final",
+          "major": 2,
           "minor": 7,
-          "patch": 3,
+          "patch": 10,
           "prerelease": [
             "final"
           ],
           "build": [],
-          "version": "3.7.3-final"
+          "version": "2.7.10-final"
         },
-        "sysPrefix": "/Users/jerry/repo/ibmwnr-se-provenance/venv/bin/..",
-        "fileHash": "902e2cb51fcd9367d002f238ef5fdc92ed5ca5944a4c50c194d010e48bf4531f7d530256639fdf0d52c27389899990fc7b15f069268aaa2d9d29207d090e4e06",
+        "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
+        "fileHash": "8c2d44b822de4f3bc01a6e69d8e13a7cf1208ea2f0793cf04196d01b54c9feedda59594c0acd4f06ed17b05d7d39ddd3c62e81c5a606f10a04c887f8b801bd41",
         "type": "Unknown"
       },
       {
         "architecture": 3,
-        "path": "/Users/jerry/repo/ibmwnr-se-provenance/venv/bin/python3.7",
+        "path": "/Users/jerry/repo/opencv-study/venv/bin/python3.7",
         "version": {
           "options": {
             "loose": false,
@@ -640,8 +571,8 @@
           "build": [],
           "version": "3.7.3-final"
         },
-        "sysPrefix": "/Users/jerry/repo/ibmwnr-se-provenance/venv/bin/..",
-        "fileHash": "cbd12bb59a57dd5b5a8769db5190c3df988648bb30efcf21772996a08216ca5d28f15b5d749e160719d35a1d0fb2ce25c6dcac202fc1976bb9f3bd1e03e756bc",
+        "sysPrefix": "/Users/jerry/repo/opencv-study/venv/bin/..",
+        "fileHash": "39901cdef9f985c617b84b94bc347ee516f35746eedb1a48623efbef83c62962b67931f74e06854ec223cec7a46568fd263cbacc5a45424ca25b6b9c260df261",
         "type": "Unknown"
       }
     ],
@@ -682,25 +613,25 @@
         "displayName": "Python 3.7.3 64-bit",
         "hash": "733c9c5fe7eec3a30aa658cd69d92b5c4353e38ab8901c20d67b43d237b321b4bfd2bdf49c5da93d853fcf0dd17f9c61844c6e886c946801477c652eb5106110-e2c0083f8dc5aeea22a44d80a0e529dd"
       },
-      "expiry": 1555509485181
+      "expiry": 1556235742756
     },
     "/usr/bin/python.interpreter.displayName.v7": {
       "data": {
         "displayName": "Python 2.7.10 64-bit",
         "hash": "8c2d44b822de4f3bc01a6e69d8e13a7cf1208ea2f0793cf04196d01b54c9feedda59594c0acd4f06ed17b05d7d39ddd3c62e81c5a606f10a04c887f8b801bd41-4307b0015ceeb5025d555a6be68ee3dc"
       },
-      "expiry": 1555509485182
+      "expiry": 1556235742758
     },
     "/usr/local/opt/python/bin/python3.7.interpreter.displayName.v7": {
       "data": {
         "displayName": "Python 3.7.3 64-bit",
         "hash": "0afc831a07c9f611080a846bcbf85fe00cff31ac4dd8877be86b1d826316c826e6bd7c722ec8dc25a6b3fe28a4e10e01d2aeb82615f5dd29bc832c0c60da76f6-d777fabed3a05918cd8d10f15a9ef582"
       },
-      "expiry": 1555509485274
+      "expiry": 1556235742760
     },
     "InterpreterAutoSeletionRule-system": {
       "architecture": 3,
-      "path": "/usr/local/bin/python3",
+      "path": "/usr/local/opt/python/bin/python3.7",
       "version": {
         "options": {
           "loose": false,
@@ -718,7 +649,7 @@
         "version": "3.7.3-final"
       },
       "sysPrefix": "/usr/local/Cellar/python/3.7.3/Frameworks/Python.framework/Versions/3.7",
-      "fileHash": "733c9c5fe7eec3a30aa658cd69d92b5c4353e38ab8901c20d67b43d237b321b4bfd2bdf49c5da93d853fcf0dd17f9c61844c6e886c946801477c652eb5106110",
+      "fileHash": "0afc831a07c9f611080a846bcbf85fe00cff31ac4dd8877be86b1d826316c826e6bd7c722ec8dc25a6b3fe28a4e10e01d2aeb82615f5dd29bc832c0c60da76f6",
       "type": "Unknown",
       "displayName": "Python 3.7.3 64-bit"
     },
@@ -781,7 +712,7 @@
           "displayName": "Python 3.7.3 64-bit"
         }
       },
-      "expiry": 1555509485213
+      "expiry": 1556235742788
     },
     "/usr/bin/python.interpreter.Details.v7": {
       "data": {
@@ -811,7 +742,7 @@
           "displayName": "Python 2.7.10 64-bit"
         }
       },
-      "expiry": 1555509485215
+      "expiry": 1556235742793
     },
     "/usr/local/opt/python/bin/python3.7.interpreter.Details.v7": {
       "data": {
@@ -841,7 +772,7 @@
           "displayName": "Python 3.7.3 64-bit"
         }
       },
-      "expiry": 1555578837036
+      "expiry": 1556235742797
     },
     "InterpreterAutoSeletionRule-cachedInterpreters": {
       "architecture": 3,
@@ -865,13 +796,12 @@
       "sysPrefix": "/usr/local/Cellar/python/3.7.3/Frameworks/Python.framework/Versions/3.7",
       "fileHash": "0afc831a07c9f611080a846bcbf85fe00cff31ac4dd8877be86b1d826316c826e6bd7c722ec8dc25a6b3fe28a4e10e01d2aeb82615f5dd29bc832c0c60da76f6",
       "type": "Unknown",
-      "cachedEntry": true,
       "displayName": "Python 3.7.3 64-bit"
     },
     "ProposeLSBanner": false,
     "InterpreterAutoSeletionRule-currentPath": {
       "architecture": 3,
-      "path": "/Users/jerry/repo/ibmwnr-se-provenance/venv/bin/python3.7",
+      "path": "/Users/jerry/repo/opencv-study/venv/bin/python3.7",
       "version": {
         "options": {
           "loose": false,
@@ -888,8 +818,8 @@
         "build": [],
         "version": "3.7.3-final"
       },
-      "sysPrefix": "/Users/jerry/repo/ibmwnr-se-provenance/venv/bin/..",
-      "fileHash": "cbd12bb59a57dd5b5a8769db5190c3df988648bb30efcf21772996a08216ca5d28f15b5d749e160719d35a1d0fb2ce25c6dcac202fc1976bb9f3bd1e03e756bc",
+      "sysPrefix": "/Users/jerry/repo/opencv-study/venv/bin/..",
+      "fileHash": "39901cdef9f985c617b84b94bc347ee516f35746eedb1a48623efbef83c62962b67931f74e06854ec223cec7a46568fd263cbacc5a45424ca25b6b9c260df261",
       "type": "Unknown"
     },
     "/Users/jerry/repo/ibmwnr-se-provenance/venv/bin/python3.7.interpreter.Details.v7": {
@@ -927,6 +857,132 @@
       "sysPrefix": "/Users/jerry/repo/ibmwnr-se-provenance/venv/bin/..",
       "fileHash": "ba52ed6cb3de682938f88b40736749f7906a9adcd5455ad234286b58d6af3db0ea7280a64ec6e1858b64eb1a664bfb36b2066793fd9f47b61fdb85b814c16879",
       "type": "VirtualEnv"
+    },
+    "/Users/jerry/repo/opencv-study/venv/bin/python3.7.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/jerry/repo/opencv-study/venv/bin/python3.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.3-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 3,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.3-final"
+        },
+        "sysPrefix": "/Users/jerry/repo/opencv-study/venv/bin/..",
+        "fileHash": "39901cdef9f985c617b84b94bc347ee516f35746eedb1a48623efbef83c62962b67931f74e06854ec223cec7a46568fd263cbacc5a45424ca25b6b9c260df261"
+      },
+      "expiry": 1556235742563
+    },
+    "/Users/jerry/repo/opencv-study/venv/bin/python3.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/jerry/repo/opencv-study/venv/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.3-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 3,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.3-final"
+        },
+        "sysPrefix": "/Users/jerry/repo/opencv-study/venv/bin/..",
+        "fileHash": "916600521c2a3ec838534d346e5a596a727a008e19c72f186bf09470a8932d25a16d81a0de9231dc65d51f6b520c85f3939cf7aaa20e3b6ea0bb4f954621aa3a"
+      },
+      "expiry": 1556235742565
+    },
+    "/Users/jerry/repo/opencv-study/venv/bin/python.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/jerry/repo/opencv-study/venv/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.3-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 3,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.3-final"
+        },
+        "sysPrefix": "/Users/jerry/repo/opencv-study/venv/bin/..",
+        "fileHash": "fce687b18a9dc76d5b6a8459fcf03a62b3c7c56fed05d0307aa41a1a1d49273e17b0f08d9b6199cfb4715a718fceba1b0ffedcf5e2a927beb10152119622f1aa"
+      },
+      "expiry": 1556235742567
+    },
+    "/Users/jerry/repo/opencv-study/venv/bin/python.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 3.7.3 64-bit ('venv': virtualenv)",
+        "hash": "fce687b18a9dc76d5b6a8459fcf03a62b3c7c56fed05d0307aa41a1a1d49273e17b0f08d9b6199cfb4715a718fceba1b0ffedcf5e2a927beb10152119622f1aa-987a7448c451853bb43fda7afe42e8c5"
+      },
+      "expiry": 1556235742597
+    },
+    "/Users/jerry/repo/opencv-study/venv/bin/python.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "fce687b18a9dc76d5b6a8459fcf03a62b3c7c56fed05d0307aa41a1a1d49273e17b0f08d9b6199cfb4715a718fceba1b0ffedcf5e2a927beb10152119622f1aa",
+        "info": {
+          "architecture": 3,
+          "path": "/Users/jerry/repo/opencv-study/venv/bin/python",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "3.7.3-final",
+            "major": 3,
+            "minor": 7,
+            "patch": 3,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "3.7.3-final"
+          },
+          "sysPrefix": "/Users/jerry/repo/opencv-study/venv/bin/..",
+          "fileHash": "fce687b18a9dc76d5b6a8459fcf03a62b3c7c56fed05d0307aa41a1a1d49273e17b0f08d9b6199cfb4715a718fceba1b0ffedcf5e2a927beb10152119622f1aa",
+          "envName": "venv",
+          "type": "VirtualEnv",
+          "displayName": "Python 3.7.3 64-bit ('venv': virtualenv)"
+        }
+      },
+      "expiry": 1556235742612
+    },
+    "/Users/jerry/repo/opencv-study/venv/bin/python3.7.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "39901cdef9f985c617b84b94bc347ee516f35746eedb1a48623efbef83c62962b67931f74e06854ec223cec7a46568fd263cbacc5a45424ca25b6b9c260df261"
+      },
+      "expiry": 1556235742767
+    },
+    "/Users/jerry/repo/opencv-study/venv/bin/python3.7.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 3.7.3 64-bit ('venv': virtualenv)",
+        "hash": "39901cdef9f985c617b84b94bc347ee516f35746eedb1a48623efbef83c62962b67931f74e06854ec223cec7a46568fd263cbacc5a45424ca25b6b9c260df261-b020cf7eaacbe1bbc7d70ed6d16bec76"
+      },
+      "expiry": 1556235742864
     }
   },
   "coc-python|/Users/jerry/repo/ibmwnr-se-provenance": {
@@ -1138,5 +1194,158 @@
       "type": "Unknown",
       "displayName": "Python 3.7.3 64-bit"
     }
+  },
+  "coc-python|/Users/jerry/repo/opencv-study": {
+    "INTERPRETERS_CACHE_v3_PipEnvService": [],
+    "INTERPRETERS_CACHE_v3_PipEnvService:7b22782c95069fc26d52fcee9ea98c66": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": [
+      {
+        "architecture": 3,
+        "path": "/Users/jerry/repo/opencv-study/venv/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.3-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 3,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.3-final"
+        },
+        "sysPrefix": "/Users/jerry/repo/opencv-study/venv/bin/..",
+        "fileHash": "fce687b18a9dc76d5b6a8459fcf03a62b3c7c56fed05d0307aa41a1a1d49273e17b0f08d9b6199cfb4715a718fceba1b0ffedcf5e2a927beb10152119622f1aa",
+        "envName": "venv",
+        "type": "VirtualEnv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/jerry/repo/opencv-study/venv/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.3-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 3,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.3-final"
+        },
+        "sysPrefix": "/Users/jerry/repo/opencv-study/venv/bin/..",
+        "fileHash": "916600521c2a3ec838534d346e5a596a727a008e19c72f186bf09470a8932d25a16d81a0de9231dc65d51f6b520c85f3939cf7aaa20e3b6ea0bb4f954621aa3a",
+        "envName": "venv",
+        "type": "VirtualEnv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/jerry/repo/opencv-study/venv/bin/python3.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.3-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 3,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.3-final"
+        },
+        "sysPrefix": "/Users/jerry/repo/opencv-study/venv/bin/..",
+        "fileHash": "39901cdef9f985c617b84b94bc347ee516f35746eedb1a48623efbef83c62962b67931f74e06854ec223cec7a46568fd263cbacc5a45424ca25b6b9c260df261",
+        "envName": "venv",
+        "type": "VirtualEnv"
+      }
+    ],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:7b22782c95069fc26d52fcee9ea98c66": [
+      {
+        "architecture": 3,
+        "path": "/Users/jerry/repo/opencv-study/venv/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.3-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 3,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.3-final"
+        },
+        "sysPrefix": "/Users/jerry/repo/opencv-study/venv/bin/..",
+        "fileHash": "fce687b18a9dc76d5b6a8459fcf03a62b3c7c56fed05d0307aa41a1a1d49273e17b0f08d9b6199cfb4715a718fceba1b0ffedcf5e2a927beb10152119622f1aa",
+        "envName": "venv",
+        "type": "VirtualEnv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/jerry/repo/opencv-study/venv/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.3-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 3,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.3-final"
+        },
+        "sysPrefix": "/Users/jerry/repo/opencv-study/venv/bin/..",
+        "fileHash": "916600521c2a3ec838534d346e5a596a727a008e19c72f186bf09470a8932d25a16d81a0de9231dc65d51f6b520c85f3939cf7aaa20e3b6ea0bb4f954621aa3a",
+        "envName": "venv",
+        "type": "VirtualEnv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/jerry/repo/opencv-study/venv/bin/python3.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.3-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 3,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.3-final"
+        },
+        "sysPrefix": "/Users/jerry/repo/opencv-study/venv/bin/..",
+        "fileHash": "39901cdef9f985c617b84b94bc347ee516f35746eedb1a48623efbef83c62962b67931f74e06854ec223cec7a46568fd263cbacc5a45424ca25b6b9c260df261",
+        "envName": "venv",
+        "type": "VirtualEnv"
+      }
+    ],
+    "SelectedPythonPath": "/Users/jerry/repo/opencv-study/venv/bin/python3.7"
   }
 }
