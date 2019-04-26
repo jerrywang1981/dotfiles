@@ -16,7 +16,6 @@ let g:lightline = {
       \ },
       \ 'component': {
       \   'lineinfo': '%3l:%-2v',
-      \   'tnt'     : 'TNT',
       \ },
       \ 'component_expand': {
       \   'buffers': 'lightline#bufferline#buffers',
@@ -25,6 +24,7 @@ let g:lightline = {
       \   'fugitive': 'LightLineFugitive',
       \   'gitgutter': 'LightLineGitGutter',
       \   'readonly': 'LightLineReadonly',
+      \   'tnt': 'LightLineTnt',
       \   'modified': 'LightLineModified',
       \   'cocstatus': 'coc#status',
       \   'currentfunction': 'CocCurrentFunction',
@@ -58,6 +58,53 @@ function! LightLineModified()
     return ""
   endif
 endfunction
+
+let g:tnt_text = "   TNT"
+
+function! MyHandler(id)
+  if g:tnt_text == "   TNT"
+    let g:tnt_text = "  TNT "
+    return
+  endif
+  if g:tnt_text == "  TNT "
+    let g:tnt_text = " TNT  "
+    return
+  endif
+  if g:tnt_text == " TNT  "
+    let g:tnt_text = "TNT   "
+    return
+  endif
+  if g:tnt_text == "TNT   "
+    let g:tnt_text = "NT    "
+    return
+  endif
+  if g:tnt_text == "NT    "
+    let g:tnt_text = "T     "
+    return
+  endif
+  if g:tnt_text == "T     "
+    let g:tnt_text = "      "
+    return
+  endif
+  if g:tnt_text == "      "
+    let g:tnt_text = "     T"
+    return
+  endif
+  if g:tnt_text == "     T"
+    let g:tnt_text = "    TN"
+    return
+  endif
+  if g:tnt_text == "    TN"
+    let g:tnt_text = "   TNT"
+    return
+  endif
+endfunction
+
+let timer = timer_start(500, 'MyHandler', {'repeat': -1})
+function! LightLineTnt()
+  return g:tnt_text
+endfunction
+
 
 function! LightLineReadonly()
   return &readonly && &filetype !~# '\v(help|vimfiler|unite)' ? 'RO' : ''

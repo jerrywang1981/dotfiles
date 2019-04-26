@@ -1,4 +1,5 @@
 nmap <Leader>ev :e $MYVIMRC<cr>
+nmap <Leader>sv :so $MYVIMRC<cr>
 
 map <up> <Nop>
 map <down> <Nop>

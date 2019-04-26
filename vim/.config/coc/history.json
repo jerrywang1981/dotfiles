@@ -17,9 +17,11 @@
       "tslin",
       "esl",
       "eslint",
-      "es",
       "eslin",
-      "fix"
+      "fix",
+      "esling",
+      "pre",
+      "es"
     ],
     "%2FUsers%2Fjerry%2Frepo%2Fwebapp_angular": [
       "eslin",
