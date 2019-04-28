@@ -3,9 +3,9 @@ if !has('nvim')
 endif
 
 if has('nvim')
-  tnoremap <Esc> <C-\><C-n>
-  tnoremap <C-v><Esc> <Esc>
 endif
+tnoremap <Esc> <C-\><C-n>
+tnoremap <C-v><Esc> <Esc>
 
 if has('nvim')
   highlight! link TermCursor Cursor

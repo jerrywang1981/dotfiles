@@ -28,5 +28,17 @@
   "eslint.autoFixOnSave": true,
   "tsserver.log": "verbose",
   "tsserver.npm": "/usr/local/bin/",
-  "tsserver.trace.server": "verbose"
+  "tsserver.trace.server": "verbose",
+  "languageserver": {
+    "dockerfile": {
+      "command": "docker-langserver",
+      "filetypes": ["dockerfile"],
+      "args": ["--stdio"]
+    },
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"]
+    }
+  }
 }

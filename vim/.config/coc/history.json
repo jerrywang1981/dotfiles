@@ -52,6 +52,9 @@
     ],
     "%2FUsers%2Fjerry%2Frepo%2Fopencv-study": [
       "python."
+    ],
+    "%2FUsers%2Fjerry%2Frepo%2Fneovim-electron": [
+      "pre"
     ]
   },
   "diagnostics": {

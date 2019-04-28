@@ -62,6 +62,7 @@ Plug 'lifepillar/vim-solarized8'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 Plug 'machakann/vim-highlightedyank'
+Plug 'vim-scripts/YankRing.vim'
 if has('nvim')
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -78,6 +79,7 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
+Plug 'fatih/vim-go'
 call plug#end()
 
 

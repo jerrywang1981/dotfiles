@@ -8,7 +8,7 @@ set guioptions-=T
 if has('gui_running')
 	if has("gui_macvim")
 		macmenu &File.Print key=<nop>
-		set guifont=Monaco:h14
+		set guifont=Monaco:h18
 		" set guifont=InconsolataForPowerline-g:h14
 		" set guifont=InconsolataForPowerline:h18
 		" set guifont=Consolas:h18

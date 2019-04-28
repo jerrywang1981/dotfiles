@@ -28,15 +28,8 @@ map <c-h> <c-w>h
 
 
 " option key + 1
-" nmap <silent> ¡ :Lex<CR>
 nmap <silent> ¡ :Defx<CR>
 nmap <silent> <leader><leader>1 :Defx<CR>
-" option key + 4
-" nmap ¢ :vert belowright sb zsh
-" quickly toggle terminal
-" nnoremap <silent> <leader>o :vertical botright Ttoggle<cr><C-w>l
-" nnoremap <silent> <leader>O :horizontal rightbelow Ttoggle<cr><C-w>j
-" nnoremap <silent> <leader><space> :vertical botright Ttoggle<cr><C-w>l
 " option key + 4
 nnoremap <silent> ¢ :vertical botright Ttoggle<cr><C-w>l
 nnoremap <silent> <leader><leader>4 :vertical botright Ttoggle<cr><C-w>l
