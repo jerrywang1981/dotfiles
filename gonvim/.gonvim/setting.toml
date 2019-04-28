@@ -1,0 +1,59 @@
+[Editor]
+# Editor minimum width (>= 800)
+Width = 800
+# Editor minimum height (>= 600)
+Height = 600
+# Editor font-family, font-size, linespace.
+# neovim extend feature
+ExtCmdline = false
+ExtWildmenu = false
+ExtPopupmenu = false
+ExtTabline  = false
+# Editor font-family, font-size, linespace.
+FontFamily = "Monaco"
+FontSize = 18
+Linespace = 1
+Ginitvim = '''
+    augroup GonvimAu
+      autocmd!
+    augroup end
+    augroup GonvimAuStatusline
+      autocmd!
+    augroup end
+    augroup GonvimAuLint
+      autocmd!
+    augroup end
+    augroup GonvimAuMd
+      autocmd!
+    augroup end
+    augroup GonvimAuFileExplorer
+      autocmd!
+    augroup end
+    augroup GonvimAuMinimap
+      autocmd!
+    augroup end
+    augroup GonvimAuScrollbar
+      autocmd!
+    augroup end
+'''
+# Gonvim copy the yank text to clipboad
+Clipboard = false
+# Editor cursor blink
+CursorBlink = false
+
+# Disable IME in Normal mode
+DisableImeInNormal = false
+# load vimscript after setting of g:gonvim_running=1
+# start fullscreen
+StartFullscreen = false
+
+
+[Workspace]
+# Restore session-information that was ended without being saved
+RestoreSession = false
+
+[ActivityBar]
+Visible = false
+
+[SideBar]
+Visible = false

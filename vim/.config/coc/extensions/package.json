@@ -7,14 +7,14 @@
     "coc-html": "^1.0.7",
     "coc-java": "^1.2.6",
     "coc-json": "^1.0.14",
-    "coc-pairs": "^1.2.4",
+    "coc-pairs": "^1.2.6",
     "coc-prettier": "^1.1.0",
     "coc-python": "^1.1.6",
     "coc-snippets": "^2.0.10",
     "coc-svg": "^0.0.9",
     "coc-tslint-plugin": "^1.0.4",
     "coc-tsserver": "^1.2.1",
-    "coc-vetur": "^1.1.0",
+    "coc-vetur": "^1.1.1",
     "coc-yaml": "^1.0.1"
   }
 }
