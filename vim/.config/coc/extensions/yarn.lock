@@ -1352,10 +1352,10 @@ coc-json@^1.0.14:
     vscode-languageserver "^5.3.0-next.2"
     vscode-uri "^1.0.6"
 
-coc-pairs@^1.2.6:
-  version "1.2.6"
-  resolved "https://registry.yarnpkg.com/coc-pairs/-/coc-pairs-1.2.6.tgz#c5d6be0bcefdbb931a0abc5c1e1b5e72c1f710a7"
-  integrity sha512-shJXR/nEJtmYED6AXsR+qHdjr1vKTf6WjNJlrBhtlpTLa5lcpfCmQigewZCdMSI2Vlfi/5eyeAzIPgL5ak1TNQ==
+coc-pairs@^1.2.7:
+  version "1.2.7"
+  resolved "https://registry.yarnpkg.com/coc-pairs/-/coc-pairs-1.2.7.tgz#7a1142490cc739d9c5659d9759c43a76c4b2f56e"
+  integrity sha512-/YDBBpwuDiaSsoCCrvmhaLJzpy1/vmwowsoK71j7qLnAzSybAI5gBlQ8cKQT5bm4wgJl/K7K/UJ5A/nGKStC4g==
   dependencies:
     tslib "^1.9.3"
 

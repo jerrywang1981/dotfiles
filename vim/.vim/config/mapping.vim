@@ -26,6 +26,8 @@ map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
 
+let g:yankring_replace_n_pkey = '<Char-8804>'
+let g:yankring_replace_n_nkey = '<Char-8805>'
 
 " option key + 1
 nmap <silent> ¡ :Defx<CR>
@@ -149,3 +151,5 @@ noremap <silent><expr> z? incsearch#go(<SID>config_fuzzyall({'command': '?'}))
 noremap <silent><expr> zg? incsearch#go(<SID>config_fuzzyall({'is_stay': 1}))
 
 
+"--------undo toggle---------
+noremap <silent> <leader>tr :GundoToggle<CR>
