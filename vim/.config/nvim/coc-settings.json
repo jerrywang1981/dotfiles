@@ -29,6 +29,7 @@
   "tsserver.log": "verbose",
   "tsserver.npm": "/usr/local/bin/",
   "tsserver.trace.server": "verbose",
+  "java.autobuild.enabled": true,
   "languageserver": {
     "dockerfile": {
       "command": "docker-langserver",

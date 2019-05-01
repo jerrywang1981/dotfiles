@@ -18,8 +18,9 @@ vmap <down> <Nop>
 vmap <left> <Nop>
 vmap <right> <Nop>
 
-nmap go o<esc>k
-nmap gO O<esc>j
+" use the [<space>  ]<space> from unimpaired plugin
+" nmap go o<esc>k
+" nmap gO O<esc>j
 
 map <c-j> <c-w>j
 map <c-k> <c-w>k

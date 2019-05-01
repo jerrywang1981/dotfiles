@@ -1,4 +1,6 @@
 prettier.formatFile
+java.projectConfiguration.update
+java.open.output
 eslint.executeAutofix
 eslint.createConfig
 snippets.editSnippets

@@ -82,6 +82,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'fatih/vim-go'
 Plug 'Valloric/ListToggle'
+Plug 'neoclide/coc-imselect'
 call plug#end()
 
 
