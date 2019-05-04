@@ -33,6 +33,11 @@ let g:yankring_replace_n_nkey = '<Char-8805>'
 " option key + 1
 nmap <silent> ¡ :Defx<CR>
 nmap <silent> <leader><leader>1 :Defx<CR>
+
+" option key + 2
+nmap <silent> ™ :TagbarToggle<CR>
+nmap <silent> <leader><leader>2 :TagbarToggle<CR>
+
 " option key + 4
 nnoremap <silent> ¢ :vertical botright Ttoggle<cr><C-w>l
 nnoremap <silent> <leader><leader>4 :vertical botright Ttoggle<cr><C-w>l

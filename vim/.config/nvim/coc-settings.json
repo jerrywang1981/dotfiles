@@ -30,6 +30,23 @@
   "tsserver.npm": "/usr/local/bin/",
   "tsserver.trace.server": "verbose",
   "java.autobuild.enabled": true,
+  "java.trace.server": "verbose",
+  "java.referencesCodeLens.enabled": true,
+  "java.implementationsCodeLens.enabled": true,
+  "java.signatureHelp.enabled": true,
+  "java.format.enabled": true,
+  "java.import.gradle.enabled": true,
+  "java.import.maven.enabled": true,
+  "java.completion.enabled": true,
+  "java.completion.importOrder": [
+    "java",
+    "javax",
+    "com",
+    "org"
+  ],
+  "java.format.comments.enabled": true,
+  "java.format.onType.enabled": true,
+  "java.completion.guessMethodArguments": true,
   "languageserver": {
     "dockerfile": {
       "command": "docker-langserver",

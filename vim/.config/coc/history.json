@@ -59,7 +59,11 @@
     "%2FUsers%2Fjerry%2Frepo%2Fibmwnr-weco-soe": [
       "java",
       "run",
-      "java.c"
+      "java.c",
+      "java.u",
+      "java.",
+      "ja",
+      "java.open"
     ],
     "%2FUsers%2Fjerry%2Frepo%2Fdigital-marketing-fe": [
       "pr"

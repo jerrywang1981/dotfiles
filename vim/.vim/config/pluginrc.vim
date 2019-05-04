@@ -83,6 +83,7 @@ Plug 'mengelbrecht/lightline-bufferline'
 Plug 'fatih/vim-go'
 Plug 'Valloric/ListToggle'
 Plug 'neoclide/coc-imselect'
+Plug 'majutsushi/tagbar'
 call plug#end()
 
 

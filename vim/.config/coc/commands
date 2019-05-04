@@ -1,3 +1,5 @@
+java.open.serverLog
+java.updateLanguageServer
 prettier.formatFile
 java.projectConfiguration.update
 java.open.output

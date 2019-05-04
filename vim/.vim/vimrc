@@ -154,6 +154,9 @@ let g:goyo_linenr=1
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
+" ---------tagbar-----------
+let g:tagbar_autofocus = 1
+
 " ----------undo tree------------
 let g:gundo_prefer_python3 = 1
 let g:gundo_help = 0
