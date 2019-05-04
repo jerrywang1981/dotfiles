@@ -84,6 +84,10 @@ Plug 'fatih/vim-go'
 Plug 'Valloric/ListToggle'
 Plug 'neoclide/coc-imselect'
 Plug 'majutsushi/tagbar'
+Plug 'lambdalisue/suda.vim'
+Plug 'tmux-plugins/vim-tmux'
+Plug 'edkolev/tmuxline.vim'
+Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 
