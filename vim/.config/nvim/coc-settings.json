@@ -36,8 +36,10 @@
   "java.signatureHelp.enabled": true,
   "java.format.enabled": true,
   "java.import.gradle.enabled": true,
+  "java.progressReports.enabled": true,
   "java.import.maven.enabled": true,
   "java.completion.enabled": true,
+  "java.contentProvider.preferred": "fernflower",
   "java.completion.importOrder": [
     "java",
     "javax",
