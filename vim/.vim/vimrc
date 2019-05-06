@@ -164,3 +164,14 @@ let g:gundo_help = 0
 " -------lightline-----------
 source ~/.vim/config/lightline.vim
 source ~/.vim/config/abbr.vim
+
+
+
+" ------------vim-test----------
+" let test#java#runner = 'maventest'
+let g:test#java#maventest#file_pattern = '\v^(.*[Tt]est.*|.*[Tt]est(s|Case)?)\.java$'
+" for neovim
+let test#neovim#term_position = "belowright"
+" or for Vim8
+let test#vim#term_position = "belowright"
+let test#strategy = "dispatch"

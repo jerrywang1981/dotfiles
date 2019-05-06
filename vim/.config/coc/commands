@@ -1,6 +1,10 @@
+tsserver.executeAutofix
+tsserver.organizeImports
+prettier.formatFile
+java.open.formatter.settings
+java.action.organizeImports
 java.open.serverLog
 java.updateLanguageServer
-prettier.formatFile
 java.projectConfiguration.update
 java.open.output
 eslint.executeAutofix
@@ -8,9 +12,7 @@ eslint.createConfig
 snippets.editSnippets
 python.execInTerminal
 tsserver.openTsServerLog
-tsserver.executeAutofix
 tsserver.goToProjectConfig
-tsserver.organizeImports
 workspace.showOutput
 tslint.fixAllProblems
 python.startREPL

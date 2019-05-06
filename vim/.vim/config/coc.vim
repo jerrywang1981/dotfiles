@@ -33,8 +33,8 @@ inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Use `[c` and `]c` for navigate diagnostics
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
+nmap <silent> <localleader>[c <Plug>(coc-diagnostic-prev)
+nmap <silent> <localleader>]c <Plug>(coc-diagnostic-next)
 
 " Remap keys for gotos
 nmap <silent> <localleader>gd <Plug>(coc-definition)

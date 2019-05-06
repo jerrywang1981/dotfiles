@@ -88,6 +88,8 @@ Plug 'lambdalisue/suda.vim'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'edkolev/tmuxline.vim'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'janko-m/vim-test'
+Plug 'tpope/vim-dispatch'
 call plug#end()
 
 
