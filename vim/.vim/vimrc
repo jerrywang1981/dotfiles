@@ -76,6 +76,8 @@ let g:Lf_CommandMap = {'<Tab>': ['<ESC>']}
 let g:Lf_DefaultMode = 'NameOnly'
 let g:Lf_WindowHeight = 0.3
 let g:Lf_WorkingDirectoryMode = 'Ac'
+let g:Lf_GtagsAutoGenerate = 1
+let g:Lf_Gtagslabel = 'native-pygments'
 
 
 
@@ -175,3 +177,26 @@ let test#neovim#term_position = "belowright"
 " or for Vim8
 let test#vim#term_position = "belowright"
 let test#strategy = "dispatch"
+
+
+" -------------- gtags ----------
+" let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
+" let g:gutentags_ctags_tagfile = '.tags'
+" let g:gutentags_modules = []
+" if executable('ctags')
+	" let g:gutentags_modules += ['ctags']
+" endif
+" if executable('gtags-cscope') && executable('gtags')
+	" let g:gutentags_modules += ['gtags_cscope']
+" endif
+" let g:gutentags_cache_dir = expand('~/.cache/tags')
+" let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
+" let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
+" let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+" let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
+" let g:gutentags_auto_add_gtags_cscope = 0
+"
+" let g:gutentags_plus_nomap = 1
+" noremap <silent> <leader>cs :GscopeFind s <C-R><C-W><cr>
+" noremap <silent> <leader>cg :GscopeFind g <C-R><C-W><cr>
+" noremap <silent> <leader>cc :GscopeFind c <C-R><C-W><cr>

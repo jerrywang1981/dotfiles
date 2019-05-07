@@ -90,6 +90,9 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'janko-m/vim-test'
 Plug 'tpope/vim-dispatch'
+Plug 'radenling/vim-dispatch-neovim'
+" Plug 'ludovicchabant/vim-gutentags'
+" Plug 'skywind3000/gutentags_plus'
 call plug#end()
 
 

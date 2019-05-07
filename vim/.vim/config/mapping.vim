@@ -67,8 +67,12 @@ noremap ƒ :LeaderfFunction!<cr>
 noremap † :Leaderf --nameOnly tag<cr>
 " noremap <Leader>c :Leaderf rg<cr>
 " option key + s
-noremap ß :Leaderf rg --stayOpen --recall<CR>
-
+noremap ß :Leaderf rg --stayOpen<CR>
+" noremap <leader>fr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
+" noremap <leader>fd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
+" noremap <leader>fo :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
+" noremap <leader>fn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
+" noremap <leader>fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
 
 " airline mapping
 " let g:airline_theme="molokai"
