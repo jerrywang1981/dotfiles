@@ -97,7 +97,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export PATH=/Users/jerry/anaconda3/bin:$PATH:/Users/jerry/sqllib/bin:/Users/jerry/Library/Python/3.7/bin
+export PATH=/Users/jerry/anaconda3/bin:$PATH:/Users/jerry/sqllib/bin:/Users/jerry/Library/Python/3.7/bin:$HOME/go/bin
 
 if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
   # export PS1="» "
@@ -105,3 +105,24 @@ else
   # export PS1="\$ "
 fi
 # alias ssh='TERM=xterm ssh'
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/jerry/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/jerry/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/jerry/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/jerry/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+export PATH="/usr/local/opt/llvm/bin":$PATH
+export LDFLAGS="-L/usr/local/opt/llvm/lib"
+export CPPFLAGS="-I/usr/local/opt/llvm/include"
+
+export PATH="$HOME/.cargo/bin:$PATH"

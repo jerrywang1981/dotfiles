@@ -1,6 +1,15 @@
+data
+property
+sysout
+else
+ipdb
+func
+fun
+package
+grep
+const
 cl
 public_static_method
-fun
 jerry
 snippet Tab_trigger "Description" b
 function

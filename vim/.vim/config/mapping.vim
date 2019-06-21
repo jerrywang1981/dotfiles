@@ -60,7 +60,7 @@ vnoremap <silent> <c-s>s :TREPLSendSelection<CR>
 " leaderF mapping
 noremap <c-n> :Leaderf --nameOnly mru<cr>
 " option key + f
-noremap ƒ :LeaderfFunction!<cr>
+noremap ƒ :LeaderfFunction<cr>
 " option key + b
 " noremap ∫ :Leaderf! --nameOnly buffer<cr>
 " option key + t
@@ -109,8 +109,8 @@ noremap ß :Leaderf rg --stayOpen<CR>
 " nmap <leader>8 <Plug>AirlineSelectTab8
 " nmap <leader>9 <Plug>AirlineSelectTab9
 " to switch buffer
-nnoremap <C-tab> :bn<CR>
-nnoremap <C-s-tab> :bp<CR>
+" nnoremap <C-tab> :bn<CR>
+" nnoremap <C-s-tab> :bp<CR>
 
 " For conceal markers.
 if has('conceal')
@@ -167,8 +167,54 @@ noremap <silent> <leader>tr :GundoToggle<CR>
 
 
 "--------vim-test-----------
-nmap <silent> t<C-n> :TestNearest<CR>
-nmap <silent> t<C-f> :TestFile<CR>
-nmap <silent> t<C-s> :TestSuite<CR>
-nmap <silent> t<C-l> :TestLast<CR>
-nmap <silent> t<C-g> :TestVisit<CR>
+" nmap <silent> t<C-n> :TestNearest<CR>
+" nmap <silent> t<C-f> :TestFile<CR>
+" nmap <silent> t<C-s> :TestSuite<CR>
+" nmap <silent> t<C-l> :TestLast<CR>
+" nmap <silent> t<C-g> :TestVisit<CR>
+
+
+autocmd User fugitive
+  \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
+  \   nnoremap <buffer> .. :edit %:h<CR> |
+  \ endif
+
+autocmd BufReadPost fugitive://* set bufhidden=delete
+
+
+" async run
+nnoremap <silent> <F5> :AsyncRun -raw -cwd=$(VIM_FILEDIR) "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <cr>
+nnoremap <silent> <F7> :AsyncRun -cwd=<root> make <cr>
+nnoremap <silent> <F8> :AsyncRun -cwd=<root> -raw make run <cr>
+nnoremap <silent> <F9> :AsyncRun g++ -Wall -O2 "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <cr>
+nnoremap <F10> :call asyncrun#quickfix_toggle(6)<cr>
+
+autocmd FileType qf nnoremap <silent><buffer> p :PreviewQuickfix<cr>
+autocmd FileType qf nnoremap <silent><buffer> P :PreviewClose<cr>
+
+
+let g:SignatureMap = {
+  \ 'Leader'             :  "m",
+  \ 'PlaceNextMark'      :  "m,",
+  \ 'ToggleMarkAtLine'   :  "m.",
+  \ 'PurgeMarksAtLine'   :  "<Nop>",
+  \ 'DeleteMark'         :  "dm",
+  \ 'PurgeMarks'         :  "m-",
+  \ 'PurgeMarkers'       :  "m<BS>",
+  \ 'GotoNextLineAlpha'  :  "']",
+  \ 'GotoPrevLineAlpha'  :  "'[",
+  \ 'GotoNextSpotAlpha'  :  "`]",
+  \ 'GotoPrevSpotAlpha'  :  "`[",
+  \ 'GotoNextLineByPos'  :  "]'",
+  \ 'GotoPrevLineByPos'  :  "['",
+  \ 'GotoNextSpotByPos'  :  "]`",
+  \ 'GotoPrevSpotByPos'  :  "[`",
+  \ 'GotoNextMarker'     :  "]-",
+  \ 'GotoPrevMarker'     :  "[-",
+  \ 'GotoNextMarkerAny'  :  "]=",
+  \ 'GotoPrevMarkerAny'  :  "[=",
+  \ 'ListBufferMarks'    :  "m/",
+  \ 'ListBufferMarkers'  :  "m?"
+  \ }
+
+

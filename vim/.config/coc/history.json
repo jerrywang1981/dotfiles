@@ -71,6 +71,19 @@
     ],
     "%2FUsers%2Fjerry%2Frepo%2Fdigital-marketing-fe": [
       "pr"
+    ],
+    "%2FUsers%2Fjerry%2Fgo%2Fsrc%2F01_hello": [
+      "out",
+      "server"
+    ],
+    "%2FUsers%2Fjerry%2Frepo%2Fibmwnr-hsiw-api": [
+      "server"
+    ],
+    "%2FUsers%2Fjerry%2Frepo%2Fleveldb": [
+      "ser",
+      "tra",
+      "works",
+      "output"
     ]
   },
   "diagnostics": {
@@ -79,5 +92,16 @@
         "ap"
       ]
     }
+  },
+  "location": {
+    "%2FUsers%2Fjerry%2Frepo%2Fwebapp_angular": [
+      "ncsearch-nohlsearch)",
+      "rch)"
+    ]
+  },
+  "symbols": {
+    "%2FUsers%2Fjerry%2Frepo%2Fwebapp_angular": [
+      "noduplicate"
+    ]
   }
 }

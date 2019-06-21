@@ -46,7 +46,7 @@ set history=200
 set fixendofline
 " set conceallevel=0
 " set transparency=10
-
+set diffopt+=vertical
 let g:vim_json_syntax_conceal = 0
 let python_highlight_all=1
 set t_Co=256
@@ -78,6 +78,10 @@ let g:Lf_WindowHeight = 0.3
 let g:Lf_WorkingDirectoryMode = 'Ac'
 let g:Lf_GtagsAutoGenerate = 1
 let g:Lf_Gtagslabel = 'native-pygments'
+" let g:Lf_WildIgnore = {
+        " \ 'dir': [],
+        " \ 'file': ['*.svg']
+        " \}
 
 
 
@@ -87,7 +91,7 @@ let g:jsx_ext_required = 0
 
 " autocmd FileType typescript,html,javascript.jsx set ts=2 | set shiftwidth=2
 autocmd FileType python set ts=4 | set shiftwidth=4 | set softtabstop=4
-let g:SuperTabDefaultCompletionType = "<c-n>"
+" let g:SuperTabDefaultCompletionType = "<c-n>"
 let g:user_emmet_install_global = 0
 autocmd FileType html,css,javascript.jsx,vue.html.javascript.css,vue EmmetInstall
 
@@ -97,6 +101,7 @@ source ~/.vim/config/mapping.vim
 source ~/.vim/config/terminal.vim
 
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+
 
 autocmd FileType vue syntax sync fromstart
 " autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
@@ -180,23 +185,87 @@ let test#strategy = "dispatch"
 
 
 " -------------- gtags ----------
-" let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
-" let g:gutentags_ctags_tagfile = '.tags'
-" let g:gutentags_modules = []
-" if executable('ctags')
-	" let g:gutentags_modules += ['ctags']
-" endif
-" if executable('gtags-cscope') && executable('gtags')
-	" let g:gutentags_modules += ['gtags_cscope']
-" endif
-" let g:gutentags_cache_dir = expand('~/.cache/tags')
-" let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
-" let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
-" let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
-" let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
-" let g:gutentags_auto_add_gtags_cscope = 0
+set tags=./.tags;,.tags
+let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
+let g:gutentags_ctags_tagfile = '.tags'
+let g:gutentags_modules = []
+if executable('ctags')
+  let g:gutentags_modules += ['ctags']
+endif
+if executable('gtags-cscope') && executable('gtags')
+  let g:gutentags_modules += ['gtags_cscope']
+endif
+let s:vim_tags = expand('~/.cache/tags')
+let g:gutentags_cache_dir = s:vim_tags
+let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
+let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
+let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
+let g:gutentags_auto_add_gtags_cscope = 0
+let g:gutentags_plus_switch = 1
+if !isdirectory(s:vim_tags)
+   silent! call mkdir(s:vim_tags, 'p')
+endif
 "
-" let g:gutentags_plus_nomap = 1
-" noremap <silent> <leader>cs :GscopeFind s <C-R><C-W><cr>
-" noremap <silent> <leader>cg :GscopeFind g <C-R><C-W><cr>
-" noremap <silent> <leader>cc :GscopeFind c <C-R><C-W><cr>
+let g:gutentags_plus_nomap = 1
+" noremap <silent> \gs :GscopeFind s <C-R><C-W><cr>
+" noremap <silent> \gd :GscopeFind g <C-R><C-W><cr>
+" noremap <silent> \gr :GscopeFind c <C-R><C-W><cr>
+
+
+
+" Async run
+let g:asyncrun_open = 6
+let g:asyncrun_bell = 1
+let g:asyncrun_rootmarks = ['.svn', '.git', '.root', '_darcs', 'build.xml']
+
+
+
+" vim-cpp-enhanced-highlight
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_experimental_simple_template_highlight = 1
+let g:cpp_concepts_highlight = 1
+
+" ale
+let g:ale_linters = {
+\   'c++': ['clang'],
+\   'c': ['clang'],
+\}
+let g:ale_linters_explicit = 1
+let g:ale_completion_enabled = 1
+let g:ale_completion_delay = 500
+let g:ale_echo_delay = 20
+let g:ale_lint_delay = 500
+let g:ale_echo_msg_format = '[%linter%] %code: %%s'
+let g:ale_lint_on_insert_leave = 0
+
+let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
+let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
+let g:ale_c_cppcheck_options = ''
+let g:ale_cpp_cppcheck_options = ''
+let g:ale_sign_error = "\ue009\ue009"
+hi! clear SpellBad
+hi! clear SpellCap
+hi! clear SpellRare
+hi! SpellBad gui=undercurl guisp=red
+hi! SpellCap gui=undercurl guisp=blue
+hi! SpellRare gui=undercurl guisp=magenta
+let $GTAGSLABEL = 'native-pygments'
+nmap <silent> [W <Plug>(ale_first)
+nmap <silent> [w <Plug>(ale_previous)
+nmap <silent> ]w <Plug>(ale_next)
+nmap <silent> ]W <Plug>(ale_last)
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_filetype_changed = 0
+let g:ale_sign_column_always = 1
+
+
+
+
+" neomake
+" let g:neomake_open_list = 2
+" call neomake#configure#automake('w')

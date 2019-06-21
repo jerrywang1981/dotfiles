@@ -59,6 +59,13 @@
       "command": "gopls",
       "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
       "filetypes": ["go"]
+    },
+    "clangd": {
+      "command": "clangd",
+      "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+      "disableDiagnostics": true,
+      "trace.server": "verbose",
+      "filetypes": ["c", "cpp", "cc" ,"objc", "objcpp"]
     }
   },
   "java.format.settings.url": "/Users/jerry/.config/coc/extensions/node_modules/redhat.java/eclipse-formatter.xml"

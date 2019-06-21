@@ -58,6 +58,8 @@ call defx#custom#column('mark', {
 	  \ defx#do_action('toggle_sort', 'time')
 	  nnoremap <silent><buffer><expr> d
 	  \ defx#do_action('remove')
+    nnoremap <silent><buffer><expr> s
+		\ defx#do_action('multi', [['drop', 'vsplit'], 'quit'])
 	  nnoremap <silent><buffer><expr> r
 	  \ defx#do_action('rename')
 	  nnoremap <silent><buffer><expr> !

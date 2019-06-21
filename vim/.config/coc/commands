@@ -1,9 +1,10 @@
-tsserver.executeAutofix
+workspace.showOutput
+java.open.serverLog
 tsserver.organizeImports
 prettier.formatFile
+tsserver.executeAutofix
 java.open.formatter.settings
 java.action.organizeImports
-java.open.serverLog
 java.updateLanguageServer
 java.projectConfiguration.update
 java.open.output
@@ -13,7 +14,6 @@ snippets.editSnippets
 python.execInTerminal
 tsserver.openTsServerLog
 tsserver.goToProjectConfig
-workspace.showOutput
 tslint.fixAllProblems
 python.startREPL
 python.enableLinting
