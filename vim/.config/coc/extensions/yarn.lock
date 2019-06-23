@@ -877,13 +877,6 @@ coc-css@^1.2.1:
   resolved "https://registry.yarnpkg.com/coc-css/-/coc-css-1.2.1.tgz#972647dfb2d7ec246154cf7add31772548cc63c8"
   integrity sha512-QrETdc6wyvlAYe00L02fDRf+Cd5NjZBtkMUMD/9UPQ5EvL2R14wuRGR8Ni8wECAeM248iA8KxedB5/IEZwMA/w==
 
-coc-emmet@^1.1.3:
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/coc-emmet/-/coc-emmet-1.1.3.tgz#135a6a527a25fcf44432a983220e2de3f880cfe0"
-  integrity sha512-FTWuUqxH0NEEHgTLSl4XiggB437nrfjnsqF2SaepAL6xnNfYxSLWkp2Npm+hEwjgu8hcIb2csaeIURWrUGuu5Q==
-  dependencies:
-    vscode-emmet-helper "^1.2.15"
-
 coc-eslint@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/coc-eslint/-/coc-eslint-1.2.1.tgz#f92f000209926934ce1f431658ea59b05bafaed4"
@@ -5631,7 +5624,7 @@ vscode-css-languageservice@^4.0.2-next.3:
     vscode-languageserver-types "^3.15.0-next.2"
     vscode-nls "^4.1.1"
 
-vscode-emmet-helper@^1.1.19, vscode-emmet-helper@^1.2.15:
+vscode-emmet-helper@^1.1.19:
   version "1.2.15"
   resolved "https://registry.yarnpkg.com/vscode-emmet-helper/-/vscode-emmet-helper-1.2.15.tgz#62dbfbf49bb9ebe329cb7bffdda5aaac725eea7a"
   integrity sha512-JplvmMMWSvm/6/dZezix2ADPM49u6YahPYjs/QToohUpomW/2Eb27ecCrkCyOGBPfKLKGiOPHCssss8TSDA9ag==
