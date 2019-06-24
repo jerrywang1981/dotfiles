@@ -26,7 +26,7 @@ Plug 'thaerkh/vim-workspace'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'Yggdroot/indentLine'
 Plug 'scrooloose/nerdcommenter'
-" Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-dispatch'
 Plug 'kshenoy/vim-signature'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
@@ -88,7 +88,7 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'Valloric/ListToggle'
 Plug 'neoclide/coc-imselect'
 Plug 'majutsushi/tagbar'
