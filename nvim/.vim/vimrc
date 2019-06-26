@@ -224,7 +224,7 @@ let g:startify_enable_special = 0
 " -------------------------ctags------------------"
 source ~/.vim/config/ctags.vim
 
-:py3 sys.executable='/usr/local/bin/python3.7'
+" :py3 sys.executable='/usr/local/bin/python3.7'
 let g:loaded_python_provider = 1
 let g:python3_host_prog  = '/usr/local/Cellar/python/3.7.3/bin/python3'
 let g:python_host_prog  = '/usr/bin/python'
@@ -233,7 +233,7 @@ let g:python_host_prog  = '/usr/bin/python'
 let g:rainbow_active = 1
 
 "----------------------coc----------------------------"
-"source ./config/coc.vim
+source ~/.vim/config/coc.vim
 
 autocmd FileType json syntax match Comment +\/\/.\+$+
 "
