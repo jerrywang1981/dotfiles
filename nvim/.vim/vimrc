@@ -92,7 +92,6 @@ if dein#load_state('~/.cache/dein')
   call dein#add('janko-m/vim-test')
   call dein#add('radenling/vim-dispatch-neovim')
   call dein#add('octol/vim-cpp-enhanced-highlight')
-  "Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
   call dein#end()
   call dein#save_state()

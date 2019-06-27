@@ -174,11 +174,11 @@ noremap <silent> <leader>tr :GundoToggle<CR>
 " nmap <silent> t<C-g> :TestVisit<CR>
 
 
-autocmd User fugitive
-  \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
-  \   nnoremap <buffer> .. :edit %:h<CR> |
-  \ endif
-
+" autocmd User fugitive
+  " \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
+  " \   nnoremap <buffer> .. :edit %:h<CR> |
+  " \ endif
+"
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
 
