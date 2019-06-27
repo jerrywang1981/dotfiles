@@ -1,2 +1,40 @@
 [[plugins]]
 repo = 'mhinz/vim-startify'
+hook_add = '''
+  let g:startify_change_to_vcs_root = 1
+  let g:startify_change_to_dir = 0
+  let g:startify_custom_header = ['']
+  let g:startify_enable_special = 0
+'''
+
+
+[[plugins]]
+repo = 'honza/vim-snippets'
+
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+build = 'yarn install --frozen-lockfile'
+hook_add = 'source ~/.vim/config/coc.vim'
+
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+hook_add = 'source ~/.vim/config/lightline.vim'
+
+
+[[plugins]]
+repo = 'mengelbrecht/lightline-bufferline'
+hook_add = 'source ~/.vim/config/lightline.vim'
+
+
+[[plugins]]
+repo = 'Yggdroot/LeaderF'
+hook_add = '''
+  let g:Lf_ShortcutF = '<c-p>'
+  let g:Lf_CommandMap = {'<Tab>': ['<ESC>']}
+  let g:Lf_DefaultMode = 'NameOnly'
+  let g:Lf_WindowHeight = 0.3
+  let g:Lf_WorkingDirectoryMode = 'Ac'
+  let g:Lf_GtagsAutoGenerate = 1
+  let g:Lf_Gtagslabel = 'native-pygments'
+'''

@@ -1793,7 +1793,7 @@
     "ProposeLSBanner": false,
     "InterpreterAutoSeletionRule-cachedInterpreters": {
       "architecture": 3,
-      "path": "/usr/local/opt/python/bin/python3.7",
+      "path": "/usr/local/bin/python3",
       "version": {
         "options": {
           "loose": false,
@@ -1811,9 +1811,8 @@
         "version": "3.7.3-final"
       },
       "sysPrefix": "/usr/local/Cellar/python/3.7.3/Frameworks/Python.framework/Versions/3.7",
-      "fileHash": "0afc831a07c9f611080a846bcbf85fe00cff31ac4dd8877be86b1d826316c826e6bd7c722ec8dc25a6b3fe28a4e10e01d2aeb82615f5dd29bc832c0c60da76f6",
+      "fileHash": "733c9c5fe7eec3a30aa658cd69d92b5c4353e38ab8901c20d67b43d237b321b4bfd2bdf49c5da93d853fcf0dd17f9c61844c6e886c946801477c652eb5106110",
       "type": "Unknown",
-      "cachedEntry": true,
       "displayName": "Python 3.7.3 64-bit"
     },
     "InterpreterAutoSeletionRule-environment": {
