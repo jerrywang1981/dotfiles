@@ -1,6 +1,10 @@
 [[plugins]]
 repo = 'junegunn/goyo.vim'
 on_cmd = 'Goyo'
+hook_add = '''
+  nnoremap <silent> º :Goyo<cr>
+  nnoremap <silent> <leader><leader>0 :Goyo<cr>
+'''
 hook_source = '''
   let g:goyo_width=100
   let g:goyo_linenr=1
@@ -20,6 +24,11 @@ on_cmd = 'GV'
 
 
 [[plugins]]
+repo = 'kassio/neoterm'
+on_cmd = 'Ttoggle'
+hook_source = 'source ~/.vim/config/terminal.vim'
+
+[[plugins]]
 repo = 'elzr/vim-json'
 on_ft = 'json'
 hook_add = 'let g:vim_json_syntax_conceal = 0'
@@ -33,6 +42,19 @@ on_ft = 'Dockerfile'
 [[plugins]]
 repo = 'junegunn/vim-emoji'
 on_ft = ['markdown','vim']
+
+
+[[plugins]]
+repo = 'davidhalter/jedi-vim'
+on_ft = 'python'
+
+[[plugins]]
+repo = 'fs111/pydoc.vim'
+on_ft = 'python'
+
+[[plugins]]
+repo = 'alfredodeza/pytest.vim'
+on_ft = 'python'
 
 
 [[plugins]]
@@ -107,6 +129,10 @@ hook_add = '''
 [[plugins]]
 repo = 'Yggdroot/indentLine'
 on_ft = ['python','html','css','vim','javascript','jsx','javascript.jsx','vue', 'cpp']
+hook_add = '''
+  nmap <silent> ¡ :Defx<CR>
+  nmap <silent> <leader><leader>1 :Defx<CR>
+'''
 hook_source = '''
   let g:indentLine_fileTypeExclude = ['defx', 'denite','startify','tagbar','vista_kind']
 '''

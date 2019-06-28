@@ -30,7 +30,6 @@ if dein#load_state('~/.cache/dein')
   call dein#add('w0rp/ale')
   call dein#add('justinmk/vim-sneak')
   call dein#add('tomtom/tlib_vim')
-  call dein#add('davidhalter/jedi-vim')
   call dein#add('jiangmiao/auto-pairs')
   call dein#add('thaerkh/vim-workspace')
   call dein#add('scrooloose/nerdcommenter')
@@ -43,8 +42,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('MarcWeber/vim-addon-mw-utils')
   call dein#add('HerringtonDarkholme/yats.vim')
   call dein#add('sjl/gundo.vim')
-  call dein#add('fs111/pydoc.vim')
-  call dein#add('alfredodeza/pytest.vim')
+  " call dein#add('alfredodeza/pytest.vim')
   call dein#add('ConradIrwin/vim-bracketed-paste')
   call dein#add('jmcantrell/vim-virtualenv')
   call dein#add('wellle/targets.vim')
@@ -52,12 +50,11 @@ if dein#load_state('~/.cache/dein')
   call dein#add('editorconfig/editorconfig-vim')
   call dein#add('skywind3000/vim-preview')
   call dein#add('skywind3000/asyncrun.vim')
-  call dein#add('kassio/neoterm')
   call dein#add('lifepillar/vim-solarized8')
   call dein#add('dracula/vim', {'name': 'dracula', 'normalized_name': 'dracula'})
   call dein#add('machakann/vim-highlightedyank')
 
-  " call dein#add('vim-scripts/YankRing.vim')
+  call dein#add('vim-scripts/YankRing.vim')
   call dein#add('andys8/vscode-jest-snippets')
   call dein#add('wincent/terminus')
   call dein#add('haya14busa/incsearch.vim')
@@ -172,7 +169,7 @@ autocmd FileType python set ts=4 | set shiftwidth=4 | set softtabstop=4
 source ~/.vim/config/mapping.vim
 
 "--------------------terminal-------
-source ~/.vim/config/terminal.vim
+" source ~/.vim/config/terminal.vim
 
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
