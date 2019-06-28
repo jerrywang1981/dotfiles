@@ -200,7 +200,7 @@
         "sysPrefix": "/usr/local/Cellar/python/3.7.3/Frameworks/Python.framework/Versions/3.7",
         "fileHash": "dc76dde16e7e0565c53de60d3c6515c012aaf2fa1d98be3a873f0fb000ec4bf9c7d1609faa60df7acb4d0fe7b9b82c6d369f06f101bf8cf67365228bf334c88d"
       },
-      "expiry": 1561639107925
+      "expiry": 1561771911598
     },
     "/usr/local/bin/python3.v3": {
       "data": {
@@ -225,7 +225,7 @@
         "sysPrefix": "/usr/local/Cellar/python/3.7.3/Frameworks/Python.framework/Versions/3.7",
         "fileHash": "733c9c5fe7eec3a30aa658cd69d92b5c4353e38ab8901c20d67b43d237b321b4bfd2bdf49c5da93d853fcf0dd17f9c61844c6e886c946801477c652eb5106110"
       },
-      "expiry": 1561639107926
+      "expiry": 1561771911604
     },
     "/usr/local/bin/python2.7.v3": {
       "data": {
@@ -250,7 +250,7 @@
         "sysPrefix": "/usr/local/Cellar/python@2/2.7.16/Frameworks/Python.framework/Versions/2.7",
         "fileHash": "b32343602d9b3b5b02d911aa5167a1f81a97e960f3db26b56a977e7d192c41de539a3b7bbe2bb066ba8027a3ec47752d427dc8cbda24026b1e947423f90a1ca8"
       },
-      "expiry": 1561639107926
+      "expiry": 1561771911976
     },
     "/usr/local/bin/python2.v3": {
       "data": {
@@ -275,7 +275,7 @@
         "sysPrefix": "/usr/local/Cellar/python@2/2.7.16/Frameworks/Python.framework/Versions/2.7",
         "fileHash": "0e0b527af9744a69e930fbf76410590ec12e6805b2c7893d15f6bc105a67596899aa7aea6e60003c0a65ca90500302339687c8cb14c1d2dbff94fcbaf3ac8d74"
       },
-      "expiry": 1561639107927
+      "expiry": 1561771911969
     },
     "/usr/local/bin/python.v3": {
       "data": {
@@ -300,7 +300,7 @@
         "sysPrefix": "/usr/local/Cellar/python@2/2.7.16/Frameworks/Python.framework/Versions/2.7",
         "fileHash": "3155b35992e1f010ec4ddb29e4d5657ac68dd41b2d448264a7eea1a34b8025c189cbb94bf29110fe2b9d3cae04a06c5ea4149820911f0360b333d9ddfbc03181"
       },
-      "expiry": 1561639107927
+      "expiry": 1561771911980
     },
     "/Users/jerry/anaconda3/bin/python3.7.v3": {
       "data": {
@@ -325,7 +325,7 @@
         "sysPrefix": "/Users/jerry/anaconda3",
         "fileHash": "b50553b78ceaa5d2160f768fe479b92154721ce9c1dc03bc55ba0aca762f3570e747e8df9658eb5cc44d6215ed7286a57dcc30857a4f981a75dd6f3800b37380"
       },
-      "expiry": 1561639107921
+      "expiry": 1561771911609
     },
     "/Users/jerry/anaconda3/bin/python.v3": {
       "data": {
@@ -350,7 +350,7 @@
         "sysPrefix": "/Users/jerry/anaconda3",
         "fileHash": "f389ab7bb9e5191c34dd96a8f6aa78f7ef0b18b124b01646aa8cfc1c10695c8a549e2613748b09dda9930ed8d2e3399a0c549d2d3c05385cf8ab991d3b386749"
       },
-      "expiry": 1561639107922
+      "expiry": 1561771911634
     },
     "/Users/jerry/repo/opencv-demo/venv/bin/python3.7.v3": {
       "data": {
@@ -375,7 +375,7 @@
         "sysPrefix": "/Users/jerry/repo/opencv-demo/venv/bin/..",
         "fileHash": "7ff48661fc9fff0fd13f36b2b48ff1044922c7912738a16dccf89c29e9499a321ff649e76582d1131d07438f40f3d6193558a17aa139e25e9501e6902c594e1d"
       },
-      "expiry": 1561639107930
+      "expiry": 1561771911807
     },
     "/Users/jerry/repo/opencv-demo/venv/bin/python3.v3": {
       "data": {
@@ -400,7 +400,7 @@
         "sysPrefix": "/Users/jerry/repo/opencv-demo/venv/bin/..",
         "fileHash": "c380521d233d3321596adce852d1fa483e3ed89a5a586fc06096963b24af35221b60769cbdad89b7ca6d67aa29c6c02e54d7d30e419a4d746b71521fce9fb6ea"
       },
-      "expiry": 1561639107931
+      "expiry": 1561771911810
     },
     "/Users/jerry/repo/opencv-demo/venv/bin/python.v3": {
       "data": {
@@ -425,7 +425,7 @@
         "sysPrefix": "/Users/jerry/repo/opencv-demo/venv/bin/..",
         "fileHash": "8834484cc4c3a961c48e268e298fb9875fbed92327571f11af03995ae98ca69d51d7d71c54088cb16c73056c4bc72b67515b8f994de325abdd489ee93f81ef55"
       },
-      "expiry": 1561639107932
+      "expiry": 1561771911812
     },
     "/usr/bin/python.v3": {
       "data": {
@@ -450,7 +450,7 @@
         "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
         "fileHash": "61a8a3205b7b82d56966c8248414bbaac8e7986e52e9cf2ede39a83ad783288b580538805bfb43218fd418efee846648dd7b4d2733764379898431bff556593c"
       },
-      "expiry": 1561639107933
+      "expiry": 1561771911984
     },
     "/usr/bin/python2.7.v3": {
       "data": {
@@ -475,7 +475,7 @@
         "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
         "fileHash": "ed1b1eed43e04943afd25276f4678c5bb7bc09b3fb5cefa5c61d2214b89acad9a7e2d20db32cb07ff7c2ba91984d4b00a545412c30a687bbc97f56e82cd63705"
       },
-      "expiry": 1561639107934
+      "expiry": 1561771911988
     },
     "/Users/jerry/anaconda3/bin/python3.v3": {
       "data": {
@@ -500,7 +500,7 @@
         "sysPrefix": "/Users/jerry/anaconda3",
         "fileHash": "e4c8d17277a970f2157077d58496e536941fe244859a90e8599316fa4d6437611491ee24d7fb75fdcb91cf70606ed127f0e5af059df61a631cb9795f72445b96"
       },
-      "expiry": 1561639107936
+      "expiry": 1561771911607
     },
     "INTERPRETERS_CACHE_v3_KnownPathsService": [
       {
@@ -1105,7 +1105,7 @@
         "sysPrefix": "/usr/local/Cellar/python@2/2.7.16/Frameworks/Python.framework/Versions/2.7",
         "fileHash": "930be60ca3cfd1f73dbf3974c47c75f60961b3c749ef4565b01c2a3ca496d525ff23c00b707dc5468405c0dc6403de6e9843ce47229b4ac8c3be809f20aafbda"
       },
-      "expiry": 1561639108140
+      "expiry": 1561771911971
     },
     "INTERPRETERS_CACHE_v3_CurrentPathService": [
       {
@@ -1274,7 +1274,7 @@
       "data": {
         "fileHash": "7ff48661fc9fff0fd13f36b2b48ff1044922c7912738a16dccf89c29e9499a321ff649e76582d1131d07438f40f3d6193558a17aa139e25e9501e6902c594e1d"
       },
-      "expiry": 1561639108251
+      "expiry": 1561771911897
     },
     "/Users/jerry/anaconda3/envs/seetl/bin/python.v3": {
       "data": {
@@ -1299,14 +1299,14 @@
         "sysPrefix": "/Users/jerry/anaconda3/envs/seetl",
         "fileHash": "c995ee25bc27691bbfb0d89e627438a699c544edb63662a07d0a0abd42a2223db1efeec0a7ed848741b41883589724a3dcbb3dc440ac3786590db773ed0d1eac"
       },
-      "expiry": 1561639108270
+      "expiry": 1561771912009
     },
     "/Users/jerry/repo/opencv-demo/venv/bin/python3.7.interpreter.displayName.v7": {
       "data": {
         "displayName": "Python 3.7.3 64-bit ('venv': virtualenv)",
         "hash": "7ff48661fc9fff0fd13f36b2b48ff1044922c7912738a16dccf89c29e9499a321ff649e76582d1131d07438f40f3d6193558a17aa139e25e9501e6902c594e1d-7d1b2766a52f30a1eec487c5a8530ef3"
       },
-      "expiry": 1561639108289
+      "expiry": 1561771912090
     },
     "CONDA_ENVIRONMENTS": {
       "data": [
@@ -1468,42 +1468,42 @@
         "displayName": "Python 3.7.3 64-bit ('base': conda)",
         "hash": "f389ab7bb9e5191c34dd96a8f6aa78f7ef0b18b124b01646aa8cfc1c10695c8a549e2613748b09dda9930ed8d2e3399a0c549d2d3c05385cf8ab991d3b386749-d0fd48a42b1c3724995c8491ee9cf384"
       },
-      "expiry": 1561639111473
+      "expiry": 1561771977921
     },
     "/Users/jerry/anaconda3/envs/seetl/bin/python.interpreter.displayName.v7": {
       "data": {
         "displayName": "Python 3.7.3 64-bit ('seetl': conda)",
         "hash": "c995ee25bc27691bbfb0d89e627438a699c544edb63662a07d0a0abd42a2223db1efeec0a7ed848741b41883589724a3dcbb3dc440ac3786590db773ed0d1eac-d7a76dc824ad86ba2e9788c5bbc26ad8"
       },
-      "expiry": 1561639111476
+      "expiry": 1561771977926
     },
     "/Users/jerry/repo/opencv-demo/venv/bin/python.interpreter.displayName.v7": {
       "data": {
         "displayName": "Python 3.7.3 64-bit ('venv': virtualenv)",
         "hash": "8834484cc4c3a961c48e268e298fb9875fbed92327571f11af03995ae98ca69d51d7d71c54088cb16c73056c4bc72b67515b8f994de325abdd489ee93f81ef55-96f02fbf6d208d695599a80c62c7603d"
       },
-      "expiry": 1561639111478
+      "expiry": 1561771911885
     },
     "/usr/local/bin/python.interpreter.displayName.v7": {
       "data": {
         "displayName": "Python 2.7.16 64-bit",
         "hash": "3155b35992e1f010ec4ddb29e4d5657ac68dd41b2d448264a7eea1a34b8025c189cbb94bf29110fe2b9d3cae04a06c5ea4149820911f0360b333d9ddfbc03181-98cb081e532cf553079da37047cf18e6"
       },
-      "expiry": 1561639111480
+      "expiry": 1561771912155
     },
     "/usr/local/bin/python3.interpreter.displayName.v7": {
       "data": {
         "displayName": "Python 3.7.3 64-bit",
         "hash": "733c9c5fe7eec3a30aa658cd69d92b5c4353e38ab8901c20d67b43d237b321b4bfd2bdf49c5da93d853fcf0dd17f9c61844c6e886c946801477c652eb5106110-e2c0083f8dc5aeea22a44d80a0e529dd"
       },
-      "expiry": 1561639111481
+      "expiry": 1561771912157
     },
     "/usr/bin/python.interpreter.displayName.v7": {
       "data": {
         "displayName": "Python 2.7.10 64-bit",
         "hash": "61a8a3205b7b82d56966c8248414bbaac8e7986e52e9cf2ede39a83ad783288b580538805bfb43218fd418efee846648dd7b4d2733764379898431bff556593c-d20c9c9acbe15891ba09ea036468f193"
       },
-      "expiry": 1561639111483
+      "expiry": 1561771912160
     },
     "/usr/local/opt/python/bin/python3.7.interpreter.displayName.v7": {
       "data": {
@@ -1517,7 +1517,7 @@
         "displayName": "Python 2.7.16 64-bit",
         "hash": "930be60ca3cfd1f73dbf3974c47c75f60961b3c749ef4565b01c2a3ca496d525ff23c00b707dc5468405c0dc6403de6e9843ce47229b4ac8c3be809f20aafbda-501bcba81e09d2c4e8d86df23ac28a90"
       },
-      "expiry": 1561639111487
+      "expiry": 1561771912163
     },
     "InterpreterAutoSeletionRule-system": {
       "architecture": 3,
@@ -1574,7 +1574,7 @@
           "displayName": "Python 3.7.3 64-bit ('base': conda)"
         }
       },
-      "expiry": 1561639111593
+      "expiry": 1561771977934
     },
     "/Users/jerry/anaconda3/envs/seetl/bin/python.interpreter.Details.v7": {
       "data": {
@@ -1607,7 +1607,7 @@
           "displayName": "Python 3.7.3 64-bit ('seetl': conda)"
         }
       },
-      "expiry": 1561639111597
+      "expiry": 1561771977940
     },
     "/Users/jerry/repo/opencv-demo/venv/bin/python.interpreter.Details.v7": {
       "data": {
@@ -1638,7 +1638,7 @@
           "displayName": "Python 3.7.3 64-bit ('venv': virtualenv)"
         }
       },
-      "expiry": 1561639111601
+      "expiry": 1561771911940
     },
     "/usr/local/bin/python.interpreter.Details.v7": {
       "data": {
@@ -1668,7 +1668,7 @@
           "displayName": "Python 2.7.16 64-bit"
         }
       },
-      "expiry": 1561639111605
+      "expiry": 1561771912190
     },
     "/usr/local/bin/python3.interpreter.Details.v7": {
       "data": {
@@ -1698,7 +1698,7 @@
           "displayName": "Python 3.7.3 64-bit"
         }
       },
-      "expiry": 1561639111609
+      "expiry": 1561771912197
     },
     "/usr/bin/python.interpreter.Details.v7": {
       "data": {
@@ -1728,7 +1728,7 @@
           "displayName": "Python 2.7.10 64-bit"
         }
       },
-      "expiry": 1561639111613
+      "expiry": 1561771912205
     },
     "/usr/local/opt/python/bin/python3.7.interpreter.Details.v7": {
       "data": {
@@ -1788,7 +1788,7 @@
           "displayName": "Python 2.7.16 64-bit"
         }
       },
-      "expiry": 1561639111622
+      "expiry": 1561771912219
     },
     "ProposeLSBanner": false,
     "InterpreterAutoSeletionRule-cachedInterpreters": {

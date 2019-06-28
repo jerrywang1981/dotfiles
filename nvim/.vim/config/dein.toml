@@ -11,10 +11,10 @@ hook_add = '''
 [[plugins]]
 repo = 'honza/vim-snippets'
 
-[[plugins]]
-repo = 'neoclide/coc.nvim'
-build = 'yarn install --frozen-lockfile'
-hook_add = 'source ~/.vim/config/coc.vim'
+# [[plugins]]
+# repo = 'neoclide/coc.nvim'
+# build = 'yarn install --frozen-lockfile'
+# hook_add = 'source ~/.vim/config/coc.vim'
 
 
 [[plugins]]
