@@ -8,8 +8,9 @@ hook_add = '''
 '''
 
 
-[[plugins]]
-repo = 'honza/vim-snippets'
+# [[plugins]]
+# repo = 'honza/vim-snippets'
+
 
 # [[plugins]]
 # repo = 'neoclide/coc.nvim'
@@ -29,12 +30,43 @@ hook_add = 'source ~/.vim/config/lightline.vim'
 
 [[plugins]]
 repo = 'Yggdroot/LeaderF'
+build = './install.sh'
 hook_add = '''
   let g:Lf_ShortcutF = '<c-p>'
   let g:Lf_CommandMap = {'<Tab>': ['<ESC>']}
   let g:Lf_DefaultMode = 'NameOnly'
   let g:Lf_WindowHeight = 0.3
   let g:Lf_WorkingDirectoryMode = 'Ac'
-  let g:Lf_GtagsAutoGenerate = 1
+  let g:Lf_GtagsAutoGenerate = 0
   let g:Lf_Gtagslabel = 'native-pygments'
+  let g:Lf_WildIgnore = {
+    \ 'dir': ['.svn','.git','.hg', 'node_modules', 'dist'],
+    \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
+    \}
+  let g:Lf_MruWildIgnore = {
+    \ 'dir': [],
+    \ 'file': []
+    \}
+  let g:Lf_RgConfig = [
+    \ "--max-columns=300",
+    \ "--glob=!node_modules/*",
+    \ "--glob=!dist/*",
+    \ ]
 '''
+
+
+
+[[plugins]]
+repo = 'kassio/neoterm'
+hook_add = 'source ~/.vim/config/terminal.vim'
+
+
+# [[plugins]]
+# repo = 'ludovicchabant/vim-gutentags'
+# hook_source = '''
+  # source ~/.vim/config/vim-gutentags.vim
+# '''
+
+
+# [[plugins]]
+# repo = 'skywind3000/gutentags_plus'

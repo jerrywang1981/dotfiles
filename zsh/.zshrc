@@ -127,3 +127,10 @@ export LDFLAGS="-L/usr/local/opt/llvm/lib"
 export CPPFLAGS="-I/usr/local/opt/llvm/include"
 
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+export PATH=/Developer/NVIDIA/CUDA-10.1/bin${PATH:+:${PATH}}
+export DYLD_LIBRARY_PATH=/Developer/NVIDIA/CUDA-10.1/lib${DYLD_LIBRARY_PATH:+:${DYLD_LIBRARY_PATH}}
+
+export LD_LIBRARY_PATH=${DYLD_LIBRARY_PATH:+:${DYLD_LIBRARY_PATH}}

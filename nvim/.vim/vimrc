@@ -24,6 +24,8 @@ if dein#load_state('~/.cache/dein')
     call dein#add('roxma/vim-hug-neovim-rpc')
   else
     call dein#add('cpiger/NeoDebug')
+    " call dein#add('beeender/Comrade')
+    " call dein#add('Shougo/deoplete.nvim', { 'build': ':UpdateRemotePlugins' })
   endif
   call dein#add('wsdjeg/dein-ui.vim')
   call dein#add('easymotion/vim-easymotion')
@@ -48,6 +50,8 @@ if dein#load_state('~/.cache/dein')
   call dein#add('wellle/targets.vim')
   call dein#add('artur-shaik/vim-javacomplete2')
   call dein#add('editorconfig/editorconfig-vim')
+  call dein#add('ludovicchabant/vim-gutentags')
+  call dein#add('skywind3000/gutentags_plus')
   call dein#add('skywind3000/vim-preview')
   call dein#add('skywind3000/asyncrun.vim')
   call dein#add('lifepillar/vim-solarized8')
@@ -80,6 +84,7 @@ set updatetime=5000
 set directory=~/tmp,/tmp
 set foldmethod=indent
 set foldlevel=99
+set noswapfile
 set autoindent
 set encoding=utf-8
 set clipboard+=unnamed  " use the clipboards of vim and win
@@ -138,7 +143,8 @@ let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/venv/*,*/node_modules/*
-let g:pymode_python = 'python3'
+" python-mode
+" let g:pymode_python = 'python3'
 
 " ----------------nerdcommenter--------------------------
 source ~/.vim/config/nerdcommenter.vim
@@ -184,6 +190,8 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 "
 
 
+source ~/.vim/config/coc.vim
+
 "-------------- auto pair-------------
 let g:AutoPairsMapCh = 0
 let g:AutoPairsMapCR = 1
@@ -227,6 +235,7 @@ let g:tagbar_autofocus = 1
 let g:gundo_prefer_python3 = 1
 let g:gundo_help = 0
 
+source ~/.vim/config/vim-gutentags.vim
 " -------lightline-----------
 " source ~/.vim/config/lightline.vim
 source ~/.vim/config/abbr.vim
@@ -275,7 +284,7 @@ hi! clear SpellRare
 hi! SpellBad gui=undercurl guisp=red
 hi! SpellCap gui=undercurl guisp=blue
 hi! SpellRare gui=undercurl guisp=magenta
-let $GTAGSLABEL = 'native-pygments'
+" let $GTAGSLABEL = 'native-pygments'
 nmap <silent> [W <Plug>(ale_first)
 nmap <silent> [w <Plug>(ale_previous)
 nmap <silent> ]w <Plug>(ale_next)
@@ -285,3 +294,6 @@ let g:ale_lint_on_save = 1
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_filetype_changed = 0
 let g:ale_sign_column_always = 1
+
+
+" let g:comrade_key_fix = '<leader><leader>x'

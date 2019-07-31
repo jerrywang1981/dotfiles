@@ -23,10 +23,6 @@ repo = 'junegunn/gv.vim'
 on_cmd = 'GV'
 
 
-[[plugins]]
-repo = 'kassio/neoterm'
-on_cmd = 'Ttoggle'
-hook_source = 'source ~/.vim/config/terminal.vim'
 
 [[plugins]]
 repo = 'elzr/vim-json'
@@ -44,17 +40,17 @@ repo = 'junegunn/vim-emoji'
 on_ft = ['markdown','vim']
 
 
-[[plugins]]
-repo = 'davidhalter/jedi-vim'
-on_ft = 'python'
+# [[plugins]]
+# repo = 'davidhalter/jedi-vim'
+# on_ft = 'python'
 
-[[plugins]]
-repo = 'fs111/pydoc.vim'
-on_ft = 'python'
-
-[[plugins]]
-repo = 'alfredodeza/pytest.vim'
-on_ft = 'python'
+# [[plugins]]
+# repo = 'fs111/pydoc.vim'
+# on_ft = 'python'
+#
+# [[plugins]]
+# repo = 'alfredodeza/pytest.vim'
+# on_ft = 'python'
 
 
 [[plugins]]
@@ -138,14 +134,13 @@ hook_source = '''
 '''
 
 
-[[plugins]]
-repo = 'ludovicchabant/vim-gutentags'
-on_path = '.*'
-on_if = "executable('ctags')"
-hook_source = '''
-  source ~/.vim/config/vim-gutentags.vim
-  source ~/.vim/config/ctags.vim
-'''
+# [[plugins]]
+# repo = 'ludovicchabant/vim-gutentags'
+# on_path = '.*'
+# on_if = "executable('ctags')"
+# hook_source = '''
+  # source ~/.vim/config/vim-gutentags.vim
+# '''
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
@@ -164,9 +159,9 @@ hook_source = '''
 
 '''
 
-[[plugins]]
-repo = 'skywind3000/gutentags_plus'
-on_source = 'vim-gutentags.vim'
+# [[plugins]]
+# repo = 'skywind3000/gutentags_plus'
+# on_source = 'vim-gutentags.vim'
 
 
 [[plugins]]

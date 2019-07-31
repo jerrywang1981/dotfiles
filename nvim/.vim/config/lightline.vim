@@ -4,10 +4,10 @@ let g:lightline = {
       \   'left': [ ['mode', 'paste'],
       \             ['fugitive', 'gitgutter'],['filename', 'cocstatus', 'currentfunction']],
       \   'right':[ ['lineinfo'],
-      \             ['percent'], ['fileformat','fileencoding', 'filetype'], ['tnt']],
+      \             ['percent'], ['fileformat','fileencoding', 'filetype']],
       \ },
       \ 'inactive': {
-      \   'left': [['mode', 'paste'], ['filename'], ['tnt']],
+      \   'left': [['mode', 'paste'], ['filename']],
       \   'right':[['lineinfo'], ['percent']],
       \ },
       \ 'tabline': {

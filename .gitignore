@@ -2,3 +2,4 @@ node_modules
 Session.vim
 **/sessions/*
 coc-java-data
+tags

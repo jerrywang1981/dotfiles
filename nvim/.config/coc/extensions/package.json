@@ -1,19 +1,19 @@
 {
   "dependencies": {
-    "coc-angular": "^0.0.11",
+    "coc-angular": ">=0.1.0",
     "coc-css": "^1.2.2",
-    "coc-eslint": "^1.2.1",
     "coc-html": "^1.2.1",
-    "coc-java": "^1.4.2",
-    "coc-json": "^1.2.2",
-    "coc-pairs": "^1.2.11",
-    "coc-prettier": "^1.1.3",
-    "coc-python": "^1.2.1",
-    "coc-snippets": "^2.1.3",
-    "coc-svg": "^0.0.10",
-    "coc-tslint-plugin": "^1.0.5",
-    "coc-tsserver": ">=1.3.12",
-    "coc-vetur": "^1.1.2",
-    "coc-yaml": "^1.0.2"
+    "coc-java": ">=1.4.4",
+    "coc-json": ">=1.2.3",
+    "coc-pairs": ">=1.2.16",
+    "coc-prettier": ">=1.1.5",
+    "coc-python": ">=1.2.5",
+    "coc-snippets": ">=2.1.10",
+    "coc-svg": ">=0.0.13",
+    "coc-tslint-plugin": ">=1.1.1",
+    "coc-tsserver": ">=1.3.14",
+    "coc-vetur": ">=1.1.3",
+    "coc-yaml": "^1.0.2",
+    "coc-yank": ">=1.1.2"
   }
 }
