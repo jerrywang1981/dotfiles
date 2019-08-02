@@ -32,23 +32,18 @@ if dein#load_state('~/.cache/dein')
   call dein#add('w0rp/ale')
   call dein#add('justinmk/vim-sneak')
   call dein#add('tomtom/tlib_vim')
-  call dein#add('jiangmiao/auto-pairs')
   call dein#add('thaerkh/vim-workspace')
-  call dein#add('scrooloose/nerdcommenter')
   call dein#add('tpope/vim-dispatch')
   call dein#add('kshenoy/vim-signature')
   call dein#add('tpope/vim-surround')
   call dein#add('tpope/vim-unimpaired')
   call dein#add('tpope/vim-repeat')
-  call dein#add('tpope/vim-projectionist')
-  call dein#add('MarcWeber/vim-addon-mw-utils')
-  call dein#add('HerringtonDarkholme/yats.vim')
+  " call dein#add('tpope/vim-projectionist')
   call dein#add('sjl/gundo.vim')
   call dein#add('ConradIrwin/vim-bracketed-paste')
   call dein#add('jmcantrell/vim-virtualenv')
   call dein#add('wellle/targets.vim')
   call dein#add('artur-shaik/vim-javacomplete2')
-  call dein#add('editorconfig/editorconfig-vim')
   call dein#add('ludovicchabant/vim-gutentags')
   call dein#add('skywind3000/gutentags_plus')
   call dein#add('skywind3000/vim-preview')
@@ -60,9 +55,6 @@ if dein#load_state('~/.cache/dein')
   call dein#add('wincent/terminus')
   call dein#add('haya14busa/incsearch.vim')
   call dein#add('haya14busa/incsearch-fuzzy.vim')
-  call dein#add('Valloric/ListToggle')
-  call dein#add('majutsushi/tagbar')
-  call dein#add('lambdalisue/suda.vim')
   call dein#add('tmux-plugins/vim-tmux')
   call dein#add('edkolev/tmuxline.vim')
   call dein#add('christoomey/vim-tmux-navigator')
@@ -127,8 +119,7 @@ set termguicolors
 
 
 
-" let g:vim_json_syntax_conceal = 0
-let python_highlight_all=1
+" let python_highlight_all=1
 set t_Co=256
 
 set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
@@ -142,39 +133,13 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/venv/*,*/node_modules/*
 " python-mode
 " let g:pymode_python = 'python3'
 
-" ----------------nerdcommenter--------------------------
-source ~/.vim/config/nerdcommenter.vim
-
-
-" ----------------vim-rooter --------------------------
-" let g:rooter_silent_chdir = 1
-
-
-" ----------------LeaderF--------------------------
-" leaderf configuration "
-" let g:Lf_ShortcutF = '<c-p>'
-" let g:Lf_CommandMap = {'<Tab>': ['<ESC>']}
-" let g:Lf_DefaultMode = 'NameOnly'
-" let g:Lf_WindowHeight = 0.3
-" let g:Lf_WorkingDirectoryMode = 'Ac'
-" let g:Lf_GtagsAutoGenerate = 1
-" let g:Lf_Gtagslabel = 'native-pygments'
-" let g:Lf_WildIgnore = {
-        " \ 'dir': [],
-        " \ 'file': ['*.svg']
-        " \}
-
-
-autocmd FileType python set ts=4 | set shiftwidth=4 | set softtabstop=4
+" autocmd FileType python set ts=4 | set shiftwidth=4 | set softtabstop=4
 
 
 "--------------------mapping-------
 source ~/.vim/config/mapping.vim
 
-"--------------------terminal-------
-" source ~/.vim/config/terminal.vim
 
-let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 let g:loaded_python_provider = 1
 let g:python3_host_prog  = '/usr/local/Cellar/python/3.7.3/bin/python3'
@@ -182,17 +147,11 @@ let g:python_host_prog  = '/usr/bin/python'
 
 
 
-autocmd FileType json syntax match Comment +\/\/.\+$+
+" autocmd FileType json syntax match Comment +\/\/.\+$+
 "
 
 
 source ~/.vim/config/coc.vim
-
-"-------------- auto pair-------------
-let g:AutoPairsMapCh = 0
-let g:AutoPairsMapCR = 1
-
-
 
 
 "----------------- vim-workspace----------------
@@ -217,15 +176,7 @@ let $NVIM_COC_LOG_LEVEL = 'debug'
 " let g:coc_node_args = ['--nolazy', '--inspect-brk=6046']
 "
 
-" ----------------- goyo and limelight-----------------
 
-" let g:goyo_width=100
-" let g:goyo_linenr=1
-" autocmd! User GoyoEnter Limelight
-" autocmd! User GoyoLeave Limelight!
-
-" ---------tagbar-----------
-let g:tagbar_autofocus = 1
 
 " ----------undo tree------------
 let g:gundo_prefer_python3 = 1
@@ -235,17 +186,6 @@ source ~/.vim/config/vim-gutentags.vim
 " -------lightline-----------
 " source ~/.vim/config/lightline.vim
 source ~/.vim/config/abbr.vim
-
-
-
-" ------------vim-test----------
-" let test#java#runner = 'maventest'
-" let g:test#java#maventest#file_pattern = '\v^(.*[Tt]est.*|.*[Tt]est(s|Case)?)\.java$'
-" for neovim
-" let test#neovim#term_position = "belowright"
-" or for Vim8
-" let test#vim#term_position = "belowright"
-" let test#strategy = "dispatch"
 
 
 

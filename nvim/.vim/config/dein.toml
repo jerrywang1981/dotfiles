@@ -12,11 +12,6 @@ hook_add = '''
 # repo = 'honza/vim-snippets'
 
 
-# [[plugins]]
-# repo = 'neoclide/coc.nvim'
-# build = 'yarn install --frozen-lockfile'
-# hook_add = 'source ~/.vim/config/coc.vim'
-
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
@@ -52,6 +47,11 @@ hook_add = '''
     \ "--glob=!node_modules/*",
     \ "--glob=!dist/*",
     \ ]
+
+  noremap <c-n> :Leaderf --nameOnly mru<cr>
+  noremap ƒ :LeaderfFunction<cr>
+  noremap † :Leaderf --nameOnly tag<cr>
+  noremap ß :Leaderf rg --stayOpen<CR>
 '''
 
 
@@ -61,12 +61,22 @@ repo = 'kassio/neoterm'
 hook_add = 'source ~/.vim/config/terminal.vim'
 
 
-# [[plugins]]
-# repo = 'skywind3000/vim-keysound'
-# hook_add = '''
-# let g:keysound_theme = 'typewriter'
-# let g:keysound_py_version = 2
-# '''
+[[plugins]]
+repo = 'editorconfig/editorconfig-vim'
+hook_add = '''
+  let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+'''
+
+[[plugins]]
+repo = 'scrooloose/nerdcommenter'
+hook_add = 'source ~/.vim/config/nerdcommenter.vim'
+
+[[plugins]]
+repo = 'skywind3000/vim-keysound'
+hook_add = '''
+let g:keysound_theme = 'typewriter'
+let g:keysound_py_version = 3
+'''
 
 # [[plugins]]
 # repo = 'ludovicchabant/vim-gutentags'
@@ -77,3 +87,15 @@ hook_add = 'source ~/.vim/config/terminal.vim'
 
 # [[plugins]]
 # repo = 'skywind3000/gutentags_plus'
+
+
+[[plugins]]
+repo = 'MarcWeber/vim-addon-mw-utils'
+
+
+[[plugins]]
+repo = 'HerringtonDarkholme/yats.vim'
+
+
+[[plugins]]
+repo = 'Valloric/ListToggle'

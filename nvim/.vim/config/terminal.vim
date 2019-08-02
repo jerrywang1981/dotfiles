@@ -12,3 +12,14 @@ if has('nvim')
   highlight! link TermCursor Cursor
   highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
 endif
+"
+" option key + 4
+nnoremap <silent> ¢ :vertical botright Ttoggle<cr><C-w>l
+nnoremap <silent> <leader><leader>4 :vertical botright Ttoggle<cr><C-w>l
+
+" tnoremap <silent> <leader>o <C-\><C-n>:Ttoggle<cr>
+" tnoremap <silent> <leader><space> <C-\><C-n>:Ttoggle<cr>
+tnoremap <silent> ¢ <C-\><C-n>:Ttoggle<cr>
+
+nnoremap <silent> <c-s>l :TREPLSendLine<CR>
+vnoremap <silent> <c-s>s :TREPLSendSelection<CR>
