@@ -44,7 +44,6 @@ if dein#load_state('~/.cache/dein')
   call dein#add('MarcWeber/vim-addon-mw-utils')
   call dein#add('HerringtonDarkholme/yats.vim')
   call dein#add('sjl/gundo.vim')
-  " call dein#add('alfredodeza/pytest.vim')
   call dein#add('ConradIrwin/vim-bracketed-paste')
   call dein#add('jmcantrell/vim-virtualenv')
   call dein#add('wellle/targets.vim')
@@ -54,12 +53,10 @@ if dein#load_state('~/.cache/dein')
   call dein#add('skywind3000/gutentags_plus')
   call dein#add('skywind3000/vim-preview')
   call dein#add('skywind3000/asyncrun.vim')
-  call dein#add('lifepillar/vim-solarized8')
   call dein#add('dracula/vim', {'name': 'dracula', 'normalized_name': 'dracula'})
   call dein#add('machakann/vim-highlightedyank')
 
   call dein#add('vim-scripts/YankRing.vim')
-  call dein#add('andys8/vscode-jest-snippets')
   call dein#add('wincent/terminus')
   call dein#add('haya14busa/incsearch.vim')
   call dein#add('haya14busa/incsearch-fuzzy.vim')
@@ -69,7 +66,6 @@ if dein#load_state('~/.cache/dein')
   call dein#add('tmux-plugins/vim-tmux')
   call dein#add('edkolev/tmuxline.vim')
   call dein#add('christoomey/vim-tmux-navigator')
-  call dein#add('janko-m/vim-test')
   call dein#add('radenling/vim-dispatch-neovim')
   call dein#add('neoclide/coc.nvim', {'build': 'yarn install --frozen-lockfile'})
 
@@ -126,7 +122,7 @@ set fixendofline
 set diffopt+=vertical
 set termguicolors
 
-let g:solarized_termcolors=256
+" let g:solarized_termcolors=256
 
 
 
@@ -244,12 +240,12 @@ source ~/.vim/config/abbr.vim
 
 " ------------vim-test----------
 " let test#java#runner = 'maventest'
-let g:test#java#maventest#file_pattern = '\v^(.*[Tt]est.*|.*[Tt]est(s|Case)?)\.java$'
+" let g:test#java#maventest#file_pattern = '\v^(.*[Tt]est.*|.*[Tt]est(s|Case)?)\.java$'
 " for neovim
-let test#neovim#term_position = "belowright"
+" let test#neovim#term_position = "belowright"
 " or for Vim8
-let test#vim#term_position = "belowright"
-let test#strategy = "dispatch"
+" let test#vim#term_position = "belowright"
+" let test#strategy = "dispatch"
 
 
 
@@ -294,6 +290,5 @@ let g:ale_lint_on_save = 1
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_filetype_changed = 0
 let g:ale_sign_column_always = 1
-
 
 " let g:comrade_key_fix = '<leader><leader>x'

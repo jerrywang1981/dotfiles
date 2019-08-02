@@ -62,6 +62,13 @@ hook_add = 'source ~/.vim/config/terminal.vim'
 
 
 # [[plugins]]
+# repo = 'skywind3000/vim-keysound'
+# hook_add = '''
+# let g:keysound_theme = 'typewriter'
+# let g:keysound_py_version = 2
+# '''
+
+# [[plugins]]
 # repo = 'ludovicchabant/vim-gutentags'
 # hook_source = '''
   # source ~/.vim/config/vim-gutentags.vim
