@@ -40,14 +40,14 @@ repo = 'junegunn/vim-emoji'
 on_ft = ['markdown','vim']
 
 
-# [[plugins]]
-# repo = 'davidhalter/jedi-vim'
-# on_ft = 'python'
-
-# [[plugins]]
-# repo = 'fs111/pydoc.vim'
-# on_ft = 'python'
+[[plugins]]
+repo = 'davidhalter/jedi-vim'
+on_ft = 'python'
 #
+[[plugins]]
+repo = 'fs111/pydoc.vim'
+on_ft = 'python'
+
 # [[plugins]]
 # repo = 'alfredodeza/pytest.vim'
 # on_ft = 'python'
@@ -114,13 +114,13 @@ on_ft = ['markdown', 'pandoc.markdown', 'rmd']
 build = 'cd app & yarn install'
 
 
-[[plugins]]
-repo = 'mattn/emmet-vim'
-on_ft = ['html','css','jsx','javascript','javascript.jsx']
-hook_add = '''
-  let g:user_emmet_install_global = 0
-  autocmd FileType html,css EmmetInstall
-'''
+# [[plugins]]
+# repo = 'mattn/emmet-vim'
+# on_ft = ['html','css','jsx','javascript','javascript.jsx']
+# hook_add = '''
+  # let g:user_emmet_install_global = 0
+  # autocmd FileType html,css EmmetInstall
+# '''
 
 [[plugins]]
 repo = 'jiangmiao/auto-pairs'
