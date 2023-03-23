@@ -50,7 +50,6 @@ end
 
 --[[
 -- key mapping/binding
---]]
 function M.map_key(type, key, value, opts)
 	vim.api.nvim_set_keymap(type, key, value, opts or { noremap = true, silent = true })
 end
@@ -64,14 +63,18 @@ function M.map_current_buf_key(type, key, value, opts)
 	M.map_buf_key(0, type, key, value, opts)
 end
 
-local scopes = { o = vim.o, b = vim.bo, w = vim.wo }
+--]]
 
+--[[
+--
+local scopes = { o = vim.o, b = vim.bo, w = vim.wo }
 function M.opt(scope, key, value)
 	scopes[scope][key] = value
 	if scope ~= "o" then
 		scopes["o"][key] = value
 	end
 end
+--]]
 
 function M.find_executable(command_list)
 	for _, c in ipairs(command_list) do

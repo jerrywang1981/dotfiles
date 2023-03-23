@@ -21,7 +21,7 @@ return {
 	"mfussenegger/nvim-jdtls",
 
 	{
-		"kyazdani42/nvim-web-devicons",
+		"nvim-tree/nvim-web-devicons",
 		config = function()
 			require("nvim-web-devicons").setup({})
 		end,
@@ -55,24 +55,6 @@ return {
     ]],
 		config = config("aerial"),
 	})
-
-	use({
-		"mbbill/undotree",
-		opt = true,
-		cmd = { "UndotreeToggle" },
-		setup = [[
-          vim.api.nvim_set_keymap('n', '<space>5', '<cmd>UndotreeToggle<CR>', { silent=true })
-        ]],
-		config = [=[
-          vim.g.undotree_DiffAutoOpen = 1
-          vim.g.undotree_SetFocusWhenToggle = 1
-          vim.g.undotree_ShortIndicators = 1
-          vim.g.undotree_WindowLayout = 2
-          vim.g.undotree_DiffpanelHeight = 8
-          vim.g.undotree_SplitWidth = 24
-        ]=],
-	})
-
 
 
 

@@ -1,7 +1,7 @@
 local vim = vim
 return {
 	"akinsho/nvim-bufferline.lua",
-	dependencies = "kyazdani42/nvim-web-devicons",
+	dependencies = "nvim-tree/nvim-web-devicons",
 	version = "*",
 	config = function()
 		require("bufferline").setup({

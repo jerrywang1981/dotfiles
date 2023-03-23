@@ -2,7 +2,7 @@ filetype plugin indent on   " enable loading indent file for filetype
 syntax on                   " syntax highlighting
 
 set path+=**
-set clipboard+=unnamedplus  " use the clipboards of vim and win
+" set clipboard+=unnamedplus  " use the clipboards of vim and win
 set go+=a               " Visual selection automatically copied to the clipboard
 set guioptions-=r
 set guioptions-=R
@@ -21,6 +21,9 @@ set shortmess+=c
 silent !mkdir -p ~/.config/nvim/tmp/backup
 set backupdir=~/.config/nvim/tmp/backup,.
 set directory=~/.config/nvim/tmp/backup,.
+
+let g:loaded_netrw       = 1
+let g:loaded_netrwPlugin = 1
 
 if !has('gui_running')
   set t_Co=256
