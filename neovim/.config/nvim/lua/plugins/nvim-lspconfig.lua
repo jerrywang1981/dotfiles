@@ -35,7 +35,7 @@ return {
 			buf_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
 			buf_set_keymap("n", "<space>d", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 			buf_set_keymap("n", "<space>a", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-			buf_set_keymap("n", "<localleader>=", "<cmd>lua vim.lsp.buf.format({async=true})<CR>", opts)
+			buf_set_keymap("n", "<localleader>=", "<cmd>lua vim.lsp.buf.format({timeout_ms=1000})<CR>", opts)
 			-- Set some keybinds conditional on server capabilities
 
 			-- Set autocommands conditional on server_capabilities
@@ -102,7 +102,7 @@ return {
 			"emmet_ls",
 			-- 'vimls',
 			-- 'sqlls',
-			-- 'rust_analyzer',
+			'rust_analyzer',
 			-- 'sumneko_lua',
 			-- 'jedi_language_server',
 		}
@@ -126,21 +126,6 @@ return {
 				return "config_win"
 			end
 		end
-
-    --[=[
-    --
-		vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-			-- Enable underline, use default values
-			underline = true,
-
-			-- Enable virtual text, override spacing to 4
-			virtual_text = {
-				spacing = 0,
-			},
-			-- Disable a feature
-			update_in_insert = false,
-		})
-    --]=]
 
     vim.diagnostic.config({
       virtual_text = {

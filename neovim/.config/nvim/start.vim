@@ -49,3 +49,6 @@ if has("persistent_undo")
     let &undodir=target_path
     set undofile
 endif
+
+tnoremap <Esc> <C-\><C-n>
+tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'

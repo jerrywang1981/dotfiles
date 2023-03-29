@@ -15,12 +15,9 @@ return {
 			dapui.close()
 		end
 
-		vim.api.nvim_set_keymap(
-			"n",
-			"<leader>dq",
-			[[<cmd>lua require'dapui'.toggle()<CR>]],
-			{ noremap = true, silent = true }
-		)
+    vim.keymap.set('n', '<Leader>dq', function()
+      require'dapui'.toggle()
+    end)
 
 		dapui.setup()
 	end,

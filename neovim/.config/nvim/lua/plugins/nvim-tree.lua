@@ -10,8 +10,14 @@ return {
 	end,
   config = function()
     require("nvim-tree").setup {
-
 			disable_netrw = true,
+      filters = {
+        dotfiles = true,
+        git_clean = false,
+        no_buffer = false,
+        custom = {},
+        exclude = {},
+      },
     }
   end,
 }

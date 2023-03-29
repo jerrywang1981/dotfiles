@@ -26,67 +26,36 @@ return {
     -- F11 step out
     -- F12 step into
     --]]
-		vim.api.nvim_set_keymap(
-			"n",
-			"<f5>",
-			[[<cmd>lua require'dap'.continue()<CR>]],
-			{ noremap = true, silent = true }
-		)
-		vim.api.nvim_set_keymap(
-			"n",
-			"<f10>",
-			[[<cmd>lua require'dap'.step_over()<CR>]],
-			{ noremap = true, silent = true }
-		)
-		vim.api.nvim_set_keymap(
-			"n",
-			"<f11>",
-			[[<cmd>lua require'dap'.step_out()<CR>]],
-			{ noremap = true, silent = true }
-		)
-		vim.api.nvim_set_keymap(
-			"n",
-			"<f12>",
-			[[<cmd>lua require'dap'.step_into()<CR>]],
-			{ noremap = true, silent = true }
-		)
 
-		vim.api.nvim_set_keymap(
-			"n",
-			"<leader>db",
-			[[<cmd>lua require'dap'.toggle_breakpoint()<CR>]],
-			{ noremap = true, silent = true }
-		)
+    vim.keymap.set('n', '<F5>', function() require('dap').continue() end)
+    vim.keymap.set('n', '<F10>', function() require('dap').step_over() end)
+    vim.keymap.set('n', '<F11>', function() require('dap').step_into() end)
+    vim.keymap.set('n', '<F12>', function() require('dap').step_out() end)
+    vim.keymap.set('n', '<Leader>db', function() require('dap').toggle_breakpoint() end)
+    -- vim.keymap.set('n', '<Leader>B', function() require('dap').set_breakpoint() end)
+    vim.keymap.set('n', '<Leader>lp', function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end)
+    vim.keymap.set('n', '<Leader>dro', function() require('dap').repl.open() end)
+    vim.keymap.set('n', '<Leader>drl', function() require('dap').run_last() end)
+    vim.keymap.set('n', '<Leader>drc', function() require('dap').run_to_cursor() end)
 
-		vim.api.nvim_set_keymap(
-			"n",
-			"<leader>dro",
-			[[<cmd>lua require'dap'.repl.toggle({}, 'vsplit')<CR>]],
-			{ noremap = true, silent = true }
-		)
-		vim.api.nvim_set_keymap(
-			"n",
-			"<leader>drc",
-			[[<cmd>lua require'dap'.run_to_cursor()<CR>]],
-			{ noremap = true, silent = true }
-		)
-		vim.api.nvim_set_keymap(
-			"n",
-			"<leader>drl",
-			[[<cmd>lua require'dap'.run_last()<CR>]],
-			{ noremap = true, silent = true }
-		)
-		vim.api.nvim_set_keymap(
-			"n",
-			"<leader>duh",
-			[[<cmd>lua require'dap.ui.widgets'.hover()<CR>]],
-			{ noremap = true, silent = true }
-		)
-		-- vim.api.nvim_set_keymap('n', '<leader>dhv', [[<cmd>lua require'dap.ui.variables'.virtual_hover()<CR>]], { noremap = true, silent = true })
-
-		-- vim.api.nvim_set_keymap('n', '<leader>dB', [[<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>]], { noremap = true, silent = true })
-		-- vim.api.nvim_set_keymap('n', '<leader>da', [[<cmd>lua require'jw.dap_config'.attach()<CR>]], { noremap = true, silent = true })
-		-- vim.api.nvim_set_keymap('n', '<leader>di', [[<cmd>lua require'dap.ui.variables'.hover(function () return vim.fn.expand("<cexpr>") end)<CR>]], { noremap = true, silent = true })
+    vim.keymap.set({'n', 'v'}, '<Leader>dh', function()
+      require('dap.ui.widgets').hover()
+    end)
+    -- vim.keymap.set({'n', 'v'}, '<Leader>dv', function()
+    --   require('dap.ui.widgets').preview()
+    -- end)
+    vim.keymap.set('n', '<Leader>df', function()
+      local widgets = require('dap.ui.widgets')
+      widgets.centered_float(widgets.frames)
+    end)
+    vim.keymap.set('n', '<Leader>ds', function()
+      local widgets = require('dap.ui.widgets')
+      widgets.centered_float(widgets.scopes)
+    end)
+    vim.keymap.set('n', '<Leader>de', function()
+      local widgets = require('dap.ui.widgets')
+      widgets.centered_float(widgets.expression)
+    end)
 
 		dap.configurations.java = {
 			{
@@ -103,6 +72,7 @@ return {
 			command = "node",
 			args = { os.getenv("HOME") .. "/repo/microsoft/vscode-node-debug2/out/src/nodeDebug.js" },
 		}
+
 		dap.configurations.javascript = {
 			{
 				name = "Launch",
