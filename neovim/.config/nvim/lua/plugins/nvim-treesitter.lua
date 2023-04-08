@@ -32,10 +32,10 @@ return {
 				-- "regex",
 				-- "query",
 				"bash",
-				-- "toml",
+				"toml",
 				-- "css",
 			},
-			ignore_install = { "markdown", "markdown_inline" },
+			-- ignore_install = { "markdown", "markdown_inline" },
 			highlight = {
 				enable = true,
 				disable = { "elm", "bash" },

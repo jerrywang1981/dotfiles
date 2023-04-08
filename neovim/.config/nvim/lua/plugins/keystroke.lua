@@ -1,5 +1,6 @@
 return {
 	"jerrywang1981/keystroke.nvim",
+  -- enabled=false,
   cmd = "KeyStrokeEnable",
 	config = function()
 		require("keystroke").setup({

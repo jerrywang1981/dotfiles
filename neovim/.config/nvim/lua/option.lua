@@ -21,7 +21,7 @@ vim.o.backup = false
 vim.o.showtabline = 2
 vim.o.scrolloff = 5
 vim.o.updatetime = 500
-vim.o.timeoutlen = 300
+vim.o.timeoutlen = 1000
 vim.o.history = 2000
 
 vim.wo.number = true

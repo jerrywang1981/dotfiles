@@ -95,7 +95,7 @@ export LC_ALL=en_US.UTF-8
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # alias vim="mvim -v"
-alias vi=nvim
+alias vi=vim
 alias vim=nvim
 unset SSH_ASKPASS
 
