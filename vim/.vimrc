@@ -22,6 +22,10 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+" vim-plug
+let g:plug_timeout=240
+let g:plug_threads=8
+
 call plug#begin()
 " The default plugin directory will be as follows:
 "   - Vim (Linux/macOS): '~/.vim/plugged'
@@ -64,9 +68,9 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
-Plug 'kassio/neoterm', { 'on': 'Ttoggle' }
+"Plug 'kassio/neoterm', { 'on': 'Ttoggle' }
 Plug 'voldikss/vim-floaterm'
-Plug 'vimwiki/vimwiki'
+"Plug 'vimwiki/vimwiki'
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
 call plug#end()
@@ -237,8 +241,6 @@ nnoremap & :&&<CR>
 " nerdtree
 map <silent> <space>1 :NERDTreeToggle<cr>
 
-" vim-plug
-let g:plug_timeout=240
 
 " vim-fugitive
 autocmd BufReadPost fugitive://* set bufhidden=delete
@@ -348,8 +350,8 @@ let g:fzf_preview_window = []
 "let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'relative': v:true  }  }
 
 " neoterm
-let g:neoterm_default_mod = 'belowright'
-nnoremap <silent> <space>4 :<c-u>Ttoggle<cr><C-w>j
+" let g:neoterm_default_mod = 'belowright'
+" nnoremap <silent> <space>4 :<c-u>Ttoggle<cr><C-w>j
 
 " vim-floaterm
 let g:floaterm_wintype = 'vsplit'
@@ -357,8 +359,12 @@ let g:floaterm_keymap_new = "<leader>fc"
 let g:floaterm_keymap_prev = "<leader>fp"
 let g:floaterm_keymap_next = "<leader>fn"
 let g:floaterm_keymap_toggle = "<leader>ft"
+let g:floaterm_wintype = "vsplit"
+
+nnoremap <silent> <leader>sl :FloatermSend<cr>
+vnoremap <silent> <leader>sl :FloatermSend<cr>
 
 " vimwiki
-let g:vimwiki_list = [{'path': '~/.vim/vimwiki/',
-                      \ 'syntax': 'markdown', 'ext': '.md'}]
-let g:vimwiki_global_ext = 0
+"let g:vimwiki_list = [{'path': '~/.vim/vimwiki/',
+"                      \ 'syntax': 'markdown', 'ext': '.md'}]
+"let g:vimwiki_global_ext = 0
