@@ -336,7 +336,19 @@ autocmd FileType html,css EmmetInstall
 let g:rooter_silent_chdir = 1
 
 " fzf
-nnoremap <silent> <C-p> :GFiles<CR>
+
+function <SID>CtrlP()
+  let l:j1 = system("git -C " . getcwd() . " rev-parse --is-inside-work-tree")
+  let l:j2 = system("git -C " . getcwd() . " rev-parse --is-bare-repository")
+  if l:j1 !~ "true" && l:j2 !~ "true"
+    :Files
+  else
+    :GFiles
+  endif
+endfunction
+
+
+nnoremap <silent> <C-p> :call <SID>CtrlP()<CR>
 nnoremap <silent> <leader>fb :Buffers<CR>
 nnoremap <silent> <leader>fh :History<CR>
 nnoremap <silent> <leader>fs :Rg<CR>

@@ -8,11 +8,11 @@ return {
 		{ "nvim-lua/plenary.nvim" },
 	},
 	config = function()
-		local cwd = vim.loop.cwd()
 		local builtin = require("telescope.builtin")
 		local utils = require("telescope.utils")
 
 		vim.keymap.set("n", "<c-p>", function()
+      local cwd = vim.loop.cwd()
 			local in_worktree = utils.get_os_command_output({ "git", "rev-parse", "--is-inside-work-tree" }, cwd)
 			local in_bare = utils.get_os_command_output({ "git", "rev-parse", "--is-bare-repository" }, cwd)
 			if in_worktree[1] ~= "true" and in_bare[1] ~= "true" then
