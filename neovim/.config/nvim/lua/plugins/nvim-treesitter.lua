@@ -14,7 +14,7 @@ return {
 				"org",
 				"css",
 				-- "lua",
-				-- "go",
+				"go",
 				-- "graphql",
 				"java",
 				-- "javascript",

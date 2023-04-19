@@ -3,6 +3,7 @@ local vim = vim
 return {
 	"Pocco81/DAPInstall.nvim",
 	branch = "dev",
+  enabled = false,
 	cmd = "DIList",
 	dependencies = { "mfussenegger/nvim-dap", "nvim-dap" },
 	config = function()
@@ -12,6 +13,15 @@ return {
 			installation_path = vim.fn.stdpath("data") .. "/dapinstall/",
 		})
 
+    local dbg_list = require("dap-install.api.debuggers").get_installed_debuggers()
+
+    -- for _, debugger in ipairs(dbg_list) do
+    --   dap_install.config(debugger)
+    -- end
+
+
+    --[[
+    --
 		dap_install.config("jsnode", {
 			configurations = {
 				{
@@ -33,5 +43,7 @@ return {
 				},
 			},
 		})
+
+    --]]
 	end,
 }

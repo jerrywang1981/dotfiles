@@ -2,13 +2,13 @@ local vim = vim
 
 return {
 	"voldikss/vim-floaterm",
-	keys = "<leader>ft",
+	keys = "<space>4",
 	-- cmd = {"FloatermToggle"},
 	init = function()
 		vim.g.floaterm_keymap_new = "<leader>fc"
 		vim.g.floaterm_keymap_prev = "<leader>fp"
 		vim.g.floaterm_keymap_next = "<leader>fn"
-		vim.g.floaterm_keymap_toggle = "<leader>ft"
+		vim.g.floaterm_keymap_toggle = "<space>4"
 		vim.g.floaterm_wintype = "vsplit"
 	end,
 	config = function()
