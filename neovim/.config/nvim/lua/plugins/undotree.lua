@@ -3,7 +3,7 @@ return {
 	"mbbill/undotree",
 	cmd = { "UndotreeToggle" },
 	init = function()
-		vim.api.nvim_set_keymap("n", "<space>7", "<cmd>UndotreeToggle<CR>", { silent = true })
+		vim.api.nvim_set_keymap("n", "<space>7", "<cmd>UndotreeToggle<CR>", { silent = true, desc = "Toggle Undo tree" })
 	end,
 	config = function()
 		vim.g.undotree_DiffAutoOpen = 1

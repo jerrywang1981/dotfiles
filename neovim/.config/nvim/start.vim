@@ -52,3 +52,9 @@ endif
 
 tnoremap <Esc> <C-\><C-n>
 tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
+
+" abbreviate
+
+iab jw Jerry Wang <jerrywang1981@outlook.com>
+iab jwc  .--- . .-. .-. -.--  .-- .- -. --.
+

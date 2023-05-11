@@ -1,6 +1,14 @@
+local vim = vim
+
+local version = vim.version()
+local minor = version.minor
+-- local tag = string.format("v0.%s.0", minor)
+local tag = "v0.8.0"
+
 return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
+  tag = tag,
 	config = function()
 		require("nvim-treesitter.configs").setup({
 			ensure_installed = {
@@ -11,7 +19,7 @@ return {
 				"yaml",
 				"typescript",
 				"html",
-				"org",
+				-- "org",
 				"css",
 				-- "lua",
 				"go",
@@ -39,7 +47,7 @@ return {
 			highlight = {
 				enable = true,
 				disable = { "elm", "bash" },
-				additional_vim_regex_highlighting = { "org" },
+				-- additional_vim_regex_highlighting = { "org" },
 			},
 			indent = {
 				enable = true,

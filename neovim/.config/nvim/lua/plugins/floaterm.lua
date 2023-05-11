@@ -12,6 +12,11 @@ return {
 		vim.g.floaterm_wintype = "vsplit"
 	end,
 	config = function()
-		vim.keymap.set({"n", "v"}, "<leader>sl", ":FloatermSend<cr>", { silent = true, noremap = true })
+		vim.keymap.set(
+			{ "n", "v" },
+			"<leader>sl",
+			":FloatermSend<cr>",
+			{ silent = true, noremap = true, desc = "Send Line to Term" }
+		)
 	end,
 }

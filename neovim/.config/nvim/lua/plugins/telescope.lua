@@ -24,19 +24,19 @@ return {
 
 		vim.keymap.set("n", "<leader>fh", function()
 			builtin.oldfiles()
-		end, { noremap = true, silent = true })
+		end, { noremap = true, silent = true, desc = "History Files" })
 
 		vim.keymap.set("n", "<leader>fs", function()
 			builtin.live_grep()
-		end, { noremap = true, silent = true })
+		end, { noremap = true, silent = true, desc = "Live Search" })
 
 		vim.keymap.set("n", "<leader>fS", function()
 			builtin.current_buffer_fuzzy_find()
-		end, { noremap = true, silent = true })
+		end, { noremap = true, silent = true, desc = "Fuzzy Find in current buffer" })
 
 		vim.keymap.set("n", "<leader>fb", function()
 			builtin.buffers()
-		end, { noremap = true, silent = true })
+		end, { noremap = true, silent = true, desc = "Buffers" })
 
 		require("telescope").setup({
 			defaults = {},

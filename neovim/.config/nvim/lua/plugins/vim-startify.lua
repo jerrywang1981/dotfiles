@@ -10,7 +10,7 @@ return {
 		vim.g.startify_enable_special = 0
 		vim.g.startify_lists = { { type = "files", header = { "   MRU" } } }
 		local ascii = {
-			"       _                       __          __                  ",
+			[[       _                       __          __                  ]],
 			[[      | |                      \ \        / /                  ]],
 			[[      | | ___ _ __ _ __ _   _   \ \  /\  / /_ _ _ __   __ _    ]],
 			[[  _   | |/ _ \ |__| |__| | | |   \ \/  \/ / _| | |_ \ / _` |   ]],
@@ -19,6 +19,9 @@ return {
 			[[                         __/ |                         __/ | * @jerrywang1981 github  ]],
 			[[                        |___/                         |___/  * https://jerrywang1981.github.io  ]],
 			[[                                                             * jerrywang1981@outlook.com ]],
+      [[ ]],
+      [[ ]],
+      [[        .--- . .-. .-. -.--  .-- .- -. --. ]],
 		}
 		vim.g.startify_custom_header = vim.fn["startify#center"](ascii)
 		local footer = {

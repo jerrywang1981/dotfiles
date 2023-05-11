@@ -3,3 +3,12 @@ Session.vim
 **/sessions/*
 coc-java-data
 tags
+/emacs/.emacs.d/.cache/
+/emacs/.emacs.d/elpa/
+/emacs/.emacs.d/auto-save-list/
+/emacs/.emacs.d/bookmarks
+/emacs/.emacs.d/history
+/emacs/.emacs.d/projects
+/emacs/.emacs.d/recentf
+/emacs/.emacs.d/transient/
+*.eld
