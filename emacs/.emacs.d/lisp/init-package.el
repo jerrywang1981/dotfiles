@@ -14,6 +14,7 @@
 (use-package diminish)
 (use-package delight)
 (use-package restart-emacs)
+
 (use-package vterm
   :commands vterm
   :config
@@ -37,10 +38,10 @@
 (use-package highlight-parentheses
   :init (add-hook 'prog-mode-hook 'highlight-parentheses-mode))
 
-(use-package avy)
-(global-set-key (kbd "M-g f") 'avy-goto-line)
-(global-set-key (kbd "M-g w") 'avy-goto-word-1)
-(global-set-key (kbd "C-'") 'avy-goto-char-2)
+;; (use-package avy)	
+;; (global-set-key (kbd "M-g f") 'avy-goto-line)
+;; (global-set-key (kbd "M-g w") 'avy-goto-word-1)
+;; (global-set-key (kbd "C-'") 'avy-goto-char-2)
 
 
 (use-package ivy
@@ -63,12 +64,6 @@
    :map minibuffer-local-map
    ("C-r" . counsel-minibuffer-history)))
 
-
- ;; (use-package smart-mode-line
- ;;   :init
- ;;   (setq sml/no-confirm-load-theme t)
- ;;   (setq sml/theme 'respectful)
- ;;   (sml/setup))
 
 
 (use-package emacs

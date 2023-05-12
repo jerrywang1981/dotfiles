@@ -9,17 +9,20 @@
 ;;; Code:
 
 (setq default-directory "~/")
-
 ;; Update the load-path
-(dolist (folder (directory-files (concat user-emacs-directory "lisp") t directory-files-no-dot-files-regexp))
-  (add-to-list 'load-path folder))
+(add-to-list 'load-path (expand-file-name (concat user-emacs-directory "lisp/")))
 
 (require 'init-fn)
 (require 'init-system)
 (require 'init-elpa)
+;; (require 'init-dashboard)
+(require 'init-evil)
+;; (require 'init-git)
+(require 'init-dev)
+;; (require 'init-eglot)
+(require 'init-lsp)
 (require 'init-builtin)
 (require 'init-package)
-(require 'init-dev)
 (require 'init-ui)
 
 
