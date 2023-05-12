@@ -30,18 +30,23 @@
     (setq lsp-completion-provider :none)
     (setq lsp-headerline-breadcrumb-enable t)
   :bind
-    ("C-c l s" . lsp-ivy-workspace-symbol))
+    ("C-c l s" . lsp-ivy-workspace-symbol)
+  )
 
 
 ;(add-hook 'go-mode-hook #'lsp-deferred)
 
 ;; optionally
 (use-package lsp-ui
+  :after lsp-mode
   :commands lsp-ui-mode
   :config
-;;  (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
-;;  (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references)
-  (setq lsp-ui-doc-position 'top)
+  (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
+  (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references)
+  (setq lsp-ui-sideline-show-diagnostics t)
+  (setq lsp-ui-sideline-show-code-actions t)
+  :hook
+    (lsp-mode . lsp-ui-mode)
   )
 
 ;; if you are ivy user

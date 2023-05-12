@@ -12,3 +12,4 @@ tags
 /emacs/.emacs.d/recentf
 /emacs/.emacs.d/transient/
 *.eld
+/emacs/.emacs.d/.*

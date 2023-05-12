@@ -56,7 +56,7 @@
 (use-package yasnippet-snippets
   :after yasnippet)
 
-;(use-package neotree)
+(use-package neotree)
 (use-package tree-sitter)
 (use-package tree-sitter-langs)
 (global-tree-sitter-mode)

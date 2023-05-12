@@ -15,14 +15,17 @@
 (require 'init-fn)
 (require 'init-system)
 (require 'init-elpa)
+(require 'init-package)
+(require 'init-term)
 ;; (require 'init-dashboard)
 (require 'init-evil)
-;; (require 'init-git)
+(require 'init-ivy)
+(require 'init-git)
 (require 'init-dev)
 ;; (require 'init-eglot)
 (require 'init-lsp)
+(require 'init-http)
 (require 'init-builtin)
-(require 'init-package)
 (require 'init-ui)
 
 
@@ -41,7 +44,15 @@
   :config
   (setq doom-modeline-buffer-file-name-style 'file-name
 	doom-modeline-enable-word-count 1
+  doom-modeline-project-detection 'auto
+  doom-modeline-indent-info nil
+  doom-modeline-vcs-max-length 24
+  doom-modeline-persp-name t
 	doom-modeline-icon nil
+  doom-modeline-gnus nil
+  doom-modeline-irc nil
+  doom-modeline-battery nil
+  doom-modeline-time nil
 	doom-modeline-bar-width 3)
   :custom ((doom-modeline-height 15)))
 
