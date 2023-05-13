@@ -8,7 +8,10 @@
 
 ;;; Code:
 
-(use-package magit)
+(use-package magit
+  :config
+  (evil-set-initial-state 'magit-mode 'emacs)
+  )
 
 (use-package git-gutter
   :config
