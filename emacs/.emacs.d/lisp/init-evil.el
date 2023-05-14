@@ -33,6 +33,7 @@
   (delete 'magit-todos evil-collection-mode-list)
   (delete 'dired evil-collection-mode-list)
   (delete 'dired-sidebar evil-collection-mode-list)
+  (delete 'neotree evil-collection-mode-list)
   :after evil)
 
 (evil-collection-init)

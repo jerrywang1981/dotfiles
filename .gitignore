@@ -13,3 +13,8 @@ tags
 /emacs/.emacs.d/transient/
 *.eld
 /emacs/.emacs.d/.*
+lazy-lock.json
+*.elc
+/emacs/.emacs.d/workspace/
+/emacs/.emacs.d/eclipse.jdt.ls/
+/emacs/.emacs.d/places

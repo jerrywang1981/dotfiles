@@ -19,7 +19,13 @@ return {
 	"wellle/targets.vim",
 	"kshenoy/vim-signature",
 	"mfussenegger/nvim-jdtls",
-
+	{
+    "junegunn/fzf",
+    build = function ()
+      vim.fn['fzf#install']()
+    end
+  },
+	"junegunn/fzf.vim",
 	{
 		"nvim-tree/nvim-web-devicons",
 		config = function()

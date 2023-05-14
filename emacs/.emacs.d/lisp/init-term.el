@@ -12,6 +12,7 @@
   :commands vterm
   :config
   (evil-set-initial-state 'vterm-mode 'emacs)
+  (define-key vterm-mode-map (kbd "C-q") #'vterm-send-next-key)
   (setq vterm-max-scrollback 10000))
 
 

@@ -8,13 +8,28 @@
 
 ;;; Code:
 
+(use-package lsp-python-ms
+  :init (setq lsp-python-ms-auto-install-server t)
+  ;; :hook (python-mode . (lambda ()
+  ;;                         (require 'lsp-python-ms)
+ ;;                         (lsp-deferred))))  ; or lsp-deferred
+)
+
+
+
 (use-package lsp-mode
   :init
   ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
   (setq lsp-keymap-prefix "C-c l"
+	lsp-enable-indentation nil
 	lsp-file-watch-threshold 500)
+  ;; :after hydra
   :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
-         (python-mode . lsp-deferred)
+          (python-mode .
+            (lambda()
+              (require 'lsp-python-ms)
+              (lsp-deferred)
+              ))
          (go-mode . lsp-deferred)
          (java-mode . lsp-deferred)
          (js-mode . lsp-deferred)
@@ -29,12 +44,27 @@
   :config
     (setq lsp-completion-provider :none)
     (setq lsp-headerline-breadcrumb-enable t)
+    ;; (setq js-indent-level 2)
   :bind
     ("C-c l s" . lsp-ivy-workspace-symbol)
   )
 
+(use-package lsp-java)
+(use-package dap-mode :after lsp-mode :config (dap-auto-configure-mode))
+(use-package dap-java :ensure nil)
+;; (defhydra hydra-lsp-mode
+;;   (:color pink :hint nil)
+;;   "
+;;   Information
+;;   "
+;;   ("d" lsp-find-definition "in")
+;;   ("q" nil "quit" :color blue)
+;; )
 
-;(add-hook 'go-mode-hook #'lsp-deferred)
+;; (my-leader-key
+;;   "g"
+;;   '(hydra-lsp-mode/body :which-key "Lsp")
+;;   )
 
 ;; optionally
 (use-package lsp-ui
@@ -54,5 +84,23 @@
   :commands lsp-ivy-workspace-symbol
   :after (lsp-mode)
   )
+
+
+;; optionally if you want to use debugger
+;; (use-package dap-mode
+;;   :after hydra lsp-mode
+;;   :commands dap-debug
+;;   :custom
+;;   (dap-auto-configure-mode t)
+;;   :config
+;;   (dap-node-setup)
+;;   (dap-ui-mode 1)
+;;   )
+
+;; (add-hook 'dap-stopped-hook
+;;           (lambda (arg) (call-interactively #'dap-hydra)))
+
+;; (use-package dap-LANGUAGE) to load the dap adapter for your language
+
 
 (provide 'init-lsp)

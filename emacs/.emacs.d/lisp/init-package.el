@@ -33,10 +33,10 @@
   :init (add-hook 'prog-mode-hook 'highlight-parentheses-mode))
 
 
-(use-package emacs
-  :config
-  (setq display-line-numbers-type 'relative)
-  (global-display-line-numbers-mode t))
+;; (use-package emacs
+;;   :config
+;;   (setq display-line-numbers-type 'relative)
+;;   (global-display-line-numbers-mode t))
 
 (use-package format-all
   :diminish
@@ -49,5 +49,7 @@
   (which-key-mode))
 
 (column-number-mode)
+
+(use-package iedit)
 
 (provide 'init-package)

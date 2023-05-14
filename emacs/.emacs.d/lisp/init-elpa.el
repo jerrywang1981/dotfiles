@@ -14,9 +14,13 @@
       load-prefer-newer t)
 
 
+;; (setq package-archives '(("gnu"    . "http://elpa.emacs-china.org/gnu/")
+                         ;; ("nongnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/nongnu/")
+                         ;; ("melpa"  . "http://elpa.emacs-china.org/melpa/")))
 
 (setq package-archives '(("gnu"    . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
                          ("nongnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/nongnu/")
+                         ("org" . "https://orgmode.org/elpa/")
                          ("melpa"  . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
 
 
@@ -47,4 +51,3 @@
   ;; (auto-package-update-maybe))
 
 (provide 'init-elpa)
-

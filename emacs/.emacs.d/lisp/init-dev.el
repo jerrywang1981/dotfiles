@@ -8,19 +8,31 @@
 
 ;;; Code:
 
+(use-package flycheck
+  :hook
+  (prog-mode . flycheck-mode)
+  )
+
 (defun prog-extra-modes()
   "Extra modes when in programming mode."
 
+  (setq display-line-numbers-type 'relative)
+  (set (make-local-variable 'comment-auto-fill-only-comments) t)
   (column-number-mode)
   (display-line-numbers-mode)
-  (electric-pair-mode)
-  (flymake-mode)
+  ;; (flymake-mode)
+  (flycheck-mode t)
+  (electric-pair-mode t)
+  (show-paren-mode t)
   (hs-minor-mode)
-  (prettify-symbols-mode)
+  ;; (prettify-symbols-mode)
+  (editorconfig-mode t)
+  (editorconfig-apply)
+  (auto-fill-mode t)
+)
 
-  (use-package highlight-parentheses
-    :hook (prog-mode . highlight-parentheses-mode))
-  )
+(use-package highlight-parentheses
+  :hook (prog-mode . highlight-parentheses-mode))
 
 
 (add-hook 'prog-mode-hook 'prog-extra-modes)
@@ -31,10 +43,10 @@
   :config (setq company-minimum-prefix-length 1
                 company-show-quick-access t))
 
+(require 'company)
 
 
 (use-package yasnippet
-  :ensure t
   :hook
   (prog-mode . yas-minor-mode)
   :config
@@ -51,43 +63,73 @@
   (define-key yas-minor-mode-map (kbd "TAB")    nil)
   (define-key yas-minor-mode-map (kbd "<tab>")  nil)
   :bind
-  (:map yas-minor-mode-map ("S-<tab>" . yas-expand)))
+  (:map yas-minor-mode-map ("S-<tab>" . yas-expand))
+  )
 
 (use-package yasnippet-snippets
   :after yasnippet)
 
-(use-package neotree)
-(use-package tree-sitter)
-(use-package tree-sitter-langs)
-(global-tree-sitter-mode)
-(add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
+(use-package neotree
+  :init
+  (add-hook 'neotree-mode-hook #'(lambda()
+                                ;; (local-unset-key (kbd "SPC") nil)
+                                (evil-surround-mode -1)
+                                (evil-collection-unimpaired-mode -1)
+                                (evil-local-mode -1)
+                                   ))
+  ;; :bind
+  ;; ("C-c t 1" . neotree-toggle)
+  :config
+  (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+  (evil-set-initial-state 'neotree-mode 'emacs)
+  )
+
+;; (use-package tree-sitter
+;;   :init
+;;   (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
+;;   :hook (after-init . global-tree-sitter-mode)
+;; )
+;; (use-package tree-sitter-langs)
 
 ;; Golang
 (use-package go-mode)
 (use-package json-mode)
 (use-package css-mode)
-(use-package rhtml-mode)
+;; (use-package rhtml-mode)
 (use-package markdown-mode)
 ;(use-package java-mode)
-;(use-package js-mode)
+;; (use-package js-mode)
+
 (use-package lua-mode)
 (use-package rjsx-mode)
 (use-package rust-mode)
 (use-package typescript-mode)
 (use-package toml-mode)
 (use-package yaml-mode)
+;; (use-package prettier
+;;   :init
+;;   (add-hook 'js2-mode-hook 'prettier-js-mode)
+;;   (add-hook 'web-mode-hook 'prettier-js-mode)
+;;   :config
+;;   (setq prettier-prettify-on-save-flag nil
+;;         prettier-editorconfig-flag nil
+;;     )
+;;   )
+
+(use-package web-mode
+  ;; :mode
+  ;; ("\\.html\\'" . web-mode)
+  ;; ("\\.js\\'" . web-mode)
+  ;; :config
+  ;; (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+  )
 
 
-;; optionally if you want to use debugger
-(use-package dap-mode)
-;; (use-package dap-LANGUAGE) to load the dap adapter for your language
 
 
-(use-package flycheck
-  :hook
-  (prog-mode . flycheck-mode))
-
-(use-package editorconfig)
-(editorconfig-mode 1)
+(use-package editorconfig
+  :config
+  (editorconfig-mode 1)
+  )
 
 (provide 'init-dev)
