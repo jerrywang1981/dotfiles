@@ -10,12 +10,21 @@
 
 
 (use-package general
+  :init
+  (setq general-override-states '(insert
+                                  emacs
+                                  hybrid
+                                  normal
+                                  visual
+                                  motion
+                                  operator
+                                  replace))
   :config
   (general-evil-setup t)
   (general-create-definer my-ctrl-c
     :prefix "C-c")
-  (general-create-definer my-space
-    :prefix "SPC")
+  ;; (general-create-definer my-space
+  ;;   :prefix "SPC")
   (general-create-definer my-comma
     :prefix ",")
   )

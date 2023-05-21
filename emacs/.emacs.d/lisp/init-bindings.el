@@ -77,16 +77,17 @@ _p_: Switch project   _f_: Find files _g_: Grep in project  _h_: Recent files  _
   )
 
 
-(my-space
-  :states 'normal
+(general-define-key
+  :states '(normal visual motion)
   :keymaps 'override
+  :prefix "SPC"
   "1" '(neotree :which-key "Neo Tree")
   "4" '(multi-vterm-dedicated-toggle :which-key "VTerm")
   "p" '(hydra-project-p/body :which-key "Project")
   )
 
 (general-define-key
-  :states '(normal visual)
+  :states '(normal visual motion)
   :keymaps 'prog-mode-map
   :prefix "SPC"
   "g" #'(hydra-lsp-g/body :which-key "Goto")

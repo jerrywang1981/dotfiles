@@ -84,12 +84,12 @@
   (evil-set-initial-state 'neotree-mode 'emacs)
   )
 
-;; (use-package tree-sitter
-;;   :init
-;;   (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
-;;   :hook (after-init . global-tree-sitter-mode)
-;; )
-;; (use-package tree-sitter-langs)
+(use-package tree-sitter
+ :init
+ (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
+ :hook (after-init . global-tree-sitter-mode)
+)
+(use-package tree-sitter-langs)
 
 ;; Golang
 (use-package go-mode)
