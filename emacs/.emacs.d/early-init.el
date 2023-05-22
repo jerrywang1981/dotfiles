@@ -59,7 +59,6 @@
 
 (when (display-graphic-p) (toggle-scroll-bar -1)) ;
 
-(savehist-mode 1)
 
 (setq display-line-numbers-type 'relative)
 (add-to-list 'default-frame-alist '(width . 90))

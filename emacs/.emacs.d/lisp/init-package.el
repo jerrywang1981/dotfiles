@@ -10,7 +10,7 @@
 
 
 (use-package gnu-elpa-keyring-update)
-(use-package diminish)
+;; (use-package diminish)
 (use-package delight)
 (use-package restart-emacs)
 

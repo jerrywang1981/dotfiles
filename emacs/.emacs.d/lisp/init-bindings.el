@@ -82,7 +82,7 @@ _p_: Switch project   _f_: Find files _g_: Grep in project  _h_: Recent files  _
   :keymaps 'override
   :prefix "SPC"
   "1" '(neotree :which-key "Neo Tree")
-  "4" '(multi-vterm-dedicated-toggle :which-key "VTerm")
+  "4" '(multi-vterm-next :which-key "VTerm")
   "p" '(hydra-project-p/body :which-key "Project")
   )
 
