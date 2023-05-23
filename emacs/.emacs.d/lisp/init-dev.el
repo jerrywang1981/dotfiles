@@ -13,6 +13,12 @@
   (prog-mode . flycheck-mode)
   )
 
+(use-package editorconfig
+  :commands editorconfig-mode
+  :config
+  (editorconfig-mode 1)
+  )
+
 (defun prog-extra-modes()
   "Extra modes when in programming mode."
 
@@ -127,9 +133,5 @@
 
 
 
-(use-package editorconfig
-  :config
-  (editorconfig-mode 1)
-  )
 
 (provide 'init-dev)

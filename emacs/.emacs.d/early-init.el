@@ -39,11 +39,6 @@
 ;; Misc settings
 (setq mode-line-compact t)
 
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
-(tooltip-mode -1)
-(set-fringe-mode 10)
-(menu-bar-mode -1)
 
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 ;; (global-set-key (kbd "RET") 'newline-and-indent)
@@ -57,7 +52,14 @@
 ;; (add-hook 'prog-mode-hook #'hs-minor-mode)
 ;; (global-display-line-numbers-mode 1)
 
-(when (display-graphic-p) (toggle-scroll-bar -1)) ;
+(when (display-graphic-p)
+  (toggle-scroll-bar -1)
+  (tool-bar-mode -1)
+  (scroll-bar-mode -1)
+  (tooltip-mode -1)
+  (set-fringe-mode 10)
+  (menu-bar-mode -1)
+  ) ;
 
 
 (setq display-line-numbers-type 'relative)
