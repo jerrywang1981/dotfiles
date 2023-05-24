@@ -8,10 +8,6 @@
 
 ;;; Code:
 
-(use-package flycheck
-  :hook
-  (prog-mode . flycheck-mode)
-  )
 
 (use-package editorconfig
   :commands editorconfig-mode
@@ -26,8 +22,8 @@
   (set (make-local-variable 'comment-auto-fill-only-comments) t)
   (column-number-mode)
   (display-line-numbers-mode)
-  ;; (flymake-mode)
-  (flycheck-mode t)
+  (flymake-mode)
+  ;; (flycheck-mode t)
   (electric-pair-mode t)
   (show-paren-mode t)
   (hs-minor-mode)

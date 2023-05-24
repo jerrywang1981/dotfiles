@@ -32,14 +32,18 @@ _k_: previous hunk  _r_: revert hunk
 
 ;; for lsp (goto)
 
+;_r_: References
 (defhydra hydra-lsp-g (:hint nil)
   "
 LSP Functions:
 
-_i_: Implementation  _r_: References
+_i_: Implementation  _d_: declaration _t_: Type definition
 "
-  ("i" lsp-find-implementation :color blue)
-  ("r" lsp-find-references :color blue)
+  ;; ("i" lsp-find-implementation :color blue)
+  ;; ("r" lsp-find-references :color blue)
+  ("i" eglot-find-implementation :color blue)
+  ("d" eglot-find-declaration :color blue)
+  ("t" eglot-find-typeDefinition :color blue)
   ("q" nil)
   )
 
@@ -50,19 +54,11 @@ Formatter:
 _=_: Format All  _e_: Editor Config   _l_: Lsp Format   _q_: quit
 "
   ("=" format-all-buffer :color blue)
-  ("l" lsp-format-buffer :color blue)
+  ;; ("l" lsp-format-buffer :color blue)
+  ("l" eglot-format-buffer :color blue)
   ("e" editorconfig-format-buffer :color blue)
   ("q" nil)
   )
-
-;; (my-comma
-;;   :states 'normal
-;;   :keymaps 'lsp-mode-map
-;;   "g" #'(hydra-lsp-g/body :which-key "Goto")
-;;   "d" #'(lsp-treemacs-errors-list :which-key "Diagonostic")
-;;   "a" #'(lsp-execute-code-action :which-key "Code Action")
-;;   "=" #'(hydra-lsp-eq/body :which-key "Format")
-;;   )
 
 (defhydra hydra-project-p (:hint nil)
   "
@@ -91,8 +87,10 @@ _p_: Switch project   _f_: Find files _g_: Grep in project  _h_: Recent files  _
   :keymaps 'prog-mode-map
   :prefix "SPC"
   "g" #'(hydra-lsp-g/body :which-key "Goto")
-  "d" #'(lsp-treemacs-errors-list :which-key "Diagonostic")
-  "a" #'(lsp-execute-code-action :which-key "Code Action")
+  ;; "d" #'(lsp-treemacs-errors-list :which-key "Diagonostic")
+  ;; "a" #'(lsp-execute-code-action :which-key "Code Action")
+  "d" #'(flymake-show-buffer-diagnostics :which-key "Diagonostic")
+  "a" #'(eglot-code-actions :which-key "Code Action")
   "=" #'(hydra-lsp-eq/body :which-key "Format")
   )
 
