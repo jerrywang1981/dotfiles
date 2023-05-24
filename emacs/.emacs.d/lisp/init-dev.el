@@ -31,7 +31,6 @@
   (electric-pair-mode t)
   (show-paren-mode t)
   (hs-minor-mode)
-  ;; (prettify-symbols-mode)
   (editorconfig-mode t)
   (editorconfig-apply)
   (auto-fill-mode t)
