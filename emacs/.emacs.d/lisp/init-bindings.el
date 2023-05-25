@@ -36,7 +36,6 @@ _k_: previous hunk  _r_: revert hunk
 (defhydra hydra-lsp-g (:hint nil)
   "
 LSP Functions:
-
 _i_: Implementation  _d_: declaration _t_: Type definition
 "
   ;; ("i" lsp-find-implementation :color blue)
@@ -57,6 +56,17 @@ _=_: Format All  _e_: Editor Config   _l_: Lsp Format   _q_: quit
   ;; ("l" lsp-format-buffer :color blue)
   ("l" eglot-format-buffer :color blue)
   ("e" editorconfig-format-buffer :color blue)
+  ("q" nil)
+  )
+
+(defhydra hydra-lsp-l (:hint nil)
+  "
+Misc Lsp Functions:
+_q_: Quickfix   _o_: Organize Imports   _r_: Rename  _q_: quit
+"
+  ("q" eglot-code-action-quickfix :color blue)
+  ("o" eglot-code-action-organize-imports :color blue)
+  ("r" eglot-rename :color blue)
   ("q" nil)
   )
 
@@ -91,6 +101,7 @@ _p_: Switch project   _f_: Find files _g_: Grep in project  _h_: Recent files  _
   ;; "a" #'(lsp-execute-code-action :which-key "Code Action")
   "d" #'(flymake-show-buffer-diagnostics :which-key "Diagonostic")
   "a" #'(eglot-code-actions :which-key "Code Action")
+  "l" #'(hydra-lsp-l/body :which-key "Misc Lsp")
   "=" #'(hydra-lsp-eq/body :which-key "Format")
   )
 
