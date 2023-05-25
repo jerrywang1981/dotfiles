@@ -14,4 +14,9 @@ GRS_PKCS11_DISABLE_EC=1;
 export GRS_PKCS11_DISABLE_EC
 GRS_PKCS11_DISABLE_EC=1;
 export GRS_PKCS11_DISABLE_EC
-. "$HOME/.cargo/env"
+
+if [ -f ~/.cargo/env ]; then
+	. ~/.cargo/env
+fi
+
+export PATH=$PATH:$HOME/go/bin

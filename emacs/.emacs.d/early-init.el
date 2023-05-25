@@ -31,11 +31,6 @@
 (setq frame-inhibit-implied-resize t)
 
 
-;; Clean GUI
-;; (push '(scroll-bar-mode . nil) default-frame-alist)
-;; (push '(tool-bar-mode . nil) default-frame-alist)
-;; (push '(menu-bar-mode . nil) default-frame-alist)
-
 ;; Misc settings
 (setq mode-line-compact t)
 
