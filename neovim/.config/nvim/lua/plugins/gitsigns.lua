@@ -5,7 +5,6 @@ return {
 	-- },
 	config = function()
 		require("gitsigns").setup({
-			keymaps = {},
 			-- current_line_blame = true
 		})
 	end,
