@@ -116,6 +116,8 @@ source /usr/local/ibmcloud/autocomplete/zsh_autocomplete
 
 [ -f ~/.sdkman/bin/sdkman-init.sh ] && source ~/.sdkman/bin/sdkman-init.sh
 
-export PATH=$HOME/go/bin:$PATH
+export PATH=$HOME/go/bin:$HOME/.local/bin:$PATH
+
+export PATH=$PATH:$HOME/.local/share/coursier/bin
 
 [ -f ~/.cargo/env ] && source "$HOME/.cargo/env"
