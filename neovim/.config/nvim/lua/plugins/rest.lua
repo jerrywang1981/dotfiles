@@ -4,6 +4,7 @@ return {
 	"rest-nvim/rest.nvim",
 	dependencies = { "nvim-lua/plenary.nvim" },
 	ft = "http",
+	tag = "v1.2.1",
 	config = function()
 		require("rest-nvim").setup({
 			-- Open request results in a horizontal split

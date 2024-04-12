@@ -3,6 +3,7 @@ local keymap = vim.keymap.set
 
 return {
 	"mhartington/formatter.nvim",
+  enabled = false,
 	config = function()
     local ft_names = {
       "javascript",

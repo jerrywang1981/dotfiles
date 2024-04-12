@@ -35,7 +35,7 @@ return {
 			buf_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
 			buf_set_keymap("n", "<space>d", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 			buf_set_keymap("n", "<space>a", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-			buf_set_keymap("n", "<localleader>=", "<cmd>lua vim.lsp.buf.format({timeout_ms=2000})<CR>", opts)
+			-- buf_set_keymap("n", "<localleader>=", "<cmd>lua vim.lsp.buf.format({timeout_ms=2000})<CR>", opts)
 			-- Set some keybinds conditional on server capabilities
 
 			-- Set autocommands conditional on server_capabilities
@@ -102,7 +102,7 @@ return {
 			"emmet_ls",
 			-- 'vimls',
 			-- 'sqlls',
-			'rust_analyzer',
+			"rust_analyzer",
 			-- 'sumneko_lua',
 			-- 'jedi_language_server',
 		}
@@ -127,12 +127,12 @@ return {
 			end
 		end
 
-    vim.diagnostic.config({
-      virtual_text = {
+		vim.diagnostic.config({
+			virtual_text = {
 				spacing = 0,
-        source = true,
-      },
-    })
+				source = true,
+			},
+		})
 		vim.cmd([[ autocmd CursorHold * lua vim.diagnostic.open_float() ]])
 		-- vim.api.nvim_command([[autocmd BufWritePre *.js,*.lua lua vim.lsp.buf.format({bufnr=nil, timeout_ms=1000})]])
 	end,
