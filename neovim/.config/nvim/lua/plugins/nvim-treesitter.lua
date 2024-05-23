@@ -7,6 +7,7 @@ local tag = "v0.8.0"
 
 return {
 	"nvim-treesitter/nvim-treesitter",
+	enabled = false,
 	build = ":TSUpdate",
   tag = tag,
 	config = function()

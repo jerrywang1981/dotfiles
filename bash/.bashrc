@@ -11,7 +11,7 @@ fi
     # PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 # fi
 
-PATH="$HOME/.cargo/bin:$HOME/.local/bin:$HOME/bin:$PATH"
+PATH="$HOME/.local/share/bob/nvim-bin:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/bin:$PATH"
 export PATH
 
 # export JDTLS_HOME=~/.local/share/nvim/lsp_servers/jdtls

@@ -20,3 +20,4 @@ if [ -f ~/.cargo/env ]; then
 fi
 
 export PATH=$PATH:$HOME/go/bin
+. "$HOME/.cargo/env"
