@@ -1,7 +1,7 @@
 return {
 	"nvim-lualine/lualine.nvim",
 	dependencies = {
-		{ "nvim-tree/nvim-web-devicons", opt = true },
+		"nvim-tree/nvim-web-devicons",
 	},
 	config = function()
 		local jerry = function()
@@ -12,7 +12,8 @@ return {
 			options = {
 				icons_enabled = true,
 				globalstatus = true,
-				theme = 'auto',
+				-- theme = 'auto',
+				theme = "tokyonight",
 				component_separators = { left = "", right = "" },
 				section_separators = { left = "", right = "" },
 				disabled_filetypes = {},
