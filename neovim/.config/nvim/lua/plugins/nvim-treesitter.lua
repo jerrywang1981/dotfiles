@@ -8,9 +8,9 @@ local enabled = vim.version().minor < 10 and true or false
 
 return {
 	"nvim-treesitter/nvim-treesitter",
-	enabled = enabled,
+	-- enabled = enabled,
 	build = ":TSUpdate",
-	tag = tag,
+	-- tag = tag,
 	config = function()
 		require("nvim-treesitter.configs").setup({
 			ensure_installed = {
