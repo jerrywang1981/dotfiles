@@ -49,7 +49,9 @@ end)
 
 vim.cmd(string.format("source %s/%s", config_dir, "start.vim"))
 
-require("option")
+vim.cmd(string.format("source %s/%s", config_dir, "option.vim"))
+
+-- require("option")
 require("keymapping")
 require("plugins")
 require("autocmd")
