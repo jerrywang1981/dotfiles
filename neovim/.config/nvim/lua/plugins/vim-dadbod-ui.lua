@@ -2,9 +2,8 @@ local vim = vim
 return {
 	"kristijanhusak/vim-dadbod-ui",
 	dependencies = "tpope/vim-dadbod",
-  cmd='DBUI',
+	cmd = "DBUI",
 	config = function()
-    vim.g.db_ui_execute_on_save = 0
+		-- vim.g.db_ui_execute_on_save = 0
 	end,
 }
-

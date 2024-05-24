@@ -2,22 +2,22 @@ local vim = vim
 return {
 	{
 		"EdenEast/nightfox.nvim",
-		enabled = false,
 		lazy = false,
 		priority = 1000,
 		config = function()
-			-- vim.o.background = "dark"
-			-- vim.api.nvim_command("colorscheme nightfox")
+			vim.o.background = "dark"
+			vim.api.nvim_command("colorscheme nightfox")
 		end,
 	},
 	{
 		"folke/tokyonight.nvim",
 		lazy = false,
+		enabled = false,
 		priority = 1000,
 		opts = {},
 		config = function()
-			vim.o.background = "dark"
-			vim.api.nvim_command("colorscheme tokyonight")
+			-- vim.o.background = "dark"
+			-- vim.api.nvim_command("colorscheme tokyonight")
 		end,
 	},
 
