@@ -1,7 +1,7 @@
 return {
-	"folke/zen-mode.nvim",
+  "folke/zen-mode.nvim",
   cmd = "ZenMode",
-	config = function()
-		require("zen-mode").setup()
-	end,
+  config = function()
+    require("zen-mode").setup()
+  end,
 }

@@ -1,75 +1,75 @@
 local vim = vim
 return {
-	{
-		"EdenEast/nightfox.nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			vim.o.background = "dark"
-			vim.api.nvim_command("colorscheme nightfox")
-		end,
-	},
-	{
-		"folke/tokyonight.nvim",
-		lazy = false,
-		enabled = false,
-		priority = 1000,
-		opts = {},
-		config = function()
-			-- vim.o.background = "dark"
-			-- vim.api.nvim_command("colorscheme tokyonight")
-		end,
-	},
+  {
+    "EdenEast/nightfox.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.o.background = "dark"
+      vim.api.nvim_command("colorscheme nightfox")
+    end,
+  },
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    enabled = false,
+    priority = 1000,
+    opts = {},
+    config = function()
+      -- vim.o.background = "dark"
+      -- vim.api.nvim_command("colorscheme tokyonight")
+    end,
+  },
 
-	"alvan/vim-closetag",
-	"milisims/nvim-luaref",
-	-- "nanotee/luv-vimdocs",
-	"tpope/vim-surround",
-	"tpope/vim-unimpaired",
-	"tpope/vim-repeat",
-	"wellle/targets.vim",
-	"kshenoy/vim-signature",
-	"mfussenegger/nvim-jdtls",
-	{
-		"junegunn/fzf",
-		build = function()
-			vim.fn["fzf#install"]()
-		end,
-	},
-	"junegunn/fzf.vim",
-	{
-		"nvim-tree/nvim-web-devicons",
-		config = function()
-			require("nvim-web-devicons").setup({})
-		end,
-	},
-	{
-		"honza/dockerfile.vim",
-		opt = true,
-		ft = { "Dockerfile" },
-	},
-	{
-		"junegunn/gv.vim",
-		opt = true,
-		cmd = { "GV" },
-	},
-	{
-		"elzr/vim-json",
-		opt = true,
-		ft = { "json" },
-		config = function()
-			vim.g.vim_json_syntax_conceal = 0
-		end,
-	},
-	{
-		"echasnovski/mini.ai",
-		version = "*",
-		enabled = false,
-		config = function()
-			require("mini.ai").setup()
-		end,
-	},
-	--[=====[
+  "alvan/vim-closetag",
+  "milisims/nvim-luaref",
+  -- "nanotee/luv-vimdocs",
+  "tpope/vim-surround",
+  "tpope/vim-unimpaired",
+  "tpope/vim-repeat",
+  "wellle/targets.vim",
+  "kshenoy/vim-signature",
+  "mfussenegger/nvim-jdtls",
+  {
+    "junegunn/fzf",
+    build = function()
+      vim.fn["fzf#install"]()
+    end,
+  },
+  "junegunn/fzf.vim",
+  {
+    "nvim-tree/nvim-web-devicons",
+    config = function()
+      require("nvim-web-devicons").setup({})
+    end,
+  },
+  {
+    "honza/dockerfile.vim",
+    opt = true,
+    ft = { "Dockerfile" },
+  },
+  {
+    "junegunn/gv.vim",
+    opt = true,
+    cmd = { "GV" },
+  },
+  {
+    "elzr/vim-json",
+    opt = true,
+    ft = { "json" },
+    config = function()
+      vim.g.vim_json_syntax_conceal = 0
+    end,
+  },
+  {
+    "echasnovski/mini.ai",
+    version = "*",
+    enabled = false,
+    config = function()
+      require("mini.ai").setup()
+    end,
+  },
+  --[=====[
 
 
 
