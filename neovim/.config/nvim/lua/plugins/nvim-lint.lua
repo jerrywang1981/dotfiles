@@ -1,31 +1,32 @@
 local vim = vim
 return {
-	"mfussenegger/nvim-lint",
-	enabled = true,
+  "mfussenegger/nvim-lint",
+  enabled = true,
   event = {
     "BufReadPre",
     "BufNewFile",
   },
-	config = function()
-		local lint = require("lint")
+  config = function()
+    local lint = require("lint")
 
-		-- lint.linters_by_ft = {
-		-- 	markdown = { "vale" },
-		-- 	javascript = { "eslint" },
-		-- }
+    -- lint.linters_by_ft = {
+    -- 	markdown = { "vale" },
+    -- 	javascript = { "eslint" },
+    -- }
 
-		-- vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-		-- 	callback = function()
-		-- 		require("lint").try_lint()
-		-- 	end,
-		-- })
+    -- vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+    -- 	callback = function()
+    -- 		require("lint").try_lint()
+    -- 	end,
+    -- })
 
-     lint.linters_by_ft = {
+    lint.linters_by_ft = {
       javascript = { "eslint_d" },
       typescript = { "eslint_d" },
       javascriptreact = { "eslint_d" },
       typescriptreact = { "eslint_d" },
       svelte = { "eslint_d" },
+      kotlin = { "ktlint" },
       python = { "pylint" },
     }
 
@@ -41,6 +42,5 @@ return {
     vim.keymap.set("n", "<leader>ll", function()
       lint.try_lint()
     end, { desc = "Trigger linting for current file" })
-
-	end,
+  end,
 }

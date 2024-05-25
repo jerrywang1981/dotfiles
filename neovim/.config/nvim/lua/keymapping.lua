@@ -3,7 +3,6 @@ local vim = vim
 vim.api.nvim_set_keymap("", "<leader>ev", [[<cmd>exe 'edit' $MYVIMRC<cr>]], { noremap = true, silent = true })
 
 for _, key in pairs({ "<Up>", "<Down>", "<Left>", "<Right>" }) do
-  -- vim.keymap.set({ "n", "i", "v", "x" }, key, "<Nop>", { noremap = true, silent = true, desc = "Disable arrow keys" })
   vim.api.nvim_set_keymap("", key, "<Nop>", { noremap = true, silent = true, desc = "Disable arrow keys" })
 end
 

@@ -102,6 +102,7 @@ return {
       -- 'eslint',
       "gopls",
       "emmet_ls",
+      "tailwindcss",
       "metals",
       -- 'vimls',
       "sqlls",
