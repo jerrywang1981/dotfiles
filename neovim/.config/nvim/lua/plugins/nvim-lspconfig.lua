@@ -1,5 +1,4 @@
 local vim = vim
-
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
@@ -11,6 +10,30 @@ return {
     local lsp_status = require("lsp-status")
     local log = require("vim.lsp.log")
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+    local configs = require("lspconfig/configs")
+    local util = require("lspconfig/util")
+
+    --[=[
+    --
+    configs.cjls = {
+      default_config = {
+        cmd = { "LSPServer" },
+        filetypes = { "cangjie" },
+        root_dir = util.path.dirname,
+      },
+      docs = {
+        description = [[
+]],
+        default_config = {
+          root_dir = [[root_pattern(".git")]],
+        },
+      },
+    }
+
+    lspconfig.cjls.setup({})
+
+    --]=]
 
     local on_attach = function(client, bufnr)
       local function buf_set_keymap(...)
@@ -107,6 +130,7 @@ return {
       -- 'vimls',
       "sqlls",
       "rust_analyzer",
+      --"cjls",
     }
 
     for _, lsp in ipairs(servers) do
@@ -119,7 +143,30 @@ return {
       })
     end
 
-    lspconfig["tsserver"].setup({
+    --[[
+    lspconfig["cjls"].setup({
+      on_attach = on_attach_vim,
+      --capabilities = capabilities,
+      flags = {
+        debounce_text_change = 150,
+      },
+      handlers = {
+        ["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+          -- Disable virtual_text
+          virtual_text = true,
+        }),
+
+        ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+          -- Use a sharp border with `FloatBorder` highlights
+          border = "single",
+          -- add the title in hover float window
+          title = "hover",
+        }),
+      },
+    })
+    --]]
+
+    lspconfig["ts_ls"].setup({
       on_attach = on_attach_vim,
       capabilities = capabilities,
       flags = {

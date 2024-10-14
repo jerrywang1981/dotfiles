@@ -52,6 +52,8 @@ vim.cmd(string.format("source %s/%s", config_dir, "start.vim"))
 vim.cmd(string.format("source %s/%s", config_dir, "option.vim"))
 
 require("keymapping")
-require("plugins")
+-- require("plugins")
+
+require("config.lazy")
 
 vim.cmd(string.format("source %s/%s", config_dir, "autocmd.vim"))
