@@ -1,6 +1,6 @@
 local vim = vim
 
-local tag = vim.version().minor < 10 and "0.1.5" or "0.1.7"
+local tag = vim.version().minor < 10 and "0.1.5" or "0.1.8"
 
 return {
   "nvim-telescope/telescope.nvim",

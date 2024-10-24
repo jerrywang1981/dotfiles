@@ -1,3 +1,4 @@
+local vim = vim
 return {
   "stevearc/conform.nvim",
   event = { "BufReadPre", "BufNewFile" },
@@ -6,7 +7,8 @@ return {
 
     conform.setup({
       formatters_by_ft = {
-        javascript = { "prettier" },
+        javascript = { "prettierd", "prettier", stop_after_first = true },
+        angular = { "prettierd", "prettier", stop_after_first = true },
         typescript = { "prettier" },
         javascriptreact = { "prettier" },
         typescriptreact = { "prettier" },
@@ -19,20 +21,38 @@ return {
         markdown = { "prettier" },
         graphql = { "prettier" },
         lua = { "stylua" },
+        go = { "goimports", "gofmt" },
+        rust = { "rustfmt", lsp_format = "fallback" },
+        -- java = { "google-java-format" },
         python = { "isort", "black" },
+        -- xml = { "xmlformat" },
       },
-      format_on_save = {
-        lsp_fallback = true,
-        async = false,
+      default_format_opts = {
+        lsp_format = "fallback",
+        -- lsp_format = "never",
+        async = true,
         timeout_ms = 2000,
       },
+      -- format_on_save = {
+      --   lsp_format = "fallback",
+      --   async = true,
+      --   timeout_ms = 2000,
+      -- },
+      format_after_save = {
+        lsp_format = "fallback",
+        async = true,
+        timeout_ms = 2000,
+      },
+      log_level = vim.log.levels.ERROR,
+      notify_on_error = true,
+      notify_no_formatters = true,
     })
 
     vim.keymap.set({ "n", "v" }, "<leader>=", function()
       conform.format({
-        lsp_fallback = true,
-        async = false,
-        timeout_ms = 1000,
+        lsp_format = "fallback",
+        async = true,
+        timeout_ms = 2000,
       })
     end, { desc = "Format file or range (in visual mode)" })
   end,

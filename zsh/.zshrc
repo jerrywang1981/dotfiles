@@ -121,3 +121,13 @@ export PATH=$HOME/go/bin:$HOME/.local/bin:$HOME/bin:$HOME/.local/share/bob/nvim-
 export PATH=$PATH:$HOME/.local/share/coursier/bin
 
 [ -f ~/.cargo/env ] && source "$HOME/.cargo/env"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+source "/home/jerry/.sdkman/bin/sdkman-init.sh"
+
+
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)

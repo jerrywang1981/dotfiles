@@ -5,6 +5,18 @@ return {
     "nvim-lua/lsp-status.nvim",
     "hrsh7th/nvim-cmp",
   },
+  opts = {
+    inlay_hints = { enable = true },
+    servers = {
+      lua_ls = {
+        settings = {
+          Lua = {
+            hint = { enable = true },
+          },
+        },
+      },
+    },
+  },
   config = function()
     local lspconfig = require("lspconfig")
     local lsp_status = require("lsp-status")
@@ -125,10 +137,11 @@ return {
       -- 'eslint',
       "gopls",
       "emmet_ls",
-      "tailwindcss",
+      -- "tailwindcss",
       "metals",
       -- 'vimls',
       "sqlls",
+      "lua_ls",
       "rust_analyzer",
       --"cjls",
     }
