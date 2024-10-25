@@ -1,6 +1,5 @@
 return {
-	"vim-test/vim-test",
-	config = function()
-	end,
+  "vim-test/vim-test",
+  enabled = false,
+  config = function() end,
 }
-

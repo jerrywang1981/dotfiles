@@ -9,6 +9,9 @@ return {
   config = function()
     local lint = require("lint")
 
+    -- require("lint.linters.checkstyle").config_file =
+    -- print(string.format("%s/%s/%s", vim.fn.stdpath("config"), "f", "google_checks.xml"))
+
     -- lint.linters_by_ft = {
     -- 	markdown = { "vale" },
     -- 	javascript = { "eslint" },
@@ -25,6 +28,7 @@ return {
       typescript = { "eslint_d" },
       javascriptreact = { "eslint_d" },
       typescriptreact = { "eslint_d" },
+      -- java = { "checkstyle" },
       svelte = { "eslint_d" },
       kotlin = { "ktlint" },
       python = { "pylint" },
