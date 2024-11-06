@@ -141,6 +141,7 @@ return {
       "metals",
       -- 'vimls',
       "sqlls",
+      "pylsp",
       "lua_ls",
       "rust_analyzer",
       --"cjls",

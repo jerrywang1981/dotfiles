@@ -199,7 +199,7 @@ end
       end
 
       local profile_param = ""
-      if profile then
+      if profile ~= "" then
         profile_param = " -Dspring-boot.run.profiles=" .. profile .. " "
       end
 
@@ -207,7 +207,8 @@ end
     end
 
     local function run_spring_boot(debug)
-      vim.cmd("term " .. get_spring_boot_runner(debug))
+      local profile = vim.fn.input("Input profile: ")
+      vim.cmd("term " .. get_spring_boot_runner(profile, debug))
     end
 
     --[[

@@ -30,7 +30,7 @@ return {
   "wellle/targets.vim",
   "kshenoy/vim-signature",
   "mfussenegger/nvim-jdtls",
-  --[[
+  ---[[
   {
     "junegunn/fzf",
     build = function()
@@ -38,7 +38,7 @@ return {
     end,
   },
   --]]
-  -- "junegunn/fzf.vim",
+  "junegunn/fzf.vim",
   {
     "nvim-tree/nvim-web-devicons",
     config = function()
@@ -113,4 +113,30 @@ return {
 
 
 	--]=====]
+  {
+    "JavaHello/java-deps.nvim",
+    -- lazy = true,
+    -- enabled = false,
+    -- ft = "java",
+    requires = {
+      { "mfussenegger/nvim-jdtls" },
+      -- { "simrat39/symbols-outline.nvim" },
+    },
+    config = function()
+      require("java-deps").setup({})
+    end,
+  },
+  {
+    "simrat39/symbols-outline.nvim",
+    enabled = false,
+    -- cmd = "SymbolsOutline",
+    init = function()
+      vim.keymap.set("n", "<space>0", "<cmd>SymbolsOutline<CR>", { desc = "Toggle Symbols Outline" })
+    end,
+    config = function()
+      require("symbols-outline").setup({
+        auto_close = true,
+      })
+    end,
+  },
 }

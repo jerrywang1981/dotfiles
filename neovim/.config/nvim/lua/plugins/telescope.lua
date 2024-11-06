@@ -18,9 +18,9 @@ return {
       local in_worktree = utils.get_os_command_output({ "git", "rev-parse", "--is-inside-work-tree" }, cwd)
       local in_bare = utils.get_os_command_output({ "git", "rev-parse", "--is-bare-repository" }, cwd)
       if in_worktree[1] ~= "true" and in_bare[1] ~= "true" then
-        return builtin.find_files({ previewer = false })
+        return builtin.find_files({ previewer = true })
       else
-        return builtin.git_files({ previewer = false })
+        return builtin.git_files({ previewer = true })
       end
     end, { noremap = true, silent = true })
 
