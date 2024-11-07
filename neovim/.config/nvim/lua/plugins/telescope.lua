@@ -18,9 +18,11 @@ return {
       local in_worktree = utils.get_os_command_output({ "git", "rev-parse", "--is-inside-work-tree" }, cwd)
       local in_bare = utils.get_os_command_output({ "git", "rev-parse", "--is-bare-repository" }, cwd)
       if in_worktree[1] ~= "true" and in_bare[1] ~= "true" then
-        return builtin.find_files({ previewer = true })
+        -- return builtin.find_files({ previewer = true })
+        return builtin.find_files({ previewer = false })
       else
-        return builtin.git_files({ previewer = true })
+        -- return builtin.git_files({ previewer = true })
+        return builtin.git_files({ previewer = false })
       end
     end, { noremap = true, silent = true })
 
@@ -37,7 +39,7 @@ return {
     end, { noremap = true, silent = true, desc = "Fuzzy Find in current buffer" })
 
     vim.keymap.set("n", "<leader>fb", function()
-      builtin.buffers()
+      builtin.buffers({ previewer = false })
     end, { noremap = true, silent = true, desc = "Buffers" })
 
     require("telescope").setup({

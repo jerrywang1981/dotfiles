@@ -10,8 +10,8 @@ return {
           return string.format("%s %s", opts.raise(opts.id), opts.lower(opts.ordinal))
         end,
         separator_style = "slant",
-        --[[
         max_name_length = 100,
+        --[[
         name_formatter = function(buf)
           print(buf.path)
           local jdtls_ok, jdtls = pcall(require, "jdtls.setup")

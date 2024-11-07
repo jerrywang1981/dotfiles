@@ -16,7 +16,19 @@ return {
       },
     })
     require("mason-lspconfig").setup({
-      ensure_installed = { "jdtls", "ts_ls" },
+      ensure_installed = {
+        "jdtls",
+        "ts_ls",
+        "angularls",
+        "cssls",
+        "dockerls",
+        "emmet_ls",
+        -- "gopls",
+        "jsonls",
+        "pylsp",
+        "yamlls",
+        "lua_ls",
+      },
     })
   end,
 }
