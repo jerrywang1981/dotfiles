@@ -21,9 +21,13 @@ local function get_jdtls()
   -- Get the Mason Registry to gain access to downloaded binaries
   local mason_registry = require("mason-registry")
   -- Find the JDTLS package in the Mason Regsitry
-  local jdtls = mason_registry.get_package("jdtls")
+  local jdt = mason_registry.get_package("jdtls")
   -- Find the full path to the directory where Mason has downloaded the JDTLS binaries
-  local jdtls_path = jdtls:get_install_path()
+  local jdtls_path = jdt:get_install_path()
+
+  -- local f_dir = path.join({ vim.fn.stdpath("config"), "f" })
+  -- local jdtls_path = path.join({ f_dir, "jdtls" })
+
   -- Obtain the path to the jar which runs the language server
   local launcher = vim.fn.glob(jdtls_path .. "/plugins/org.eclipse.equinox.launcher_*.jar")
   -- Declare white operating system we are using, windows use win, macos use mac
@@ -33,6 +37,7 @@ local function get_jdtls()
   local config = jdtls_path .. "/" .. get_os_config()
   -- Obtain the path to the Lomboc jar
   local lombok = jdtls_path .. "/lombok.jar"
+  -- local lombok = f_dir .. "/lombok.jar"
   return launcher, config, lombok
 end
 
@@ -48,12 +53,40 @@ local function get_bundles()
     vim.fn.glob(java_debug_path .. "/extension/server/com.microsoft.java.debug.plugin-*.jar", 1),
   }
 
+  local function get_java_test_bundles(java_test_path)
+    local jars = {
+      "junit-jupiter-api_*.jar",
+      "junit-jupiter-engine_*.jar",
+      "junit-jupiter-migrationsupport_*.jar",
+      "junit-jupiter-params_*.jar",
+      "junit-platform-commons_*.jar",
+      "junit-platform-engine_*.jar",
+      "junit-platform-launcher_*.jar",
+      "junit-platform-runner_*.jar",
+      "junit-platform-suite-api_*.jar",
+      "junit-platform-suite-commons_*.jar",
+      "junit-platform-suite-engine_*.jar",
+      "junit-vintage-engine_*.jar",
+      "org.apiguardian.api_*.jar",
+      "org.eclipse.jdt.junit4.runtime_*.jar",
+      "org.eclipse.jdt.junit5.runtime_*.jar",
+      "org.opentest4j_*.jar",
+      "com.microsoft.java.test.plugin-*.jar",
+    }
+    local _bundles = {}
+    for _, v in ipairs(jars) do
+      vim.list_extend(_bundles, vim.split(vim.fn.glob(java_test_path .. "/extension/server/" .. v, 1), "\n"))
+    end
+    return _bundles
+  end
+
   -- Find the Java Test package in the Mason Registry
   local java_test = mason_registry.get_package("java-test")
   -- Obtain the full path to the directory where Mason has downloaded the Java Test binaries
   local java_test_path = java_test:get_install_path()
   -- Add all of the Jars for running tests in debug mode to the bundles list
-  vim.list_extend(bundles, vim.split(vim.fn.glob(java_test_path .. "/extension/server/*.jar", 1), "\n"))
+  -- vim.list_extend(bundles, vim.split(vim.fn.glob(java_test_path .. "/extension/server/*.jar", 1), "\n"))
+  vim.list_extend(bundles, get_java_test_bundles(java_test_path))
 
   return bundles
 end
@@ -314,10 +347,10 @@ local config = {
       },
       format = {
         enabled = true,
-        settings = {
-          url = path.join({ f_dir, "intellij-java-google-style.xml" }),
-          profile = "GoogleStyle",
-        },
+        -- settings = {
+        --   url = path.join({ f_dir, "intellij-java-google-style.xml" }),
+        --   profile = "GoogleStyle",
+        -- },
       },
       -- saveActions = {
       -- 	organizeImports = true,

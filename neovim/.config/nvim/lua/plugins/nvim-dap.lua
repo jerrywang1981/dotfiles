@@ -203,7 +203,7 @@ end
         profile_param = " -Dspring-boot.run.profiles=" .. profile .. " "
       end
 
-      return "mvn spring-boot:run " .. profile_param .. debug_param
+      return "mvn spring-boot:run -Dmaven.test.skip=true" .. profile_param .. debug_param
     end
 
     local function run_spring_boot(debug)

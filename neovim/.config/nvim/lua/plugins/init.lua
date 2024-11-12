@@ -50,11 +50,11 @@ return {
     opt = true,
     ft = { "Dockerfile" },
   },
-  {
-    "junegunn/gv.vim",
-    opt = true,
-    cmd = { "GV" },
-  },
+  -- {
+  --   "junegunn/gv.vim",
+  --   opt = true,
+  --   cmd = { "GV" },
+  -- },
   {
     "elzr/vim-json",
     opt = true,
