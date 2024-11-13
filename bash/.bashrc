@@ -30,7 +30,11 @@ GRS_PKCS11_DISABLE_EC=1;
 export GRS_PKCS11_DISABLE_EC
 GRS_PKCS11_DISABLE_EC=1;
 export GRS_PKCS11_DISABLE_EC
-. "$HOME/.cargo/env"
+#. "$HOME/.cargo/env"
+
+if [ -f ~/.cargo/env ]; then
+        . ~/.cargo/env
+fi
 
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --bash)"

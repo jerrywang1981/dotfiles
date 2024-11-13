@@ -6,6 +6,7 @@
 * stow
 * tmux
 * neovim
+* zip/unzip
 
 ## Shell
 
@@ -13,7 +14,29 @@
 https://ohmyz.sh/
 ```
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
+
+### Tmux TPM (https://github.com/tmux-plugins/tpm)
+```
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+```
+
+### SDKMan (https://sdkman.io/)
+
+```
+curl -s "https://get.sdkman.io" | bash
+```
+
+### Node Version Manager (https://github.com/nvm-sh/nvm) 
+```
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+```
+
 
 ### Wubi 98
 https://wubi98.gitee.io/2021/11/08/2021-11-08-039.fcitx5/

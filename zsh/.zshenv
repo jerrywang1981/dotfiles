@@ -1,4 +1,4 @@
 typeset -U path PATH
 path=(~/.cargo/bin $path)
 export PATH
-. "$HOME/.cargo/env"
+[ -f ~/.cargo/env ] && source "$HOME/.cargo/env"

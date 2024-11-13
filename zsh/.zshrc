@@ -106,7 +106,7 @@ export GLFX_IM_MODULE=ibus
 
 # export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
 
-source /usr/local/ibmcloud/autocomplete/zsh_autocomplete
+[ -f ~/bin/autocomplete/zsh_autocomplete ] && source ~/bin/autocomplete/zsh_autocomplete
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -126,8 +126,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-source "/home/jerry/.sdkman/bin/sdkman-init.sh"
-
+#source "~/.sdkman/bin/sdkman-init.sh"
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
