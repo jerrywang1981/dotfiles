@@ -129,5 +129,11 @@ export NVM_DIR="$HOME/.nvm"
 #source "~/.sdkman/bin/sdkman-init.sh"
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
+# Open in tmux popup if on tmux, otherwise use --height mode
+export FZF_DEFAULT_OPTS='--height 40% --tmux bottom,40% --layout reverse --border top'
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
+
+export GPG_TTY=$(tty)
+dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
+

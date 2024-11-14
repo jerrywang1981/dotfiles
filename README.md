@@ -7,6 +7,7 @@
 * tmux
 * neovim
 * zip/unzip
+* luarocks
 
 ## Shell
 
@@ -32,11 +33,27 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 curl -s "https://get.sdkman.io" | bash
 ```
 
-### Node Version Manager (https://github.com/nvm-sh/nvm) 
+### Node Version Manager (https://github.com/nvm-sh/nvm)
 ```
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 ```
 
+### Rustup (Rust)
+```
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
+### Ripgrep
+
+```
+cargo install ripgrep
+```
+
+### Glow
+
+```
+go install github.com/charmbracelet/glow@latest
+```
 
 ### Wubi 98
 https://wubi98.gitee.io/2021/11/08/2021-11-08-039.fcitx5/

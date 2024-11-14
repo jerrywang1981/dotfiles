@@ -166,18 +166,20 @@ return {
       require("telescope").load_extension("ui-select")
     end,
   },
+  --[[
   {
     "dhruvmanila/browser-bookmarks.nvim",
     -- enabled=false,
-    dependencies = { "telescope.nvim" },
+    dependencies = { "telescope.nvim", "kkharji/sqlite.lua" },
     config = function()
       require("browser_bookmarks").setup({
         -- override default configuration values
-        selected_browser = "chrome",
+        selected_browser = "firefox",
       })
       require("telescope").load_extension("bookmarks")
     end,
   },
+  --]]
   {
     "xiyaowong/telescope-emoji.nvim",
     dependencies = { "telescope.nvim" },
