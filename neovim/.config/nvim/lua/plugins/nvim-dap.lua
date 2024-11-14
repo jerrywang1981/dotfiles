@@ -48,9 +48,10 @@ return {
       require("dap").set_breakpoint(vim.fn.input("Condition:"))
     end, { desc = "Set condition breakpoint" })
 
-    -- vim.keymap.set("n", "<Leader>lp", function()
-    -- 	require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
-    -- end, { desc = "Set log point" })
+    vim.keymap.set("n", "<Leader>dp", function()
+      require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
+    end, { desc = "Set log point" })
+
     vim.keymap.set("n", "<Leader>dro", function()
       require("dap").repl.open()
     end, { desc = "Open Debugger Repl" })
@@ -77,7 +78,7 @@ return {
     vim.keymap.set("n", "<Leader>ds", function()
       local widgets = require("dap.ui.widgets")
       widgets.centered_float(widgets.scopes)
-    end, { desc = " Open debugger scopes" })
+    end, { desc = "Open debugger scopes" })
 
     vim.keymap.set("n", "<Leader>de", function()
       local widgets = require("dap.ui.widgets")
