@@ -1,5 +1,8 @@
 return {
   "folke/which-key.nvim",
+  dependencies = {
+    { "echasnovski/mini.icons", version = "*" },
+  },
   config = function()
     require("which-key").setup({
       -- your configuration comes here

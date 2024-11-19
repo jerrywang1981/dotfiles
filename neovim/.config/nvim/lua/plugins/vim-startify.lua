@@ -6,7 +6,7 @@ return {
   config = function()
     vim.g.startify_change_to_vcs_root = 1
     vim.g.startify_change_to_dir = 0
-    vim.g.startify_files_number = 5
+    vim.g.startify_files_number = 10
     vim.g.startify_enable_special = 0
     vim.g.startify_lists = { { type = "files", header = { "   MRU" } } }
     local ascii = {
@@ -30,6 +30,14 @@ return {
       "天连五岭银锄落, 地动三河铁臂摇",
       "借问瘟君欲何往, 纸船明烛照天烧",
       "                               七律二首 送瘟神",
+    }
+    local footer2 = {
+      "定风波·莫听穿林打叶声",
+      "--苏东坡",
+      "",
+      "",
+      "莫听穿林打叶声，何妨吟啸且徐行。竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。",
+      "料峭春风吹酒醒，微冷，山头斜照却相迎。回首向来萧瑟处，归去，也无风雨也无晴。",
     }
     vim.g.startify_custom_footer = vim.fn["startify#center"](footer)
   end,

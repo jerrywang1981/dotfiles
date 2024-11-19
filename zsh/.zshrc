@@ -134,6 +134,6 @@ export FZF_DEFAULT_OPTS='--height 40% --tmux bottom,40% --layout reverse --borde
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 
-export GPG_TTY=$(tty)
-dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
+#export GPG_TTY=$(tty)
+#dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
 
