@@ -116,9 +116,10 @@ export GLFX_IM_MODULE=ibus
 
 [ -f ~/.sdkman/bin/sdkman-init.sh ] && source ~/.sdkman/bin/sdkman-init.sh
 
-export PATH=$HOME/go/bin:$HOME/.local/bin:$HOME/bin:$HOME/.local/share/bob/nvim-bin:$PATH
+export PATH=$HOME/go/bin:/usr/local/go/bin:$HOME/.local/bin:$HOME/bin:$HOME/.local/share/bob/nvim-bin:$PATH
 
 export PATH=$PATH:$HOME/.local/share/coursier/bin
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 [ -f ~/.cargo/env ] && source "$HOME/.cargo/env"
 

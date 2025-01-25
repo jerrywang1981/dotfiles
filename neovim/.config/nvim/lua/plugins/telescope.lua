@@ -259,6 +259,8 @@ return {
       )
     end,
   },
+  --[[
+  --
   {
     "ThePrimeagen/harpoon",
     dependencies = {
@@ -277,4 +279,6 @@ return {
       require("telescope").load_extension("harpoon")
     end,
   },
+
+  --]]
 }

@@ -55,6 +55,11 @@ cargo install ripgrep
 go install github.com/charmbracelet/glow@latest
 ```
 
+### Delve
+```
+https://github.com/go-delve/delve/tree/master/Documentation/installation
+```
+
 ### Wubi 98
 https://wubi98.gitee.io/2021/11/08/2021-11-08-039.fcitx5/
 http://98wb.ys168.com/

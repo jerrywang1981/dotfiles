@@ -49,8 +49,12 @@ local function get_bundles()
   -- Obtain the full path to the directory where Mason has downloaded the Java Debug Adapter binaries
   local java_debug_path = java_debug:get_install_path()
 
+  local f_dir = path.join({ vim.fn.stdpath("config"), "f" })
+  local dep_java_file = path.join({ f_dir, "com.microsoft.jdtls.ext.core-0.24.1.jar" })
+
   local bundles = {
     vim.fn.glob(java_debug_path .. "/extension/server/com.microsoft.java.debug.plugin-*.jar", 1),
+    vim.fn.glob(dep_java_file, 1),
   }
 
   local function get_java_test_bundles(java_test_path)
@@ -117,7 +121,7 @@ local install_dir = path.join({ f_dir, "jdtls" })
 -- local jar_file_name = path.join({ install_dir, "plugins", "org.eclipse.equinox.launcher_1.6.0.v20200915-1508.jar" })
 -- local lombok_file = path.join({ f_dir, "lombok.jar" })
 -- local debug_java_file = path.join({ f_dir, "com.microsoft.java.debug.plugin-0.35.0.jar" })
--- local dep_java_file = path.join({ f_dir, "com.microsoft.jdtls.ext.core-0.24.0.jar" })
+local dep_java_file = path.join({ f_dir, "com.microsoft.jdtls.ext.core-0.24.1.jar" })
 
 local root_dir = require("jdtls.setup").find_root({ ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" })
 -- vim.print(#root_dir)

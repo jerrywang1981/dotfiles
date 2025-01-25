@@ -3,7 +3,8 @@ return {
   "neovim/nvim-lspconfig",
   dependencies = {
     "nvim-lua/lsp-status.nvim",
-    "hrsh7th/nvim-cmp",
+    "saghen/blink.cmp",
+    -- "hrsh7th/nvim-cmp",
   },
   opts = {
     inlay_hints = { enable = true },
@@ -21,7 +22,8 @@ return {
     local lspconfig = require("lspconfig")
     local lsp_status = require("lsp-status")
     local log = require("vim.lsp.log")
-    local capabilities = require("cmp_nvim_lsp").default_capabilities()
+    -- local capabilities = require("cmp_nvim_lsp").default_capabilities()
+    local capabilities = require("blink.cmp").get_lsp_capabilities()
 
     local configs = require("lspconfig/configs")
     local util = require("lspconfig/util")

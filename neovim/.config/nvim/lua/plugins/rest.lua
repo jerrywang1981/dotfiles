@@ -3,6 +3,13 @@ local vim = vim
 return {
   "rest-nvim/rest.nvim",
   dependencies = { "nvim-lua/plenary.nvim" },
+  -- dependencies = {
+  --   "nvim-treesitter/nvim-treesitter",
+  --   opts = function(_, opts)
+  --     opts.ensure_installed = opts.ensure_installed or {}
+  --     table.insert(opts.ensure_installed, "http")
+  --   end,
+  -- },
   ft = "http",
   tag = "v1.2.1",
   config = function()

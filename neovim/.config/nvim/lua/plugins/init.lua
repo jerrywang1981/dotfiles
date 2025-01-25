@@ -120,7 +120,7 @@ return {
     -- ft = "java",
     requires = {
       { "mfussenegger/nvim-jdtls" },
-      -- { "simrat39/symbols-outline.nvim" },
+      { "simrat39/symbols-outline.nvim" },
     },
     config = function()
       require("java-deps").setup({})
