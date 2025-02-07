@@ -1,10 +1,11 @@
 return {
   "saghen/blink.cmp",
-  -- enabled = false,
+  enabled = false,
   -- optional: provides snippets for the snippet source
   dependencies = {
     "rafamadriz/friendly-snippets",
     "moyiz/blink-emoji.nvim",
+    "kristijanhusak/vim-dadbod-ui",
   },
 
   -- use a release tag to download pre-built binaries
