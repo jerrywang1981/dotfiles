@@ -1,5 +1,5 @@
 local vim = vim
-local path = require("lspconfig/util").path
+-- local path = require("lspconfig/util").path
 
 local jdtls_ok, jdtls = pcall(require, "jdtls")
 if not jdtls_ok then
@@ -25,8 +25,8 @@ local function get_jdtls()
   -- Find the full path to the directory where Mason has downloaded the JDTLS binaries
   local jdtls_path = jdt:get_install_path()
 
-  -- local f_dir = path.join({ vim.fn.stdpath("config"), "f" })
-  -- local jdtls_path = path.join({ f_dir, "jdtls" })
+  -- local f_dir = table.concat({ vim.fn.stdpath("config"), "f" }, "/")
+  -- local jdtls_path = table.concat({ f_dir, "jdtls" }, "/")
 
   -- Obtain the path to the jar which runs the language server
   local launcher = vim.fn.glob(jdtls_path .. "/plugins/org.eclipse.equinox.launcher_*.jar")
@@ -49,8 +49,8 @@ local function get_bundles()
   -- Obtain the full path to the directory where Mason has downloaded the Java Debug Adapter binaries
   local java_debug_path = java_debug:get_install_path()
 
-  local f_dir = path.join({ vim.fn.stdpath("config"), "f" })
-  local dep_java_file = path.join({ f_dir, "com.microsoft.jdtls.ext.core-0.24.1.jar" })
+  local f_dir = table.concat({ vim.fn.stdpath("config"), "f" }, "/")
+  local dep_java_file = table.concat({ f_dir, "com.microsoft.jdtls.ext.core-0.24.1.jar" }, "/")
 
   local bundles = {
     vim.fn.glob(java_debug_path .. "/extension/server/com.microsoft.java.debug.plugin-*.jar", 1),
@@ -116,12 +116,12 @@ local workspace_dir = get_workspace()
 -- Get the bundles list with the jars to the debug adapter, and testing adapters
 local bundles = get_bundles()
 
-local f_dir = path.join({ vim.fn.stdpath("config"), "f" })
-local install_dir = path.join({ f_dir, "jdtls" })
--- local jar_file_name = path.join({ install_dir, "plugins", "org.eclipse.equinox.launcher_1.6.0.v20200915-1508.jar" })
--- local lombok_file = path.join({ f_dir, "lombok.jar" })
--- local debug_java_file = path.join({ f_dir, "com.microsoft.java.debug.plugin-0.35.0.jar" })
-local dep_java_file = path.join({ f_dir, "com.microsoft.jdtls.ext.core-0.24.1.jar" })
+local f_dir = table.concat({ vim.fn.stdpath("config"), "f" }, "/")
+local install_dir = table.concat({ f_dir, "jdtls" }, "/")
+-- local jar_file_name = table.concat({ install_dir, "plugins", "org.eclipse.equinox.launcher_1.6.0.v20200915-1508.jar" }, "/")
+-- local lombok_file = table.concat({ f_dir, "lombok.jar" }, "/")
+-- local debug_java_file = table.concat({ f_dir, "com.microsoft.java.debug.plugin-0.35.0.jar" }, "/")
+local dep_java_file = table.concat({ f_dir, "com.microsoft.jdtls.ext.core-0.24.1.jar" }, "/")
 
 local root_dir = require("jdtls.setup").find_root({ ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" })
 -- vim.print(#root_dir)
@@ -130,7 +130,7 @@ if root_dir == "" then
 end
 
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
--- local workspace_dir = path.join({ vim.loop.os_homedir(), "workspace", project_name })
+-- local workspace_dir = table.concat({ vim.loop.os_homedir(), "workspace", project_name }, "/")
 
 local on_attach = function(client, bufnr)
   require("jdtls").setup_dap({ hotcodereplace = "auto" })
@@ -293,7 +293,6 @@ local config = {
     -- 💀
     "-configuration",
     os_config,
-    -- path.join({ install_dir, get_os_config() }),
     --'/path/to/jdtls_install_location/config_SYSTEM',
     -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
     -- Must point to the                      Change to one of `linux`, `win` or `mac`
@@ -352,7 +351,7 @@ local config = {
       format = {
         enabled = true,
         -- settings = {
-        --   url = path.join({ f_dir, "intellij-java-google-style.xml" }),
+        --   url = table.concat({ f_dir, "intellij-java-google-style.xml" }, "/"),
         --   profile = "GoogleStyle",
         -- },
       },
