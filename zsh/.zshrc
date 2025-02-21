@@ -61,9 +61,8 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-flow mvn docker yarn kubectl oc pass ng node npm helm pip python themes encode64 zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(z fzf kubectl oc pass ng node nvm pip python zsh-syntax-highlighting zsh-autosuggestions command-not-found)
 
-source $ZSH/oh-my-zsh.sh
 
 # [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 # User configuration
@@ -122,18 +121,25 @@ export PATH=$HOME/go/bin:/usr/local/go/bin:$HOME/.local/bin:$HOME/bin:$HOME/.loc
 
 [ -f ~/.cargo/env ] && source "$HOME/.cargo/env"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 #source "~/.sdkman/bin/sdkman-init.sh"
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 # Open in tmux popup if on tmux, otherwise use --height mode
 export FZF_DEFAULT_OPTS='--height 40% --tmux bottom,40% --layout reverse --border top'
+export DISABLE_FZF_AUTO_COMPLETION="false"
+export DISABLE_FZF_KEY_BINDINGS="false"
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
+source <(kubectl completion zsh)
+source <(helm completion zsh)
 
 #export GPG_TTY=$(tty)
 #dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
 
+
+
+source $ZSH/oh-my-zsh.sh
