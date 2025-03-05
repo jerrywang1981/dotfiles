@@ -2,3 +2,6 @@
   path = ~/.gitconfig-personal
 [includeIf "gitdir:~/work/"]
   path = ~/.gitconfig-work
+[credential "https://github.ibm.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential

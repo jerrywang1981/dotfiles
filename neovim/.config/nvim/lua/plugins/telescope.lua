@@ -84,7 +84,7 @@ return {
       end, { noremap = true, silent = true, desc = "[T]elescope [L]ive Search" })
       --]]
 
-      vim.keymap.set("n", "<leader>fS", function()
+      vim.keymap.set("n", "<leader>f/", function()
         builtin.current_buffer_fuzzy_find()
       end, { noremap = true, silent = true, desc = "[T]elescope [F]uzzy Find in current buffer" })
 
@@ -188,6 +188,8 @@ return {
     end,
   },
 
+  --[[
+  --
   {
     "AckslD/nvim-neoclip.lua",
     dependencies = {
@@ -230,6 +232,7 @@ return {
       )
     end,
   },
+
   {
     "otavioschwanck/telescope-alternate",
     enabled = false,
@@ -259,6 +262,7 @@ return {
       )
     end,
   },
+  --]]
   --[[
   --
   {

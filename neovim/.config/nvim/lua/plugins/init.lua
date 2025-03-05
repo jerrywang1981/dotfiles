@@ -142,7 +142,14 @@ return {
   },
 
   {
+    "folke/ts-comments.nvim",
+    opts = {},
+    event = "VeryLazy",
+    enabled = vim.fn.has("nvim-0.10.0") == 1,
+  },
+  {
     "kevinhwang91/nvim-ufo",
+    -- enabled = false,
     dependencies = {
       "kevinhwang91/promise-async",
     },
@@ -156,12 +163,22 @@ return {
       vim.keymap.set("n", "zR", require("ufo").openAllFolds)
       vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
 
+      local ftMap = {
+        vim = "indent",
+        python = { "indent" },
+        git = "",
+        dbui = "",
+        dbout = "",
+      }
       -- Option 3: treesitter as a main provider instead
       -- (Note: the `nvim-treesitter` plugin is *not* needed.)
       -- ufo uses the same query files for folding (queries/<lang>/folds.scm)
       -- performance and stability are better than `foldmethod=nvim_treesitter#foldexpr()`
       require("ufo").setup({
         provider_selector = function(bufnr, filetype, buftype)
+          if ftMap[filetype] ~= nil then
+            return ftMap[filetype]
+          end
           return { "treesitter", "indent" }
         end,
       })

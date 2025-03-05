@@ -137,7 +137,7 @@ source <(fzf --zsh)
 source <(kubectl completion zsh)
 source <(helm completion zsh)
 
-#export GPG_TTY=$(tty)
+# export GPG_TTY=$(tty)
 #dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
 
 

@@ -63,17 +63,18 @@ return {
       local opts = { noremap = true, silent = true }
       buf_set_keymap("n", "gd", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
       buf_set_keymap("n", "<c-]>", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
-      buf_set_keymap("n", "<localleader>gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-      buf_set_keymap("n", "<localleader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+      buf_set_keymap("n", "gri", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+      -- buf_set_keymap("n", "<localleader>gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
+      buf_set_keymap("n", "grn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
       if vim.version().minor < 10 then
         buf_set_keymap("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
         buf_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
         buf_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
       end
       -- moved to trouble.lua
-      buf_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+      buf_set_keymap("n", "grr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
       buf_set_keymap("n", "<space>d", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-      buf_set_keymap("n", "<space>a", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+      buf_set_keymap("n", "gra", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
       -- buf_set_keymap("n", "<localleader>=", "<cmd>lua vim.lsp.buf.format({timeout_ms=2000})<CR>", opts)
       -- Set some keybinds conditional on server capabilities
 
