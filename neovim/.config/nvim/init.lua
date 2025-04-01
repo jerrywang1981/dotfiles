@@ -15,7 +15,7 @@
 local vim = vim
 local uv = vim.loop
 
-vim.lsp.set_log_level(0)
+-- vim.lsp.set_log_level(0)
 
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","

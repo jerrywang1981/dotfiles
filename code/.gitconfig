@@ -5,3 +5,5 @@
 [credential "https://github.ibm.com"]
 	helper = 
 	helper = !/usr/bin/gh auth git-credential
+[url "git@github.ibm.com:"]
+	insteadOf = https://github.ibm.com/

@@ -3,7 +3,7 @@ syntax on                   " syntax highlighting
 
 set path+=**
 " set clipboard+=unnamedplus  " use the clipboards of vim and win
-set go+=a               " Visual selection automatically copied to the clipboard
+"set guioptions+=a               " Visual selection automatically copied to the clipboard
 set guioptions-=r
 set guioptions-=R
 set guioptions-=l

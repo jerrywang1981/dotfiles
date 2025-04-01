@@ -151,24 +151,31 @@ local on_attach = function(client, bufnr)
   buf_set_keymap("n", "gd", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
   buf_set_keymap("n", "<c-]>", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
   -- buf_set_keymap("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
-  buf_set_keymap("n", "gri", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+  -- buf_set_keymap("n", "gri", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
   -- buf_set_keymap("n", "<localleader>gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
   -- buf_set_keymap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-  buf_set_keymap("n", "grn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-  buf_set_keymap("n", "grr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+  -- buf_set_keymap("n", "grn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+  -- buf_set_keymap("n", "grr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
   -- buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
   -- buf_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
   -- buf_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
   buf_set_keymap("n", "<space>d", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-  buf_set_keymap("n", "gra", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+  -- buf_set_keymap("n", "gra", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
   -- buf_set_keymap("n", "<localleader>=", "<cmd>lua vim.lsp.buf.format({async=true})<CR>", opts)
 
-  if vim.version().minor < 10 then
+  if vim.version().major == 0 and vim.version().minor < 10 then
     buf_set_keymap("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
     buf_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
     buf_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
   end
 
+  if vim.version().major == 0 and vim.version().minor < 11 then
+    buf_set_keymap("n", "grn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+    buf_set_keymap("n", "grr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+    buf_set_keymap("n", "gri", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+    buf_set_keymap("n", "gra", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+    buf_set_keymap("n", "gO", "<cmd>lua vim.lsp.buf.document_symbol()<CR>", opts)
+  end
   -- require("java-deps").attach(client, bufnr, root_dir)
 
   -- Set a Vim motion to <Space> + <Shift>J + o to organize imports in normal mode
@@ -269,7 +276,7 @@ local config = {
 
     -- "/usr/lib/jvm/java-11/bin/java",
     jit.os == "Windows" and "C:\\Program Files\\Semeru\\jre-17.0.14.7-openj9\\bin\\java.exe"
-      or "/usr/lib/jvm/java-17-openjdk-amd64/bin/java",
+    or "/home/jerry/.sdkman/candidates/java/21.0.6-ms/bin/java",
     -- "java",
     "-Declipse.application=org.eclipse.jdt.ls.core.id1",
     "-Dosgi.bundles.defaultStartLevel=4",
@@ -397,12 +404,12 @@ local config = {
           {
             name = "JavaSE-11",
             path = jit.os == "Windows" and "C:\\Program Files\\Semeru\\jre-17.0.14.7-openj9"
-              or "/usr/lib/jvm/java-11-openjdk-amd64",
+                or "/usr/lib/jvm/java-11-openjdk-amd64",
           },
           {
             name = "JavaSE-17",
             path = jit.os == "Windows" and "C:\\Program Files\\Semeru\\jre-17.0.14.7-openj9"
-              or "/usr/lib/jvm/java-17-openjdk-amd64",
+                or "/usr/lib/jvm/java-17-openjdk-amd64",
           },
         },
       },

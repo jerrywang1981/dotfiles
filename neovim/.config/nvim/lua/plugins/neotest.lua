@@ -21,20 +21,6 @@ return {
     -- vim.api.nvim_set_keymap("n", "<leader>tt", '<cmd>lua require("neotest").run.run()<cr>', { noremap = true, silent = true })
   end,
   config = function()
-    --[[
-    --
-		local neotest_ns = vim.api.nvim_create_namespace("neotest")
-		vim.diagnostic.config({
-			virtual_text = {
-				format = function(diagnostic)
-					local message = diagnostic.message:gsub("\n", " "):gsub("\t", " "):gsub("%s+", " "):gsub("^%s+", "")
-					return message
-				end,
-			},
-		}, neotest_ns)
-
-    --]]
-
     require("neotest").setup({
       log_level = vim.log.levels.DEBUG,
       adapters = {

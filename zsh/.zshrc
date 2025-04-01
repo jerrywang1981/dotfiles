@@ -132,6 +132,10 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 export FZF_DEFAULT_OPTS='--height 40% --tmux bottom,40% --layout reverse --border top'
 export DISABLE_FZF_AUTO_COMPLETION="false"
 export DISABLE_FZF_KEY_BINDINGS="false"
+
+autoload -Uz compinit
+compinit
+
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 source <(kubectl completion zsh)

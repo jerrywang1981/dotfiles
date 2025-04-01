@@ -60,6 +60,16 @@ go install github.com/charmbracelet/glow@latest
 https://github.com/go-delve/delve/tree/master/Documentation/installation
 ```
 
+### other
+```
+apt install luarocks
+apt install python3-pynvim
+cargo install viu
+apt install chafa
+apt install fd-find
+npm install -g neovim
+```
+
 ### Wubi 98
 https://wubi98.gitee.io/2021/11/08/2021-11-08-039.fcitx5/
 http://98wb.ys168.com/

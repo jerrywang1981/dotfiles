@@ -25,7 +25,10 @@ return {
   "milisims/nvim-luaref",
   -- "nanotee/luv-vimdocs",
   "tpope/vim-surround",
-  "tpope/vim-unimpaired",
+  {
+    "tpope/vim-unimpaired",
+    enabled = vim.version().major == 0 and vim.version().minor < 11,
+  },
   "tpope/vim-repeat",
   "wellle/targets.vim",
   "kshenoy/vim-signature",
@@ -155,7 +158,7 @@ return {
     },
     config = function()
       vim.o.foldcolumn = "1" -- '0' is not bad
-      vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+      vim.o.foldlevel = 99   -- Using ufo provider need a large value, feel free to decrease the value
       vim.o.foldlevelstart = 99
       vim.o.foldenable = true
 
