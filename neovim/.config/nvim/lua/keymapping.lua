@@ -17,8 +17,8 @@ vim.api.nvim_set_keymap("n", "<c-down>", ":res -5<cr>", { noremap = true, silent
 vim.keymap.set({ "i", "v" }, "kj", "<esc>", { noremap = true, silent = true, desc = "esc replacement" })
 vim.keymap.set({ "i", "v" }, "jk", "<esc>", { noremap = true, silent = true, desc = "esc replacement" })
 
-if vim.lsp.inlay_hint then
-  vim.keymap.set("n", "<leader>th", function()
-    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-  end, { desc = "Toggle Inlay hint" })
-end
+-- if vim.lsp.inlay_hint then
+--   vim.keymap.set("n", "<leader>th", function()
+--     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+--   end, { desc = "Toggle Inlay hint" })
+-- end

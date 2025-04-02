@@ -10,11 +10,11 @@ set guioptions-=l
 set guioptions-=L
 set guioptions-=b
 set backspace=indent,eol,start
-set omnifunc=syntaxcomplete#Complete
+" set omnifunc=syntaxcomplete#Complete
 set selectmode=mouse,key
 set whichwrap+=<,>,h,l
 set diffopt+=vertical
-set completeopt=menuone,noinsert,noselect
+set completeopt=menuone,noinsert,noselect,fuzzy
 set shortmess+=c
 
 

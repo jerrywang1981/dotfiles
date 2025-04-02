@@ -26,6 +26,7 @@ set cindent
 set expandtab
 set autoread
 set fixendofline
+" set winborder=rounded
 
 set mouse=a
 set clipboard=unnamedplus

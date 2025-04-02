@@ -1,6 +1,7 @@
 local vim = vim
 return {
   "neovim/nvim-lspconfig",
+  enabled = false,
   dependencies = {
     "nvim-lua/lsp-status.nvim",
     -- "saghen/blink.cmp",
@@ -57,7 +58,7 @@ return {
         vim.api.nvim_buf_set_option(bufnr, ...)
       end
 
-      buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+      -- buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
       -- Mappings.
       local opts = { noremap = true, silent = true }
@@ -135,22 +136,22 @@ return {
 
     local servers = {
       -- "tsserver",
-      "vuels",
-      "cssls",
-      "html",
-      "jsonls",
+      -- "vuels",
+      -- "cssls",
+      -- "html",
+      -- "jsonls",
       -- 'jdtls',
-      "bashls",
+      -- "bashls",
       -- 'eslint',
-      "gopls",
-      "emmet_ls",
+      -- "gopls",
+      -- "emmet_ls",
       -- "tailwindcss",
-      "metals",
+      -- "metals",
       -- 'vimls',
-      "sqlls",
-      "pylsp",
-      "lua_ls",
-      "rust_analyzer",
+      -- "sqlls",
+      -- "pylsp",
+      -- "lua_ls",
+      -- "rust_analyzer",
       --"cjls",
     }
 
@@ -187,6 +188,7 @@ return {
     })
     --]]
 
+    --[[
     lspconfig["ts_ls"].setup({
       on_attach = on_attach_vim,
       capabilities = capabilities,
@@ -221,6 +223,7 @@ return {
         },
       },
     })
+    --
 
     vim.diagnostic.config({
       virtual_text = {
@@ -229,7 +232,8 @@ return {
         current_line = true,
       },
     })
-    vim.cmd([[ autocmd CursorHold * lua vim.diagnostic.open_float() ]])
+    --]]
+    -- vim.cmd([[ autocmd CursorHold * lua vim.diagnostic.open_float() ]])
     -- vim.api.nvim_command([[autocmd BufWritePre *.js,*.lua lua vim.lsp.buf.format({bufnr=nil, timeout_ms=1000})]])
   end,
 }

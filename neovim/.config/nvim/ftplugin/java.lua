@@ -144,7 +144,7 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_option(bufnr, ...)
   end
 
-  buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+  -- buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
   -- Mappings.
   local opts = { noremap = true, silent = true }
@@ -276,7 +276,7 @@ local config = {
 
     -- "/usr/lib/jvm/java-11/bin/java",
     jit.os == "Windows" and "C:\\Program Files\\Semeru\\jre-17.0.14.7-openj9\\bin\\java.exe"
-    or "/home/jerry/.sdkman/candidates/java/21.0.6-ms/bin/java",
+      or "/home/jerry/.sdkman/candidates/java/21.0.6-ms/bin/java",
     -- "java",
     "-Declipse.application=org.eclipse.jdt.ls.core.id1",
     "-Dosgi.bundles.defaultStartLevel=4",
@@ -345,7 +345,7 @@ local config = {
       project = {
         encoding = "UTF-8",
       },
-      inlayhints = {
+      inlayHints = {
         parameterNames = { enabled = "ALL" },
       },
       import = {
@@ -404,12 +404,12 @@ local config = {
           {
             name = "JavaSE-11",
             path = jit.os == "Windows" and "C:\\Program Files\\Semeru\\jre-17.0.14.7-openj9"
-                or "/usr/lib/jvm/java-11-openjdk-amd64",
+              or "/usr/lib/jvm/java-11-openjdk-amd64",
           },
           {
             name = "JavaSE-17",
             path = jit.os == "Windows" and "C:\\Program Files\\Semeru\\jre-17.0.14.7-openj9"
-                or "/usr/lib/jvm/java-17-openjdk-amd64",
+              or "/usr/lib/jvm/java-17-openjdk-amd64",
           },
         },
       },
@@ -439,4 +439,9 @@ local config = {
 -- or attaches to an existing client & server depending on the `root_dir`.
 require("jdtls").start_or_attach(config)
 
+vim.lsp.inlay_hint.enable(true)
+
+vim.keymap.set("n", "<leader>th", function()
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+end, { desc = "Toggle Inlay hint" })
 -- vim.api.nvim_command([[autocmd BufWritePre <buffer> lua vim.lsp.buf.format({async=true})]])
