@@ -172,6 +172,7 @@ return {
         git = "",
         dbui = "",
         dbout = "",
+        json = "",
       }
       -- Option 3: treesitter as a main provider instead
       -- (Note: the `nvim-treesitter` plugin is *not* needed.)
