@@ -1,13 +1,31 @@
 local vim = vim
 
-vim.lsp.config("*", {
-  capabilities = {
-    textDocument = {
-      semanticTokens = {
-        multilineTokenSupport = true,
-      },
+local capabilities = {
+  textDocument = {
+    semanticTokens = {
+      multilineTokenSupport = true,
+    },
+    foldingRange = {
+      dynamicRegistration = false,
+      lineFoldingOnly = true,
     },
   },
+}
+
+local ok, cmp = pcall(require, "blink.cmp")
+if ok then
+  capabilities = cmp.get_lsp_capabilities(capabilities)
+end
+
+vim.lsp.config("*", {
+  capabilities = capabilities,
+  -- capabilities = {
+  --   textDocument = {
+  --     semanticTokens = {
+  --       multilineTokenSupport = true,
+  --     },
+  --   },
+  -- },
   root_markers = { ".git" },
   -- on_attach = on_attach,
   flags = {
