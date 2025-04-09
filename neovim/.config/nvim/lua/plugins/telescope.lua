@@ -1,37 +1,21 @@
 local vim = vim
 
-local tag = vim.version().minor < 10 and "0.1.5" or "0.1.8"
-
 return {
   {
     "nvim-telescope/telescope.nvim",
-    tag = tag,
     dependencies = {
-      -- { "nvim-lua/popup.nvim" },
       { "nvim-lua/plenary.nvim" },
       "nvim-telescope/telescope-live-grep-args.nvim",
     },
     config = function()
       local builtin = require("telescope.builtin")
       local actions = require("telescope.actions")
+      local themes = require("telescope.themes")
       local action_layout = require("telescope.actions.layout")
       local lga_actions = require("telescope-live-grep-args.actions")
       local utils = require("telescope.utils")
 
       vim.keymap.set("n", "<c-p>", function()
-        --[[
-        --
-        local cwd = vim.loop.cwd()
-        local in_worktree = utils.get_os_command_output({ "git", "rev-parse", "--is-inside-work-tree" }, cwd)
-        local in_bare = utils.get_os_command_output({ "git", "rev-parse", "--is-bare-repository" }, cwd)
-        if in_worktree[1] ~= "true" and in_bare[1] ~= "true" then
-          -- return builtin.find_files({ previewer = true })
-          return builtin.find_files({ previewer = false })
-        else
-          -- return builtin.git_files({ previewer = true })
-          return builtin.git_files({ previewer = false })
-        end
-        --]]
         local function is_git_repo()
           vim.fn.system("git rev-parse --is-inside-work-tree")
           return vim.v.shell_error == 0
@@ -92,13 +76,31 @@ return {
         builtin.buffers({ previewer = false })
       end, { noremap = true, silent = true, desc = "[T]elescope [B]uffers" })
 
+      vim.keymap.set(
+        "n",
+        "<leader>ff",
+        function()
+          require("telescope").extensions.frecency.frecency({
+            workspace = "CWD",
+            theme = "ivy",
+          })
+        end,
+        -- "<cmd>Telescope frecency workspace=CWD theme=ivy<cr>",
+        -- "<cmd>Telescope frecency workspace=CWD path_display={filename_first={reverse_directories=true}} theme=ivy<cr>",
+        { noremap = true, silent = true, desc = "[T]elescope [F]recency" }
+      )
+
       vim.keymap.set("n", "<leader>f.", function()
         builtin.find_files({ cwd = vim.fn.expand("%:p:h") })
       end, { noremap = true, silent = true, desc = "[T]elescope [S]ibling Files" })
-      -- vim.keymap.set("n", "<leader>T", ":<c-u>Telescope ", { noremap = true, silent = true, desc = "Telescope All" })
 
       require("telescope").setup({
         defaults = {
+          path_display = {
+            filename_first = {
+              reverse_directories = true,
+            },
+          },
           mappings = {
             i = {
               ["<esc>"] = actions.close,
@@ -111,9 +113,21 @@ return {
             },
           },
         },
+        pickers = {
+          find_files = {
+            theme = "ivy",
+          },
+          buffers = {
+            theme = "ivy",
+          },
+          git_files = {
+            theme = "ivy",
+          },
+        },
         extensions = {
           ["ui-select"] = {
-            require("telescope.themes").get_dropdown({}),
+            -- require("telescope.themes").get_dropdown({}),
+            require("telescope.themes").get_ivy({}),
           },
           live_grep_args = {
             auto_quoting = true,
@@ -137,20 +151,20 @@ return {
               -- "--hidden",
             },
           },
-          --[[
-        --
-        bookmarks = {
-          selected_browser = "chrome",
-          url_open_command = "xdg-open",
-        },
-        --]]
         },
       })
 
       require("telescope").load_extension("live_grep_args")
 
       vim.keymap.set("n", "<leader>fg", function()
-        require("telescope").extensions.live_grep_args.live_grep_args()
+        require("telescope").extensions.live_grep_args.live_grep_args({
+          path_display = {
+            filename_first = {
+              reverse_directories = true,
+            },
+          },
+          theme = "ivy",
+        })
       end, { noremap = true, silent = true, desc = "[T]elescope [L]ive Grep" })
     end,
   },
@@ -160,26 +174,30 @@ return {
     config = function() end,
   },
   {
+    "nvim-telescope/telescope-frecency.nvim",
+    -- install the latest stable version
+    version = "*",
+    config = function()
+      require("telescope").setup({
+        extensions = {
+          frecency = {
+            auto_validate = false,
+            matcher = "fuzzy",
+            show_scores = true,
+            show_filter_column = false,
+          },
+        },
+      })
+      require("telescope").load_extension("frecency")
+    end,
+  },
+  {
     "nvim-telescope/telescope-ui-select.nvim",
     dependencies = { "telescope.nvim" },
     config = function()
       require("telescope").load_extension("ui-select")
     end,
   },
-  --[[
-  {
-    "dhruvmanila/browser-bookmarks.nvim",
-    -- enabled=false,
-    dependencies = { "telescope.nvim", "kkharji/sqlite.lua" },
-    config = function()
-      require("browser_bookmarks").setup({
-        -- override default configuration values
-        selected_browser = "firefox",
-      })
-      require("telescope").load_extension("bookmarks")
-    end,
-  },
-  --]]
   {
     "xiyaowong/telescope-emoji.nvim",
     dependencies = { "telescope.nvim" },
@@ -187,102 +205,4 @@ return {
       require("telescope").load_extension("emoji")
     end,
   },
-
-  --[[
-  --
-  {
-    "AckslD/nvim-neoclip.lua",
-    dependencies = {
-      { "nvim-telescope/telescope.nvim" },
-      -- { "ibhagwan/fzf-lua" },
-    },
-    config = function()
-      require("neoclip").setup({
-        keys = {
-          telescope = {
-            i = {
-              select = "<cr>",
-              paste = false, --"<c-p>",
-              paste_behind = "<c-k>",
-              replay = "<c-q>", -- replay a macro
-              delete = "<c-d>", -- delete an entry
-              edit = "<c-e>", -- edit an entry
-              custom = {},
-            },
-            n = {
-              select = "<cr>",
-              paste = false, -- "p",
-              --- It is possible to map to more than one key.
-              -- paste = { "p", "<c-p>" },
-              paste_behind = "P",
-              replay = "q",
-              delete = "d",
-              edit = "e",
-              custom = {},
-            },
-          },
-        },
-      })
-      require("telescope").load_extension("neoclip")
-      vim.keymap.set(
-        "n",
-        '<leader>f"',
-        "<cmd>Telescope neoclip<cr>",
-        { noremap = true, silent = true, desc = "[T]elescope [N]eoclip" }
-      )
-    end,
-  },
-
-  {
-    "otavioschwanck/telescope-alternate",
-    enabled = false,
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-    },
-    config = function()
-      require("telescope-alternate").setup({
-        presets = { "rails", "rspec", "nestjs", "angular" },
-      })
-      require("telescope").load_extension("telescope-alternate")
-    end,
-  },
-  {
-    "cljoly/telescope-repo.nvim",
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-      "nvim-lua/plenary.nvim",
-    },
-    config = function()
-      require("telescope").load_extension("repo")
-      vim.keymap.set(
-        "n",
-        "<leader>Tr",
-        "<cmd>Telescope repo list<cr>",
-        { noremap = true, silent = true, desc = "[T]elescope [R]epo list" }
-      )
-    end,
-  },
-  --]]
-  --[[
-  --
-  {
-    "ThePrimeagen/harpoon",
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-      "nvim-lua/plenary.nvim",
-    },
-    config = function()
-      vim.keymap.set("n", "<leader>Hm", function()
-        require("harpoon.mark").add_file()
-        print(" Added(harpoon): " .. vim.fn.expand("%"))
-      end, { noremap = true, silent = true, desc = "[H]arpoon [M]ark file" })
-
-      vim.keymap.set("n", "<leader>HH", function()
-        require("harpoon.ui").toggle_quick_menu()
-      end, { noremap = true, silent = true, desc = "[H]arpoon [T]oggle Menu" })
-      require("telescope").load_extension("harpoon")
-    end,
-  },
-
-  --]]
 }

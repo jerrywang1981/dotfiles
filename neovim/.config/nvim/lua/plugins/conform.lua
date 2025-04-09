@@ -3,6 +3,9 @@ return {
   "stevearc/conform.nvim",
   event = { "BufReadPre", "BufNewFile" },
   cmd = { "ConformInfo" },
+  init = function()
+    vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+  end,
   config = function()
     local conform = require("conform")
 
@@ -10,14 +13,14 @@ return {
       formatters_by_ft = {
         javascript = { "prettierd", "prettier", stop_after_first = true },
         angular = { "prettierd", "prettier", stop_after_first = true },
-        typescript = { "prettier" },
-        javascriptreact = { "prettier" },
-        typescriptreact = { "prettier" },
+        typescript = { "prettierd", "prettier", stop_after_first = true },
+        javascriptreact = { "prettierd", "prettier", stop_after_first = true },
+        typescriptreact = { "prettierd", "prettier", stop_after_first = true },
         svelte = { "prettier" },
         css = { "prettier" },
         scss = { "prettier" },
-        html = { "prettier" },
-        htmlangular = { "prettier" },
+        html = { "prettierd", "prettier", stop_after_first = true },
+        htmlangular = { "prettierd", "prettier", stop_after_first = true },
         json = { "prettier" },
         yaml = { "prettier" },
         markdown = { "prettier" },
