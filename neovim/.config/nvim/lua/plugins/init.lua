@@ -22,7 +22,7 @@ return {
   },
 
   "alvan/vim-closetag",
-  "milisims/nvim-luaref",
+  -- "milisims/nvim-luaref",
   -- "nanotee/luv-vimdocs",
   "tpope/vim-surround",
   {

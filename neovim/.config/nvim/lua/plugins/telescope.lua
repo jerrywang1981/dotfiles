@@ -76,19 +76,11 @@ return {
         builtin.buffers({ previewer = false })
       end, { noremap = true, silent = true, desc = "[T]elescope [B]uffers" })
 
-      vim.keymap.set(
-        "n",
-        "<leader>ff",
-        function()
-          require("telescope").extensions.frecency.frecency({
-            workspace = "CWD",
-            theme = "ivy",
-          })
-        end,
-        -- "<cmd>Telescope frecency workspace=CWD theme=ivy<cr>",
-        -- "<cmd>Telescope frecency workspace=CWD path_display={filename_first={reverse_directories=true}} theme=ivy<cr>",
-        { noremap = true, silent = true, desc = "[T]elescope [F]recency" }
-      )
+      vim.keymap.set("n", "<leader>ff", function()
+        require("telescope").extensions.frecency.frecency({
+          workspace = "CWD",
+        })
+      end, { noremap = true, silent = true, desc = "[T]elescope [F]recency" })
 
       vim.keymap.set("n", "<leader>f.", function()
         builtin.find_files({ cwd = vim.fn.expand("%:p:h") })
@@ -113,21 +105,9 @@ return {
             },
           },
         },
-        pickers = {
-          find_files = {
-            theme = "ivy",
-          },
-          buffers = {
-            theme = "ivy",
-          },
-          git_files = {
-            theme = "ivy",
-          },
-        },
         extensions = {
           ["ui-select"] = {
-            -- require("telescope.themes").get_dropdown({}),
-            require("telescope.themes").get_ivy({}),
+            require("telescope.themes").get_dropdown({}),
           },
           live_grep_args = {
             auto_quoting = true,
@@ -157,14 +137,7 @@ return {
       require("telescope").load_extension("live_grep_args")
 
       vim.keymap.set("n", "<leader>fg", function()
-        require("telescope").extensions.live_grep_args.live_grep_args({
-          path_display = {
-            filename_first = {
-              reverse_directories = true,
-            },
-          },
-          theme = "ivy",
-        })
+        require("telescope").extensions.live_grep_args.live_grep_args({})
       end, { noremap = true, silent = true, desc = "[T]elescope [L]ive Grep" })
     end,
   },
@@ -183,7 +156,7 @@ return {
           frecency = {
             auto_validate = false,
             matcher = "fuzzy",
-            show_scores = true,
+            -- show_scores = true,
             show_filter_column = false,
           },
         },
