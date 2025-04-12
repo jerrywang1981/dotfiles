@@ -90,4 +90,4 @@ vim.diagnostic.config({
 
 vim.cmd([[ autocmd CursorHold * lua vim.diagnostic.open_float() ]])
 
-vim.lsp.enable({ "bash", "ts", "css", "emmet", "sql", "html", "json", "vue", "go", "python", "lua" })
+vim.lsp.enable({ "bash", "ts", "css", "emmet", "sql", "html", "json", "vue", "go", "python", "lua", "php" })
