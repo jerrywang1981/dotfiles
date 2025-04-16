@@ -159,7 +159,6 @@ local on_attach = function(client, bufnr)
   -- buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
   -- buf_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
   -- buf_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
-  buf_set_keymap("n", "<space>d", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
   -- buf_set_keymap("n", "gra", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
   -- buf_set_keymap("n", "<localleader>=", "<cmd>lua vim.lsp.buf.format({async=true})<CR>", opts)
 
@@ -176,6 +175,7 @@ local on_attach = function(client, bufnr)
     buf_set_keymap("n", "gra", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
     buf_set_keymap("n", "gO", "<cmd>lua vim.lsp.buf.document_symbol()<CR>", opts)
   end
+  buf_set_keymap("n", "<space>d", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
   -- require("java-deps").attach(client, bufnr, root_dir)
 
   -- Set a Vim motion to <Space> + <Shift>J + o to organize imports in normal mode

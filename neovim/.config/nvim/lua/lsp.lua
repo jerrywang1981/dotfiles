@@ -63,6 +63,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
       buf_set_keymap("n", "gra", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
       buf_set_keymap("n", "gO", "<cmd>lua vim.lsp.buf.document_symbol()<CR>", opts)
     end
+
     -- moved to trouble.lua
     buf_set_keymap("n", "<space>d", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 

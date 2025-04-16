@@ -17,6 +17,8 @@ return {
       local lga_actions = require("telescope-live-grep-args.actions")
       local utils = require("telescope.utils")
 
+      vim.lsp.handlers["textDocument/documentSymbol"] = builtin.lsp_document_symbols
+
       vim.keymap.set("n", "<c-p>", function()
         local function is_git_repo()
           vim.fn.system("git rev-parse --is-inside-work-tree")
@@ -78,6 +80,10 @@ return {
         builtin.buffers({ previewer = false })
       end, { noremap = true, silent = true, desc = "[T]elescope [B]uffers" })
 
+      vim.keymap.set("n", "grO", function()
+        builtin.lsp_dynamic_workspace_symbols()
+      end, { noremap = true, silent = true, desc = "[T]elescope [B]uffers" })
+
       vim.keymap.set(
         "n",
         "<leader>ff",
@@ -127,6 +133,9 @@ return {
             theme = "ivy",
           },
           current_buffer_fuzzy_find = {
+            theme = "ivy",
+          },
+          lsp_document_symbols = {
             theme = "ivy",
           },
         },
