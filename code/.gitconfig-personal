@@ -1,0 +1,24 @@
+[user]
+	name = Jerry Wang
+	email = jerrywang1981@outlook.com
+	signingkey = jerrywang1981@outlook.com
+[core]
+	editor = vim
+[pull]
+	rebase = true
+[commit]
+	gpgsign = true
+[tag]
+	gpgSign = true
+[gpg]
+	program = /usr/bin/gpg
+[credential]
+	credentialStore = gpg
+	helper = /usr/local/bin/git-credential-manager
+[credential "https://gitee.com"]
+	provider = generic
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
