@@ -1,12 +1,21 @@
 local vim = vim
 return {
   {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    config = function()
+      vim.o.background = "dark"
+      vim.api.nvim_command("colorscheme catppuccin")
+    end,
+  },
+  {
     "EdenEast/nightfox.nvim",
     lazy = false,
     priority = 1000,
     config = function()
-      vim.o.background = "dark"
-      vim.api.nvim_command("colorscheme nightfox")
+      -- vim.o.background = "dark"
+      -- vim.api.nvim_command("colorscheme nightfox")
     end,
   },
   {
@@ -37,7 +46,7 @@ return {
   ---[[
   {
     "junegunn/fzf",
-    enabled = false,
+    -- enabled = false,
     build = function()
       vim.fn["fzf#install"]()
     end,
@@ -148,12 +157,13 @@ return {
   {
     "folke/ts-comments.nvim",
     opts = {},
+    -- enabled = false,
     event = "VeryLazy",
     enabled = vim.fn.has("nvim-0.10.0") == 1,
   },
   {
     "kevinhwang91/nvim-ufo",
-    enabled = false,
+    -- enabled = false,
     dependencies = {
       "kevinhwang91/promise-async",
     },

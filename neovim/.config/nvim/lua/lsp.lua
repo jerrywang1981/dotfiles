@@ -34,6 +34,7 @@ vim.lsp.config("*", {
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
   callback = function(args)
     local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
 
@@ -68,7 +69,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     buf_set_keymap("n", "<space>d", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 
     if client:supports_method("textDocument/completion") then
-      vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
+      vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = false })
     end
 
     if client.server_capabilities.inlayHintProvider then
@@ -78,6 +79,40 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
       end, { desc = "Toggle Inlay hint" })
     end
+
+    local function client_supports_method(cl, method, bufnr)
+      if vim.fn.has("nvim-0.11") == 1 then
+        return cl:supports_method(method, bufnr)
+      else
+        return cl.supports_method(method, { bufnr = bufnr })
+      end
+    end
+
+    if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_documentHighlight, args.buf) then
+      local highlight_augroup = vim.api.nvim_create_augroup("lsp-highlight", { clear = false })
+
+      -- When cursor stops moving: Highlights all instances of the symbol under the cursor
+      -- When cursor moves: Clears the highlighting
+      vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+        buffer = args.buf,
+        group = highlight_augroup,
+        callback = vim.lsp.buf.document_highlight,
+      })
+      vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+        buffer = args.buf,
+        group = highlight_augroup,
+        callback = vim.lsp.buf.clear_references,
+      })
+
+      -- When LSP detaches: Clears the highlighting
+      vim.api.nvim_create_autocmd("LspDetach", {
+        group = vim.api.nvim_create_augroup("lsp-detach", { clear = true }),
+        callback = function(event2)
+          vim.lsp.buf.clear_references()
+          vim.api.nvim_clear_autocmds({ group = "lsp-highlight", buffer = event2.buf })
+        end,
+      })
+    end
   end,
 })
 
@@ -86,6 +121,25 @@ vim.diagnostic.config({
     spacing = 0,
     source = true,
     current_line = true,
+  },
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true,
+  float = {
+    border = "rounded",
+    source = true,
+  },
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "󰅚 ",
+      [vim.diagnostic.severity.WARN] = "󰀪 ",
+      [vim.diagnostic.severity.INFO] = "󰋽 ",
+      [vim.diagnostic.severity.HINT] = "󰌶 ",
+    },
+    numhl = {
+      [vim.diagnostic.severity.ERROR] = "ErrorMsg",
+      [vim.diagnostic.severity.WARN] = "WarningMsg",
+    },
   },
 })
 

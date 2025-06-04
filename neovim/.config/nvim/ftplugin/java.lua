@@ -247,6 +247,41 @@ local on_attach = function(client, bufnr)
   create_command(bufnr, "JavaProjects", require("java-deps").toggle_outline, {
     nargs = 0,
   })
+
+  local function client_supports_method(cl, method, buf)
+    if vim.fn.has("nvim-0.11") == 1 then
+      return cl:supports_method(method, buf)
+    else
+      return cl.supports_method(method, { bufnr = buf })
+    end
+  end
+
+  if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_documentHighlight, bufnr) then
+    local highlight_augroup = vim.api.nvim_create_augroup("lsp-highlight", { clear = false })
+
+    -- When cursor stops moving: Highlights all instances of the symbol under the cursor
+    -- When cursor moves: Clears the highlighting
+    vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+      buffer = bufnr,
+      group = highlight_augroup,
+      callback = vim.lsp.buf.document_highlight,
+    })
+    vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+      buffer = bufnr,
+      group = highlight_augroup,
+      callback = vim.lsp.buf.clear_references,
+    })
+
+    -- When LSP detaches: Clears the highlighting
+    vim.api.nvim_create_autocmd("LspDetach", {
+      group = vim.api.nvim_create_augroup("lsp-detach", { clear = true }),
+      callback = function(event2)
+        vim.lsp.buf.clear_references()
+        vim.api.nvim_clear_autocmds({ group = "lsp-highlight", buffer = event2.buf })
+      end,
+    })
+  end
+
   --[[
   require("lsp_signature").on_attach({
     bind = true, -- This is mandatory, otherwise border config won't get registered.

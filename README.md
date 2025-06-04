@@ -83,6 +83,9 @@ sudo mv oc /usr/local/bin/
 #Helm
 https://github.com/helm/helm/releases
 
+# win32yank.exe
+
+https://github.com/equalsraf/win32yank/releases
 
 ### Wubi 98
 https://wubi98.gitee.io/2021/11/08/2021-11-08-039.fcitx5/

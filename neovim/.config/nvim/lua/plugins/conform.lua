@@ -62,6 +62,10 @@ return {
       notify_no_formatters = true,
     })
 
+    require("conform").formatters.xmlformat = {
+      prepend_args = { "--blanks" },
+    }
+
     vim.keymap.set({ "n", "v" }, "<leader>=", function()
       conform.format({
         lsp_format = "fallback",
