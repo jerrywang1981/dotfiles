@@ -57,6 +57,7 @@ require("keymapping")
 require("config.lazy")
 
 require("lsp")
+require("folding")
 
 vim.cmd(string.format("source %s/%s", config_dir, "autocmd.vim"))
 
