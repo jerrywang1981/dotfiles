@@ -1,7 +1,20 @@
 local vim = vim
 
+local mason_registry = require("mason-registry")
+local vue_language_server = mason_registry.get_package("vue-language-server"):get_install_path()
+  .. "/node_modules/@vue/language-server"
+
 return {
-  init_options = { hostInfo = "neovim" },
+  init_options = {
+    hostInfo = "neovim",
+    plugins = {
+      {
+        name = "@vue/typescript-plugin",
+        location = vue_language_server,
+        languages = { "vue" },
+      },
+    },
+  },
   cmd = { "typescript-language-server", "--stdio" },
   filetypes = {
     "javascript",
@@ -10,6 +23,7 @@ return {
     "typescript",
     "typescriptreact",
     "typescript.tsx",
+    "vue",
   },
   root_markers = { "tsconfig.json", "jsconfig.json", "package.json", ".git" },
   single_file_support = true,
