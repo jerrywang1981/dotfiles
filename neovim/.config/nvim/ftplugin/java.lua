@@ -18,12 +18,14 @@ local get_os_config = function()
 end
 
 local function get_jdtls()
+  require("mason")
   -- Get the Mason Registry to gain access to downloaded binaries
-  local mason_registry = require("mason-registry")
+  -- local mason_registry = require("mason-registry")
   -- Find the JDTLS package in the Mason Regsitry
-  local jdt = mason_registry.get_package("jdtls")
+  -- local jdt = mason_registry.get_package("jdtls")
   -- Find the full path to the directory where Mason has downloaded the JDTLS binaries
-  local jdtls_path = jdt:get_install_path()
+  -- local jdtls_path = jdt:get_install_path()
+  local jdtls_path = vim.fn.expand("$MASON/packages/" .. "jdtls")
 
   -- local f_dir = table.concat({ vim.fn.stdpath("config"), "f" }, "/")
   -- local jdtls_path = table.concat({ f_dir, "jdtls" }, "/")
@@ -42,12 +44,14 @@ local function get_jdtls()
 end
 
 local function get_bundles()
+  require("mason")
   -- Get the Mason Registry to gain access to downloaded binaries
-  local mason_registry = require("mason-registry")
+  -- local mason_registry = require("mason-registry")
   -- Find the Java Debug Adapter package in the Mason Registry
-  local java_debug = mason_registry.get_package("java-debug-adapter")
+  -- local java_debug = mason_registry.get_package("java-debug-adapter")
   -- Obtain the full path to the directory where Mason has downloaded the Java Debug Adapter binaries
-  local java_debug_path = java_debug:get_install_path()
+  -- local java_debug_path = java_debug:get_install_path()
+  local java_debug_path = vim.fn.expand("$MASON/packages/" .. "java-debug-adapter")
 
   local f_dir = table.concat({ vim.fn.stdpath("config"), "f" }, "/")
   local dep_java_file = table.concat({ f_dir, "com.microsoft.jdtls.ext.core-0.24.1.jar" }, "/")
@@ -84,10 +88,12 @@ local function get_bundles()
     return _bundles
   end
 
+  require("mason")
   -- Find the Java Test package in the Mason Registry
-  local java_test = mason_registry.get_package("java-test")
+  -- local java_test = mason_registry.get_package("java-test")
   -- Obtain the full path to the directory where Mason has downloaded the Java Test binaries
-  local java_test_path = java_test:get_install_path()
+  -- local java_test_path = java_test:get_install_path()
+  local java_test_path = vim.fn.expand("$MASON/packages/" .. "java-test")
   -- Add all of the Jars for running tests in debug mode to the bundles list
   -- vim.list_extend(bundles, vim.split(vim.fn.glob(java_test_path .. "/extension/server/*.jar", 1), "\n"))
   vim.list_extend(bundles, get_java_test_bundles(java_test_path))
@@ -476,7 +482,7 @@ require("jdtls").start_or_attach(config)
 
 vim.lsp.inlay_hint.enable(true)
 
-vim.keymap.set("n", "<leader>th", function()
+vim.keymap.set("n", "<leader>TH", function()
   vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-end, { desc = "Toggle Inlay hint" })
+end, { desc = "[T]oggle Inlay [H]int" })
 -- vim.api.nvim_command([[autocmd BufWritePre <buffer> lua vim.lsp.buf.format({async=true})]])

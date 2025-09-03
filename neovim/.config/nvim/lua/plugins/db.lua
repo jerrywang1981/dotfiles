@@ -13,7 +13,7 @@ return {
     },
     cmd = { "DBUI", "DBUIToggle", "DBUIAddConnection", "DBUIFindBuffer" },
     keys = {
-      { "<leader>DD", "<cmd>DBUIToggle<CR>", desc = "Toggle DBUI" },
+      { "<leader>TD", "<cmd>DBUIToggle<CR>", desc = "[T]oggle [D]BUI" },
     },
     -- enabled = false,
     -- cmd = "DBUI",

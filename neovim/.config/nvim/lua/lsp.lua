@@ -72,7 +72,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
 
     -- folding
-    if client and client.supports_method("textDocument/foldingRange") then
+    if client and client:supports_method("textDocument/foldingRange") then
       local win = vim.api.nvim_get_current_win()
       vim.wo[win][0].foldexpr = "v:lua.vim.lsp.foldexpr()"
     end
@@ -80,9 +80,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
     if client.server_capabilities.inlayHintProvider then
       vim.lsp.inlay_hint.enable(true)
 
-      vim.keymap.set("n", "<leader>th", function()
+      vim.keymap.set("n", "<leader>TH", function()
         vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-      end, { desc = "Toggle Inlay hint" })
+      end, { desc = "[T]oggle Inlay [H]int" })
     end
 
     local function client_supports_method(cl, method, bufnr)
