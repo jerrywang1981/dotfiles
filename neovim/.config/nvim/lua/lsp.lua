@@ -43,6 +43,22 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
     local opts = { noremap = true, silent = true }
 
+    buf_set_keymap("n", "<leader>flws", "<Cmd>lua require('fzf-lua').lsp_live_workspace_symbols()<CR>", {
+      noremap = true,
+      silent = true,
+      desc = "[f]zf [l]sp [w]orkspace [s]ymbols",
+    })
+    buf_set_keymap("n", "<leader>fldw", "<Cmd>lua require('fzf-lua').diagnostics_workspace()<CR>", {
+      noremap = true,
+      silent = true,
+      desc = "[f]zf [l]sp [d]iagnostics [w]orkspace",
+    })
+    buf_set_keymap("n", "<leader>fldd", "<Cmd>lua require('fzf-lua').diagnostics_document()<CR>", {
+      noremap = true,
+      silent = true,
+      desc = "[f]zf [l]sp [d]iagnostics [d]ocument",
+    })
+
     if client:supports_method("textDocument/declaration") then
       buf_set_keymap("n", "gd", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
     end

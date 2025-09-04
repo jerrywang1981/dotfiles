@@ -154,6 +154,23 @@ local on_attach = function(client, bufnr)
 
   -- Mappings.
   local opts = { noremap = true, silent = true }
+
+  buf_set_keymap("n", "<leader>flws", "<Cmd>lua require('fzf-lua').lsp_live_workspace_symbols()<CR>", {
+    noremap = true,
+    silent = true,
+    desc = "[f]zf [l]sp [w]orkspace [s]ymbols",
+  })
+  buf_set_keymap("n", "<leader>fldw", "<Cmd>lua require('fzf-lua').diagnostics_workspace()<CR>", {
+    noremap = true,
+    silent = true,
+    desc = "[f]zf [l]sp [d]iagnostics [w]orkspace",
+  })
+  buf_set_keymap("n", "<leader>fldd", "<Cmd>lua require('fzf-lua').diagnostics_document()<CR>", {
+    noremap = true,
+    silent = true,
+    desc = "[f]zf [l]sp [d]iagnostics [d]ocument",
+  })
+
   buf_set_keymap("n", "gd", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
   buf_set_keymap("n", "<c-]>", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
   -- buf_set_keymap("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)

@@ -60,7 +60,7 @@ return {
       desc = "[f]zf [h]istory",
     },
     {
-      "<leader>fg",
+      "<leader>fgg",
       function()
         require("fzf-lua").live_grep()
       end,
@@ -69,40 +69,85 @@ return {
       desc = "[f]zf live [g]rep",
     },
     {
-      "<leader>fw",
+      "<leader>fgl",
+      function()
+        require("fzf-lua").grep_last()
+      end,
+      noremap = true,
+      silent = true,
+      desc = "[f]zf [g]rep [l]ast",
+    },
+    {
+      "<leader>fgr",
+      function()
+        require("fzf-lua").live_grep_resume()
+      end,
+      noremap = true,
+      silent = true,
+      desc = "[f]zf live [g]rep [r]esume",
+    },
+    {
+      "<leader>fgw",
       function()
         require("fzf-lua").grep_cword()
       end,
       noremap = true,
       silent = true,
-      desc = "[f]zf current [w]ord",
+      desc = "[f]zf [g]rep current [w]ord",
     },
     {
-      "<leader>fW",
+      "<leader>fgW",
       function()
         require("fzf-lua").grep_cWORD()
       end,
       noremap = true,
       silent = true,
-      desc = "[f]zf current [W]ord",
+      desc = "[f]zf [g]rep current [W]ord",
     },
     {
-      "<leader>f/",
+      "<leader>fgv",
+      function()
+        require("fzf-lua").grep_visual()
+      end,
+      noremap = true,
+      silent = true,
+      desc = "[f]zf [g]rep [v]isual",
+    },
+    {
+      "<leader>fg/",
       function()
         require("fzf-lua").lgrep_curbuf()
       end,
       noremap = true,
       silent = true,
-      desc = "[f]zf live grep current [/] Buffer",
+      desc = "[f]zf live [g]rep current [/] buffer",
     },
     {
-      "<leader>flws",
+      "<leader>fGt",
       function()
-        require("fzf-lua").lsp_live_workspace_symbols()
+        require("fzf-lua").git_tags()
       end,
       noremap = true,
       silent = true,
-      desc = "[f]zf [l]ive [w]orkspace [s]ymbols",
+      desc = "[f]zf [G]it tags",
+    },
+    {
+      "<leader>fGb",
+      function()
+        require("fzf-lua").git_bcommits()
+      end,
+      noremap = true,
+      silent = true,
+      desc = "[f]zf [G]it [b]uffer commits",
+    },
+    {
+      "<leader>fGc",
+      function()
+        require("fzf-lua").git_commits()
+      end,
+      noremap = true,
+      silent = true,
+      desc = "[f]zf [G]it [c]ommits",
     },
   },
   config = function()
@@ -139,6 +184,17 @@ return {
           -- ["ctrl-g"] = { actions.grep_lgrep },
           ["alt-i"] = { actions.toggle_ignore },
           ["alt-h"] = { actions.toggle_hidden },
+        },
+      },
+      git = {
+        commits = {
+          actions = { ["enter"] = false },
+        },
+        bcommits = {
+          actions = { ["enter"] = false },
+        },
+        tags = {
+          actions = { ["enter"] = false },
         },
       },
     })
