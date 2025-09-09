@@ -52,7 +52,7 @@ Plug 'mhinz/vim-startify'
 Plug 'jiangmiao/auto-pairs'
 
 Plug 'elzr/vim-json', { 'for': 'json'  }
-Plug 'honza/dockerfile.vim', { 'for': 'Dockerfile' }
+"Plug 'honza/dockerfile.vim', { 'for': 'Dockerfile' }
 
 Plug 'preservim/nerdcommenter'
 Plug 'editorconfig/editorconfig-vim'
@@ -372,22 +372,25 @@ map gcc <plug>NERDCommenterToggle
 
 " fzf
 
-function <SID>CtrlP()
-  let l:j1 = system("git -C " . getcwd() . " rev-parse --is-inside-work-tree")
-  let l:j2 = system("git -C " . getcwd() . " rev-parse --is-bare-repository")
-  if l:j1 !~ "true" && l:j2 !~ "true"
-    :Files
-  else
-    :GFiles
-  endif
-endfunction
+"function <SID>CtrlP()
+  "let l:j1 = system("git -C " . getcwd() . " rev-parse --is-inside-work-tree")
+  "let l:j2 = system("git -C " . getcwd() . " rev-parse --is-bare-repository")
+  "if l:j1 !~ "true" && l:j2 !~ "true"
+    ":Files
+  "else
+    ":GFiles
+  "endif
+"endfunction
 
 
-nnoremap <silent> <C-p> :call <SID>CtrlP()<CR>
-nnoremap <silent> <leader>fb :Buffers<CR>
-nnoremap <silent> <leader>fh :History<CR>
-nnoremap <silent> <leader>fs :Rg<CR>
-nnoremap <silent> <leader>fS :Rg <c-r><c-w><CR>
+"nnoremap <silent> <C-p> :call <SID>CtrlP()<CR>
+nnoremap <silent> <C-p> <cmd>GFiles<CR>
+nnoremap <silent> <leader>ff <cmd>Files<CR>
+nnoremap <silent> <leader>fb <cmd>Buffers<CR>
+nnoremap <silent> <leader>fh <cmd>History<CR>
+nnoremap <silent> <leader>fgg <cmd>Rg<CR>
+nnoremap <silent> <leader>fg/ <cmd>BLines<CR>
+nnoremap <silent> <leader>fgw :<c-u>Rg <c-r><c-w><CR>
 
 let g:fzf_action = {
   \ 'ctrl-x': 'split',
