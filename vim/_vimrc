@@ -51,7 +51,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'mhinz/vim-startify'
 Plug 'jiangmiao/auto-pairs'
 
-Plug 'elzr/vim-json', { 'for': 'json'  }
+"Plug 'elzr/vim-json', { 'for': 'json'  }
 "Plug 'honza/dockerfile.vim', { 'for': 'Dockerfile' }
 
 Plug 'preservim/nerdcommenter'
@@ -69,7 +69,6 @@ Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
-"Plug 'kassio/neoterm', { 'on': 'Ttoggle' }
 Plug 'voldikss/vim-floaterm'
 Plug 'mbbill/undotree'
 " Track the engine.
@@ -79,7 +78,7 @@ Plug 'mbbill/undotree'
 "
 " Snippets are separated from the engine. Add this if you want them:
 "Plug 'honza/vim-snippets'
-
+Plug 'sbdchd/neoformat'
 "Plug 'jerrywang1981/morse.vim'
 
 " Plug 'yegappan/lsp'
@@ -102,6 +101,7 @@ call plug#end()
 "syntax on                   " syntax highlighting
 
 set path+=**
+set clipboard+=unnamed      " use the clipboards of vim and win
 "set clipboard+=unnamedplus  " use the clipboards of vim and win
 set go+=a               " Visual selection automatically copied to the clipboard
 "set guioptions-=m  "remove menu bar
@@ -150,11 +150,12 @@ set hidden
 set writebackup
 set noshowmode
 set nobackup
+"set paste
 
 set showtabline=2
 set scrolloff=5
 set updatetime=500
-set timeoutlen=500
+set timeoutlen=1000
 set history=2000
 set splitright
 
@@ -228,6 +229,7 @@ endif
 
 set background=dark
 colorscheme catppuccin_mocha
+"colorscheme elflord
 
 
 tnoremap <Esc> <C-\><C-n>
@@ -275,6 +277,7 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 " lightline
 let g:lightline = {
       \ 'colorscheme': 'catppuccin_mocha',
+      "\ 'colorscheme': 'jellybeans',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'modified', 'jerry', 'filename' ] ]
@@ -388,17 +391,39 @@ nnoremap <silent> <C-p> <cmd>GFiles<CR>
 nnoremap <silent> <leader>ff <cmd>Files<CR>
 nnoremap <silent> <leader>fb <cmd>Buffers<CR>
 nnoremap <silent> <leader>fh <cmd>History<CR>
-nnoremap <silent> <leader>fgg <cmd>Rg<CR>
+nnoremap <silent> <leader>fgg <cmd>RG<CR>
 nnoremap <silent> <leader>fg/ <cmd>BLines<CR>
-nnoremap <silent> <leader>fgw :<c-u>Rg <c-r><c-w><CR>
+"nnoremap <silent> <leader>fgw :<c-u>RG <c-r><c-w><CR>
+
+function! s:build_quickfix_list(lines)
+  call setqflist(map(copy(a:lines), '{ "filename": v:val  }'))
+  copen
+  cc
+endfunction
 
 let g:fzf_action = {
+  \ 'ctrl-q': function('s:build_quickfix_list'),
   \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
+  \ 'ctrl-v': 'vsplit'}
+  
+let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
 
-"let g:fzf_preview_window = []
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8, 'relative': v:true  }  }
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.95, 'relative': v:true  }  }
 
+let g:fzf_vim = {}
+let g:fzf_vim.preview_window = ['up,50%', 'ctrl-/']
+
+"command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, <bang>0)
+"command! -bang -nargs=* RG call fzf#vim#grep2("rg --column --line-number --no-heading --color=always --smart-case -- ", <q-args>, fzf#vim#with_preview(), <bang>0)
+
+
+" neoformat
+"let g:neoformat_try_formatprg = 1
+let g:neoformat_try_node_exe = 1
+let g:neoformat_enabled_javascript = ['prettier']
+let g:neoformat_enabled_html = ['prettier']
+nmap <leader>= <cmd>Neoformat<CR>
+"
 " neoterm
 " let g:neoterm_default_mod = 'belowright'
 " nnoremap <silent> <space>4 :<c-u>Ttoggle<cr><C-w>j
@@ -478,9 +503,14 @@ function! s:on_lsp_buffer_enabled() abort
     nmap <buffer> [d <plug>(lsp-previous-diagnostic)
     nmap <buffer> ]d <plug>(lsp-next-diagnostic)
     nmap <buffer> K <plug>(lsp-hover)
-    nmap <buffer> <leader>= <plug>(lsp-document-format)
-    vmap <buffer> <leader>= <plug>(lsp-document-range-format)
+    "nmap <buffer> <leader>= <plug>(lsp-document-format)
+    "vmap <buffer> <leader>= <plug>(lsp-document-range-format)
 
+    let l:servers = filter(lsp#get_allowed_servers(), 'lsp#capabilities#has_document_formatting_provider(v:val)')
+		if len(l:servers) != 0
+			nmap <buffer> <leader>= <plug>(lsp-document-format)
+			vmap <buffer> <leader>= <plug>(lsp-document-range-format)
+    endif
     " autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
     
     " refer to doc to add more commands
@@ -491,8 +521,6 @@ augroup lsp_install
     " call s:on_lsp_buffer_enabled only for languages that has the server registered.
     autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
-
-
 
 call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
     \ 'name': 'buffer',
