@@ -64,32 +64,25 @@ Plug 'airblade/vim-gitgutter'
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
 " Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
 Plug 'fatih/vim-go', { 'tag': '*' }
-"Plug 'NLKNguyen/papercolor-theme'
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
 Plug 'voldikss/vim-floaterm'
 Plug 'mbbill/undotree'
-" Track the engine.
-" Plug 'SirVer/ultisnips'
-" Plug 'thomasfaingnaert/vim-lsp-snippets'
-" Plug 'thomasfaingnaert/vim-lsp-ultisnips'
-"
 " Snippets are separated from the engine. Add this if you want them:
-"Plug 'honza/vim-snippets'
 Plug 'sbdchd/neoformat'
 "Plug 'jerrywang1981/morse.vim'
 
-" Plug 'yegappan/lsp'
+Plug 'romainl/vim-qf'
+
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/asyncomplete-buffer.vim'
+Plug 'prabirshrestha/asyncomplete-file.vim'
 
-" Plug 'prabirshrestha/async.vim'
-" Plug 'rhysd/vim-healthcheck'
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
 call plug#end()
@@ -117,7 +110,7 @@ set backspace=indent,eol,start
 set selectmode=mouse,key
 set whichwrap+=<,>,h,l
 set diffopt+=vertical
-set completeopt=menuone,noinsert,noselect
+set completeopt=menuone,noinsert,noselect,preview
 set shortmess+=cF
 set showcmd
 set belloff=all
@@ -199,6 +192,12 @@ if !has('gui_running')
   set t_ut=
 endif
 
+"for i in range(97, 122)
+  "let c = nr2char(i)
+  "exec "map \e".c." <M-".c.">"
+  "exec "map! \e".c." <M-".c.">"
+"endfor
+
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/venv/*,*/node_modules/*
 
 let &t_SI = "\<Esc>[6 q"
@@ -230,6 +229,7 @@ endif
 set background=dark
 colorscheme catppuccin_mocha
 "colorscheme elflord
+"colorscheme quiet
 
 
 tnoremap <Esc> <C-\><C-n>
@@ -278,6 +278,7 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 let g:lightline = {
       \ 'colorscheme': 'catppuccin_mocha',
       "\ 'colorscheme': 'jellybeans',
+      "\ 'colorscheme': 'wombat',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'modified', 'jerry', 'filename' ] ]
@@ -343,16 +344,16 @@ let g:lightline#bufferline#ordinal_number_map = {
       \ 5: '₅', 6: '₆', 7: '₇', 8: '₈', 9: '₉' }
 let g:lightline#bufferline#enable_devicons = 1
 
-nmap <Leader>1 <Plug>lightline#bufferline#go(1)
-nmap <Leader>2 <Plug>lightline#bufferline#go(2)
-nmap <Leader>3 <Plug>lightline#bufferline#go(3)
-nmap <Leader>4 <Plug>lightline#bufferline#go(4)
-nmap <Leader>5 <Plug>lightline#bufferline#go(5)
-nmap <Leader>6 <Plug>lightline#bufferline#go(6)
-nmap <Leader>7 <Plug>lightline#bufferline#go(7)
-nmap <Leader>8 <Plug>lightline#bufferline#go(8)
-nmap <Leader>9 <Plug>lightline#bufferline#go(9)
-nmap <Leader>0 <Plug>lightline#bufferline#go(10)
+"nmap <Leader>1 <Plug>lightline#bufferline#go(1)
+"nmap <Leader>2 <Plug>lightline#bufferline#go(2)
+"nmap <Leader>3 <Plug>lightline#bufferline#go(3)
+"nmap <Leader>4 <Plug>lightline#bufferline#go(4)
+"nmap <Leader>5 <Plug>lightline#bufferline#go(5)
+"nmap <Leader>6 <Plug>lightline#bufferline#go(6)
+"nmap <Leader>7 <Plug>lightline#bufferline#go(7)
+"nmap <Leader>8 <Plug>lightline#bufferline#go(8)
+"nmap <Leader>9 <Plug>lightline#bufferline#go(9)
+"nmap <Leader>0 <Plug>lightline#bufferline#go(10)
 
 " vim-highlightedyank
 let g:highlightedyank_highlight_duration = 500
@@ -386,7 +387,6 @@ map gcc <plug>NERDCommenterToggle
 "endfunction
 
 
-"nnoremap <silent> <C-p> :call <SID>CtrlP()<CR>
 nnoremap <silent> <C-p> <cmd>GFiles<CR>
 nnoremap <silent> <leader>ff <cmd>Files<CR>
 nnoremap <silent> <leader>fb <cmd>Buffers<CR>
@@ -413,9 +413,24 @@ let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.95, 'relative': v:tru
 let g:fzf_vim = {}
 let g:fzf_vim.preview_window = ['up,50%', 'ctrl-/']
 
-"command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, <bang>0)
-"command! -bang -nargs=* RG call fzf#vim#grep2("rg --column --line-number --no-heading --color=always --smart-case -- ", <q-args>, fzf#vim#with_preview(), <bang>0)
 
+function! RgRunner(...)
+  let command = 'rg --column --line-number --no-heading --color=always --smart-case '
+  if a:0 == 1
+    return command . ' -- ' . a:1
+  endif 
+
+  let args = copy(a:000)
+  let sArgs = split(join(args, ' '), ' -- ')
+  if len(sArgs) == 2
+    let command = command . sArgs[1] . ' -- ' . sArgs[0]
+  else
+    let command = command . join(args, ' ')
+  endif
+  return command
+endfunction
+
+command! -bang -nargs=* Rg1 call fzf#vim#grep(RgRunner(<f-args>), fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)
 
 " neoformat
 "let g:neoformat_try_formatprg = 1
@@ -437,8 +452,8 @@ let g:floaterm_keymap_toggle = "<space>4"
 let g:floaterm_width = 0.9
 let g:floaterm_height = 0.9
 
-nnoremap <silent> <leader>sl :FloatermSend<cr>
-vnoremap <silent> <leader>sl :FloatermSend<cr>
+nnoremap <silent> <leader>fSl :FloatermSend<cr>
+vnoremap <silent> <leader>fSl :FloatermSend<cr>
 
 " vimwiki
 "let g:vimwiki_list = [{'path': '~/.vim/vimwiki/',
@@ -467,16 +482,23 @@ let g:AutoPairsShortcutBackInsert=''
 "ultisnip
 " let g:UltiSnipsEditSplit="vertical"
 
+" vim-qf
 
-" asyncomplete.vim
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+function! s:on_qf_open() abort
+    nmap <buffer> dd <cmd>.Reject<cr><cmd>copen<cr>
+    map <buffer> gq <cmd>cclose<cr>
+endfunction
+
+autocmd FileType qf call s:on_qf_open()
 
 " LSP config
 let g:lsp_diagnostics_enabled = 0         " disable diagnostics support
 let g:lsp_fold_enabled = 0
 let g:lsp_format_sync_timeout = 1000
+let g:lsp_inlay_hints_enabled = 1
+
+"let g:lsp_log_verbose = 1
+"let g:lsp_log_file = expand('~/vim-lsp.log')
 
 " if executable('pylsp')
 "     " pip install python-lsp-server
@@ -522,7 +544,15 @@ augroup lsp_install
     autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
 
-call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
+" asyncomplete.vim
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+" Force refresh completion
+" imap <c-space> <Plug>(asyncomplete_force_refresh)
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
+au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
     \ 'name': 'buffer',
     \ 'allowlist': ['*'],
     \ 'blocklist': ['go'],
@@ -531,3 +561,28 @@ call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options
     \    'max_buffer_size': 5000000,
     \  },
     \ }))
+
+au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
+    \ 'name': 'file',
+    \ 'allowlist': ['*'],
+    \ 'priority': 10,
+    \ 'completor': function('asyncomplete#sources#file#completor')
+    \ }))
+
+" npm install -g typescript typescript-language-server
+"if executable('typescript-language-server')
+    "au User lsp_setup call lsp#register_server({
+      "\ 'name': 'javascript support using typescript-language-server',
+      "\ 'cmd': { server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+      "\ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
+      "\ 'whitelist': ['javascript', 'javascript.jsx', 'javascriptreact']
+      "\ })
+"endif
+
+
+" vim-lsp-settings
+" java 21
+" install-eclipse-jdt-ls.cmd
+" curl -Lo jdt-language-server-latest.tar.gz "https://download.eclipse.org/jdtls/milestones/1.33.0/jdt-language-server-1.33.0-202402151717.tar.gz"
+"
+"
