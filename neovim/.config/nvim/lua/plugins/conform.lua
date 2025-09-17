@@ -12,6 +12,7 @@ return {
     conform.setup({
       formatters_by_ft = {
         javascript = { "prettierd", "prettier", stop_after_first = true },
+        vue = { "prettierd", "prettier", stop_after_first = true },
         angular = { "prettierd", "prettier", stop_after_first = true },
         typescript = { "prettierd", "prettier", stop_after_first = true },
         javascriptreact = { "prettierd", "prettier", stop_after_first = true },
@@ -61,6 +62,10 @@ return {
       notify_on_error = true,
       notify_no_formatters = true,
     })
+
+    require("conform").formatters.xmlformat = {
+      prepend_args = { "--blanks" },
+    }
 
     vim.keymap.set({ "n", "v" }, "<leader>=", function()
       conform.format({

@@ -7,12 +7,15 @@ return {
   },
   {
     "kristijanhusak/vim-dadbod-ui",
+    dependencies = {
+      { "tpope/vim-dadbod", lazy = true },
+      { "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true },
+    },
     cmd = { "DBUI", "DBUIToggle", "DBUIAddConnection", "DBUIFindBuffer" },
     keys = {
-      { "<leader>DD", "<cmd>DBUIToggle<CR>", desc = "Toggle DBUI" },
+      { "<leader>TD", "<cmd>DBUIToggle<CR>", desc = "[T]oggle [D]BUI" },
     },
     -- enabled = false,
-    dependencies = "tpope/vim-dadbod",
     -- cmd = "DBUI",
     config = function()
       -- vim.g.db_ui_execute_on_save = 0
@@ -32,16 +35,6 @@ return {
       -- you save the file running those queries can crash neovim to run use the
       -- default keymap: <leader>S
       vim.g.db_ui_execute_on_save = false
-    end,
-  },
-
-  {
-    "kristijanhusak/vim-dadbod-completion",
-    dependencies = { "kristijanhusak/vim-dadbod-ui", "hrsh7th/nvim-cmp" },
-    config = function()
-      vim.cmd(
-        [[ autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })]]
-      )
     end,
   },
 }

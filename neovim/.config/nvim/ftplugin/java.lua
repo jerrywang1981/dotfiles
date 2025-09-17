@@ -18,12 +18,14 @@ local get_os_config = function()
 end
 
 local function get_jdtls()
+  require("mason")
   -- Get the Mason Registry to gain access to downloaded binaries
-  local mason_registry = require("mason-registry")
+  -- local mason_registry = require("mason-registry")
   -- Find the JDTLS package in the Mason Regsitry
-  local jdt = mason_registry.get_package("jdtls")
+  -- local jdt = mason_registry.get_package("jdtls")
   -- Find the full path to the directory where Mason has downloaded the JDTLS binaries
-  local jdtls_path = jdt:get_install_path()
+  -- local jdtls_path = jdt:get_install_path()
+  local jdtls_path = vim.fn.expand("$MASON/packages/" .. "jdtls")
 
   -- local f_dir = table.concat({ vim.fn.stdpath("config"), "f" }, "/")
   -- local jdtls_path = table.concat({ f_dir, "jdtls" }, "/")
@@ -42,12 +44,14 @@ local function get_jdtls()
 end
 
 local function get_bundles()
+  require("mason")
   -- Get the Mason Registry to gain access to downloaded binaries
-  local mason_registry = require("mason-registry")
+  -- local mason_registry = require("mason-registry")
   -- Find the Java Debug Adapter package in the Mason Registry
-  local java_debug = mason_registry.get_package("java-debug-adapter")
+  -- local java_debug = mason_registry.get_package("java-debug-adapter")
   -- Obtain the full path to the directory where Mason has downloaded the Java Debug Adapter binaries
-  local java_debug_path = java_debug:get_install_path()
+  -- local java_debug_path = java_debug:get_install_path()
+  local java_debug_path = vim.fn.expand("$MASON/packages/" .. "java-debug-adapter")
 
   local f_dir = table.concat({ vim.fn.stdpath("config"), "f" }, "/")
   local dep_java_file = table.concat({ f_dir, "com.microsoft.jdtls.ext.core-0.24.1.jar" }, "/")
@@ -84,10 +88,12 @@ local function get_bundles()
     return _bundles
   end
 
+  require("mason")
   -- Find the Java Test package in the Mason Registry
-  local java_test = mason_registry.get_package("java-test")
+  -- local java_test = mason_registry.get_package("java-test")
   -- Obtain the full path to the directory where Mason has downloaded the Java Test binaries
-  local java_test_path = java_test:get_install_path()
+  -- local java_test_path = java_test:get_install_path()
+  local java_test_path = vim.fn.expand("$MASON/packages/" .. "java-test")
   -- Add all of the Jars for running tests in debug mode to the bundles list
   -- vim.list_extend(bundles, vim.split(vim.fn.glob(java_test_path .. "/extension/server/*.jar", 1), "\n"))
   vim.list_extend(bundles, get_java_test_bundles(java_test_path))
@@ -148,6 +154,23 @@ local on_attach = function(client, bufnr)
 
   -- Mappings.
   local opts = { noremap = true, silent = true }
+
+  buf_set_keymap("n", "<leader>flws", "<Cmd>lua require('fzf-lua').lsp_live_workspace_symbols()<CR>", {
+    noremap = true,
+    silent = true,
+    desc = "[f]zf [l]sp [w]orkspace [s]ymbols",
+  })
+  buf_set_keymap("n", "<leader>fldw", "<Cmd>lua require('fzf-lua').diagnostics_workspace()<CR>", {
+    noremap = true,
+    silent = true,
+    desc = "[f]zf [l]sp [d]iagnostics [w]orkspace",
+  })
+  buf_set_keymap("n", "<leader>fldd", "<Cmd>lua require('fzf-lua').diagnostics_document()<CR>", {
+    noremap = true,
+    silent = true,
+    desc = "[f]zf [l]sp [d]iagnostics [d]ocument",
+  })
+
   buf_set_keymap("n", "gd", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
   buf_set_keymap("n", "<c-]>", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
   -- buf_set_keymap("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
@@ -247,6 +270,41 @@ local on_attach = function(client, bufnr)
   create_command(bufnr, "JavaProjects", require("java-deps").toggle_outline, {
     nargs = 0,
   })
+
+  local function client_supports_method(cl, method, buf)
+    if vim.fn.has("nvim-0.11") == 1 then
+      return cl:supports_method(method, buf)
+    else
+      return cl.supports_method(method, { bufnr = buf })
+    end
+  end
+
+  if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_documentHighlight, bufnr) then
+    local highlight_augroup = vim.api.nvim_create_augroup("lsp-highlight", { clear = false })
+
+    -- When cursor stops moving: Highlights all instances of the symbol under the cursor
+    -- When cursor moves: Clears the highlighting
+    vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+      buffer = bufnr,
+      group = highlight_augroup,
+      callback = vim.lsp.buf.document_highlight,
+    })
+    vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+      buffer = bufnr,
+      group = highlight_augroup,
+      callback = vim.lsp.buf.clear_references,
+    })
+
+    -- When LSP detaches: Clears the highlighting
+    vim.api.nvim_create_autocmd("LspDetach", {
+      group = vim.api.nvim_create_augroup("lsp-detach", { clear = true }),
+      callback = function(event2)
+        vim.lsp.buf.clear_references()
+        vim.api.nvim_clear_autocmds({ group = "lsp-highlight", buffer = event2.buf })
+      end,
+    })
+  end
+
   --[[
   require("lsp_signature").on_attach({
     bind = true, -- This is mandatory, otherwise border config won't get registered.
@@ -441,7 +499,7 @@ require("jdtls").start_or_attach(config)
 
 vim.lsp.inlay_hint.enable(true)
 
-vim.keymap.set("n", "<leader>th", function()
+vim.keymap.set("n", "<leader>TH", function()
   vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-end, { desc = "Toggle Inlay hint" })
+end, { desc = "[T]oggle Inlay [H]int" })
 -- vim.api.nvim_command([[autocmd BufWritePre <buffer> lua vim.lsp.buf.format({async=true})]])

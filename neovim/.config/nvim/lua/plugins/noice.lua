@@ -1,10 +1,9 @@
 return {
   "folke/noice.nvim",
-  -- enabled = false,
   dependencies = {
     "MunifTanjim/nui.nvim",
     "rcarriga/nvim-notify",
-    "nvim-telescope/telescope.nvim",
+    -- "nvim-telescope/telescope.nvim",
   },
   config = function()
     require("noice").setup({
@@ -35,6 +34,6 @@ return {
       },
     })
 
-    require("telescope").load_extension("noice")
+    -- require("telescope").load_extension("noice")
   end,
 }

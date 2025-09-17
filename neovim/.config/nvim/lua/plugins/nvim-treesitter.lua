@@ -37,7 +37,7 @@ return {
         -- "yaml",
         -- "typescript",
         -- "jsdoc",
-        -- "vue",
+        "vue",
         -- "html",
         -- "regex",
         -- "query",

@@ -10,11 +10,14 @@ local config = wezterm.config_builder()
 -- config.color_scheme = 'AdventureTime'
 -- config.color_scheme = 'Tokyo Night Moon'
 -- config.color_scheme = 'PaperColor Dark (base16)'
-config.color_scheme = "Papercolor Dark (Gogh)"
+-- config.color_scheme = "Papercolor Dark (Gogh)"
+config.color_scheme = "Catppuccin Mocha"
 -- config.color_scheme = 'Vs Code Dark+ (Gogh)'
 
 config.default_prog = { "powershell.exe" }
 -- config.front_end = 'Software'
+
+config.harfbuzz_features = { 'calt=0' }
 
 config.hide_tab_bar_if_only_one_tab = false
 config.use_fancy_tab_bar = false

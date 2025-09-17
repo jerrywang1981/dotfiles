@@ -1,12 +1,21 @@
 local vim = vim
 return {
   {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    config = function()
+      vim.o.background = "dark"
+      vim.api.nvim_command("colorscheme catppuccin")
+    end,
+  },
+  {
     "EdenEast/nightfox.nvim",
     lazy = false,
     priority = 1000,
     config = function()
-      vim.o.background = "dark"
-      vim.api.nvim_command("colorscheme nightfox")
+      -- vim.o.background = "dark"
+      -- vim.api.nvim_command("colorscheme nightfox")
     end,
   },
   {
@@ -37,7 +46,7 @@ return {
   ---[[
   {
     "junegunn/fzf",
-    enabled = false,
+    -- enabled = false,
     build = function()
       vim.fn["fzf#install"]()
     end,
@@ -69,56 +78,6 @@ return {
     end,
   },
   {
-    "echasnovski/mini.ai",
-    version = "*",
-    enabled = false,
-    config = function()
-      require("mini.ai").setup()
-    end,
-  },
-  --[=====[
-
-
-
-	use({
-		"stevearc/aerial.nvim",
-		setup = [[
-      vim.api.nvim_set_keymap('n', '<space>o', '<cmd>AerialToggle<CR>',{ noremap = true, silent = true })
-    ]],
-		config = config("aerial"),
-	})
-
-
-
-
-
-
-
-
-
-
-
-
-	-- lazy loading
-
-
-	use({
-		"iamcco/markdown-preview.nvim",
-		opt = true,
-		run = "cd app && yarn install",
-		cmd = "MarkdownPreview",
-		config = [[
-        vim.g.mkdp_auto_close = 1
-    ]],
-	})
-
-
-
-
-
-
-	--]=====]
-  {
     "JavaHello/java-deps.nvim",
     -- lazy = true,
     -- enabled = false,
@@ -148,6 +107,7 @@ return {
   {
     "folke/ts-comments.nvim",
     opts = {},
+    -- enabled = false,
     event = "VeryLazy",
     enabled = vim.fn.has("nvim-0.10.0") == 1,
   },

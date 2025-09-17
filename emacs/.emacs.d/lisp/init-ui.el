@@ -13,9 +13,9 @@
   (progn
     (global-set-key [remap other-window] 'ace-window)))
 
-(set-face-attribute 'default nil
-		    :font "IBM Plex Mono"
-		    :height 120)
-		    
+;;(set-face-attribute 'default nil
+;;		    :font "IBM Plex Mono"
+;;		    :height 120)
+
 
 (provide 'init-ui)

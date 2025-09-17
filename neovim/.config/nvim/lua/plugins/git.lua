@@ -10,13 +10,17 @@ return {
 
   {
     "lewis6991/gitsigns.nvim",
-    -- dependencies = {
-    -- 	"nvim-lua/plenary.nvim",
-    -- },
     config = function()
       require("gitsigns").setup({
         -- current_line_blame = true
       })
+
+      vim.keymap.set(
+        "n",
+        "<leader>TB",
+        "<cmd>Gitsigns toggle_current_line_blame<cr>",
+        { desc = "[T]oggle Git [B]lame" }
+      )
     end,
   },
   {
