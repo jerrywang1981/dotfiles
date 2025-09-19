@@ -14,8 +14,6 @@
 let g:mapleader = ","
 let g:maplocalleader = ","
 
-packadd! matchit
-
 if !exists('g:env')
   if has('win64') || has('win32') || has('win16')
     let g:env = 'WINDOWS'
@@ -116,110 +114,70 @@ call plug#end()
 "filetype plugin indent on   " enable loading indent file for filetype
 "syntax on                   " syntax highlighting
 
+runtime! plugin/sensible.vim
+
 set path+=**
 set clipboard+=unnamed      " use the clipboards of vim and win
-"set clipboard+=unnamedplus  " use the clipboards of vim and win
-set go+=a               " Visual selection automatically copied to the clipboard
-"set guioptions-=m  "remove menu bar
+set guioptions+=a               " Visual selection automatically copied to the clipboard
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove scrollbar
 set guioptions-=L  "remove scrollbar
-set guioptions-=R
-set guioptions-=l
-set guioptions-=b
+" set guioptions-=R
+" set guioptions-=l
+" set guioptions-=b
 
-set backspace=indent,eol,start
-" set omnifunc=syntaxcomplete#Complete
 set selectmode=mouse,key
 set whichwrap+=<,>,h,l
 set diffopt+=vertical
 set completeopt=menuone,noinsert,noselect,preview
 set shortmess+=cF
-set showcmd
 set belloff=all
-set complete-=i
-set display=lastline
-set nofsync
-set history=10000
-set nojoinspaces
-set sidescroll=1
-set smarttab
-set nostartofline
-set tabpagemax=50
+" set display=lastline
 set sessionoptions+=unix,slash
-set sessionoptions-=options
-set viminfo+=!
-set mouse=a
-set wildmenu
-set selection=exclusive
-set encoding=utf-8
 
 set hlsearch
 set ignorecase
 set smartcase
-set timeout
 set termguicolors
 set showmatch
-set incsearch
 set visualbell
 set hidden
-set writebackup
 set noshowmode
-set nobackup
-"set paste
 
-set showtabline=2
+" set showtabline=2
 set scrolloff=5
 set updatetime=500
-set timeoutlen=1000
-set history=2000
+" set timeoutlen=1000
 set splitright
 
 set number
 set relativenumber
 set cursorline
 set cursorcolumn
-set wrap
 
 set signcolumn=yes
-set foldmethod=indent
+" set foldmethod=indent
 set colorcolumn=80
-
 set foldlevel=99
 
 set noswapfile
 set autoindent
 set cindent
 set expandtab
-set autoread
-set fixendofline
 
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
+" set laststatus=2
 
-set fileformat=unix
-set fileencoding=utf-8
-set laststatus=2
-
-
-"silent !mkdir -p ~/.config/nvim/tmp/backup
-"set backupdir=~/.config/nvim/tmp/backup,.
-"set directory=~/.config/nvim/tmp/backup,.
 
 let g:loaded_netrw       = 1
 let g:loaded_netrwPlugin = 1
 
-if !has('gui_running')
-  set t_Co=256
-  set t_ut=
-endif
-
-"for i in range(97, 122)
-"let c = nr2char(i)
-"exec "map \e".c." <M-".c.">"
-"exec "map! \e".c." <M-".c.">"
-"endfor
+" if !has('gui_running')
+"   set t_Co=256
+"   set t_ut=
+" endif
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/venv/*,*/node_modules/*
 
@@ -263,7 +221,6 @@ tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
 "-------------------------key mappings---------------------------------
 
 nmap <silent> <leader>ev :e $MYVIMRC<cr>
-nmap <c-l> :nohlsearch<cr>
 
 noremap <up> <Nop>
 noremap <down> <Nop>
@@ -282,12 +239,12 @@ noremap <c-down> :resize -5<cr>
 inoremap jk <esc>
 inoremap kj <esc>
 
-nnoremap Y y$
-inoremap <C-U> <C-G>u<C-U>
-inoremap <C-W> <C-G>u<C-W>
-xnoremap * y/\V<C-R>"<CR>
-xnoremap # y?\V<C-R>"<CR>
-nnoremap & :&&<CR>
+" nnoremap Y y$
+" inoremap <C-U> <C-G>u<C-U>
+" inoremap <C-W> <C-G>u<C-W>
+" xnoremap * y/\V<C-R>"<CR>
+" xnoremap # y?\V<C-R>"<CR>
+" nnoremap & :&&<CR>
 
 
 " nerdtree
