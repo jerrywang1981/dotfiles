@@ -16,7 +16,20 @@ let g:maplocalleader = ","
 
 packadd! matchit
 
-let data_dir = $HOME . '/.vim'
+if !exists('g:env')
+  if has('win64') || has('win32') || has('win16')
+    let g:env = 'WINDOWS'
+  else
+    let g:env = toupper(substitute(system('uname'), '\n', '', ''))
+  endif
+endif
+
+if g:env =~ 'WINDOWS'
+  let data_dir = $HOME . '/vimfiles'
+elseif g:env =~ 'LINUX'
+  let data_dir = $HOME . '/.vim'
+endif
+
 if empty(glob(data_dir . '/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
@@ -41,6 +54,7 @@ Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
 Plug 'wellle/targets.vim'
@@ -51,10 +65,9 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'mhinz/vim-startify'
 Plug 'jiangmiao/auto-pairs'
 
-Plug 'elzr/vim-json', { 'for': 'json'  }
-Plug 'honza/dockerfile.vim', { 'for': 'Dockerfile' }
+"Plug 'elzr/vim-json', { 'for': 'json'  }
+"Plug 'honza/dockerfile.vim', { 'for': 'Dockerfile' }
 
-Plug 'preservim/nerdcommenter'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'itchyny/lightline.vim'
@@ -62,26 +75,37 @@ Plug 'mengelbrecht/lightline-bufferline'
 Plug 'itchyny/vim-gitbranch'
 Plug 'airblade/vim-gitgutter'
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
+Plug 'nicwest/vim-http', { 'for': ['http'] }
 " Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
-Plug 'fatih/vim-go', { 'tag': '*' }
-"Plug 'NLKNguyen/papercolor-theme'
+"Plug 'fatih/vim-go', { 'tag': '*' }
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
-"Plug 'kassio/neoterm', { 'on': 'Ttoggle' }
 Plug 'voldikss/vim-floaterm'
-Plug 'mbbill/undotree'
-"Plug 'junegunn/goyo.vim'
-" Track the engine.
-"Plug 'SirVer/ultisnips'
-"
+Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 " Snippets are separated from the engine. Add this if you want them:
-"Plug 'honza/vim-snippets'
-
+Plug 'sbdchd/neoformat'
 "Plug 'jerrywang1981/morse.vim'
 
-"Plug 'yegappan/lsp'
+Plug 'romainl/vim-qf'
+
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+" completion
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/asyncomplete-buffer.vim'
+Plug 'prabirshrestha/asyncomplete-file.vim'
+
+" linter
+Plug 'rhysd/vim-lsp-ale'
+Plug 'dense-analysis/ale'
+
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'jerrywang1981/vim-keystroke'
+Plug 'liuchengxu/vim-which-key'
+
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
 call plug#end()
@@ -93,19 +117,23 @@ call plug#end()
 "syntax on                   " syntax highlighting
 
 set path+=**
-set clipboard+=unnamedplus  " use the clipboards of vim and win
+set clipboard+=unnamed      " use the clipboards of vim and win
+"set clipboard+=unnamedplus  " use the clipboards of vim and win
 set go+=a               " Visual selection automatically copied to the clipboard
-set guioptions-=r
+"set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
+set guioptions-=r  "remove scrollbar
+set guioptions-=L  "remove scrollbar
 set guioptions-=R
 set guioptions-=l
-set guioptions-=L
 set guioptions-=b
+
 set backspace=indent,eol,start
-set omnifunc=syntaxcomplete#Complete
+" set omnifunc=syntaxcomplete#Complete
 set selectmode=mouse,key
 set whichwrap+=<,>,h,l
 set diffopt+=vertical
-set completeopt=menuone,noinsert,noselect
+set completeopt=menuone,noinsert,noselect,preview
 set shortmess+=cF
 set showcmd
 set belloff=all
@@ -138,11 +166,12 @@ set hidden
 set writebackup
 set noshowmode
 set nobackup
+"set paste
 
 set showtabline=2
 set scrolloff=5
 set updatetime=500
-set timeoutlen=500
+set timeoutlen=1000
 set history=2000
 set splitright
 
@@ -186,6 +215,12 @@ if !has('gui_running')
   set t_ut=
 endif
 
+"for i in range(97, 122)
+"let c = nr2char(i)
+"exec "map \e".c." <M-".c.">"
+"exec "map! \e".c." <M-".c.">"
+"endfor
+
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/venv/*,*/node_modules/*
 
 let &t_SI = "\<Esc>[6 q"
@@ -198,16 +233,16 @@ if exists('+termguicolors')
 endif
 
 if has("persistent_undo")
-   let target_path = expand('~/.undo_dir')
+  let target_path = expand('~/.undo_dir')
 
-    " create the directory and any parent directories
-    " if the location does not exist.
-    if !isdirectory(target_path)
-        call mkdir(target_path, "p", 0700)
-    endif
+  " create the directory and any parent directories
+  " if the location does not exist.
+  if !isdirectory(target_path)
+    call mkdir(target_path, "p", 0700)
+  endif
 
-    let &undodir=target_path
-    set undofile
+  let &undodir=target_path
+  set undofile
 endif
 
 if has("wildignore") == 1 && has("popupwin") == 1
@@ -216,11 +251,13 @@ endif
 
 set background=dark
 colorscheme catppuccin_mocha
+"colorscheme elflord
+"colorscheme quiet
+" colorscheme industry 
 
 
 tnoremap <Esc> <C-\><C-n>
 tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
-
 
 
 "-------------------------key mappings---------------------------------
@@ -263,6 +300,8 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 " lightline
 let g:lightline = {
       \ 'colorscheme': 'catppuccin_mocha',
+      "\ 'colorscheme': 'jellybeans',
+      "\ 'colorscheme': 'wombat',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'modified', 'jerry', 'filename' ] ]
@@ -293,33 +332,69 @@ let g:startify_files_number=5
 let g:startify_enable_special=0
 let g:startify_lists = [
       \ { 'type' : 'files', 'header' : [ "   MRU" ] },
+      "\ { 'type': 'sessions',  'header': ['   Sessions']       },
       \ ]
 
 let g:startify_custom_header =
       \ startify#center([
-			\ '       _                       __          __                  ',
-			\ '      | |                      \ \        / /                  ',
-			\ '      | | ___ _ __ _ __ _   _   \ \  /\  / /_ _ _ __   __ _    ',
-			\ '  _   | |/ _ \ |__| |__| | | |   \ \/  \/ / _| | |_ \ / _` |   ',
-			\ ' | |__| |  __/ |  | |  | |_| |    \  /\  / (_| | | | | (_| |   ',
-			\ '  \____/ \___|_|  |_|   \__| |     \/  \/ \__|_|_| |_|\__| |   ',
-			\ '                         __/ |                         __/ | * @jerrywang1981 github  ',
-			\ '                        |___/                         |___/  * https://jerrywang1981.github.io  ',
-			\ '                                                             * jerrywang1981@outlook.com ',
-			\ '                                                               ',
-			\ '                                                               ',
-			\ '           .--- . .-. .-. -.--  .-- .- -. --.                  ',
+      \ '       _                       __          __                  ',
+      \ '      | |                      \ \        / /                  ',
+      \ '      | | ___ _ __ _ __ _   _   \ \  /\  / /_ _ _ __   __ _    ',
+      \ '  _   | |/ _ \ |__| |__| | | |   \ \/  \/ / _| | |_ \ / _` |   ',
+      \ ' | |__| |  __/ |  | |  | |_| |    \  /\  / (_| | | | | (_| |   ',
+      \ '  \____/ \___|_|  |_|   \__| |     \/  \/ \__|_|_| |_|\__| |   ',
+      \ '                         __/ |                         __/ | * @jerrywang1981 github  ',
+      \ '                        |___/                         |___/  * https://jerrywang1981.github.io  ',
+      \ '                                                             * jerrywang1981@outlook.com ',
+      \ '                                                               ',
+      \ '                                                               ',
+      \ '           .--- . .-. .-. -.--  .-- .- -. --.                  ',
       \ ])
 
 
 let g:startify_custom_footer = startify#center([
-			\ '春风杨柳万千条, 六亿神州尽舜尧',
-			\ '红雨随心翻作浪, 青山着意化为桥',
-			\ '天连五岭银锄落, 地动三河铁臂摇',
-			\ '借问瘟君欲何往, 纸船明烛照天烧',
-			\ '                               七律二首 送瘟神',
+      \ '春风杨柳万千条, 六亿神州尽舜尧',
+      \ '红雨随心翻作浪, 青山着意化为桥',
+      \ '天连五岭银锄落, 地动三河铁臂摇',
+      \ '借问瘟君欲何往, 纸船明烛照天烧',
+      \ '                               七律二首 送瘟神',
       \ ])
 
+function! GetUniqueSessionName()
+  let path = fnamemodify(getcwd(), ':p:~')
+  let path = empty(path) ? 'no-project' : path
+  let branch = gitbranch#name()
+  let branch = empty(branch) ? '' :  branch
+  return substitute(substitute(substitute(substitute(path . branch, '^\~\', '', 'g'), '^\~/', '', 'g'), '/', '-', 'g'), '\', '-', 'g') . '.vim'
+endfunction
+
+" autocmd User        StartifyReady silent execute 'SLoad '  . GetUniqueSessionName()
+" autocmd VimLeavePre *             execute 'SSave! ' . GetUniqueSessionName()
+
+function! s:SessionLoadFunction(files)
+  if len(a:files) < 2
+    return
+  endif
+
+  let l:file = get(a:files, 1)
+  if l:file == ''
+    echom 'wrong'
+  endif
+
+  silent execute 'SLoad '  . l:file
+endfunction
+
+function! <SID>SaveSession(...)
+  if a:0 == 0
+    execute 'SSave! ' . GetUniqueSessionName()
+  else 
+    execute 'SSave! ' . a:1
+  endif
+endfunction
+
+command! -nargs=? SessionSave call <SID>SaveSession(<f-args>)
+command! -nargs=? SessionLoad execute 'SLoad ' . GetUniqueSessionName()
+command! -bang -nargs=0 Sessions call fzf#vim#files(startify#get_session_path(), {'sink*': function('s:SessionLoadFunction')}, <bang>0)
 
 " lightline-bufferline
 let g:lightline#bufferline#show_number = 3
@@ -327,24 +402,49 @@ let g:lightline#bufferline#ordinal_number_map = {
       \ 0: '₀', 1: '₁', 2: '₂', 3: '₃', 4: '₄',
       \ 5: '₅', 6: '₆', 7: '₇', 8: '₈', 9: '₉' }
 let g:lightline#bufferline#enable_devicons = 1
+let g:lightline#bufferline#disable_more_buffers_indicator = 1
+" let g:lightline#bufferline#shorten_path = 1
 
-nmap <Leader>1 <Plug>lightline#bufferline#go(1)
-nmap <Leader>2 <Plug>lightline#bufferline#go(2)
-nmap <Leader>3 <Plug>lightline#bufferline#go(3)
-nmap <Leader>4 <Plug>lightline#bufferline#go(4)
-nmap <Leader>5 <Plug>lightline#bufferline#go(5)
-nmap <Leader>6 <Plug>lightline#bufferline#go(6)
-nmap <Leader>7 <Plug>lightline#bufferline#go(7)
-nmap <Leader>8 <Plug>lightline#bufferline#go(8)
-nmap <Leader>9 <Plug>lightline#bufferline#go(9)
-nmap <Leader>0 <Plug>lightline#bufferline#go(10)
+function <SID>GoToBuffer()
+  let l:buf = str2nr(input("Which buffer:"))
+  if l:buf > 0 
+    call lightline#bufferline#go(l:buf)
+  endif
+endfunction
+
+nmap <space>bb :<c-u>call <SID>GoToBuffer()<cr>
+
+nmap <space>b1 <Plug>lightline#bufferline#go(1)
+nmap <space>b2 <Plug>lightline#bufferline#go(2)
+nmap <space>b3 <Plug>lightline#bufferline#go(3)
+nmap <space>b4 <Plug>lightline#bufferline#go(4)
+nmap <space>b5 <Plug>lightline#bufferline#go(5)
+nmap <space>b6 <Plug>lightline#bufferline#go(6)
+nmap <space>b7 <Plug>lightline#bufferline#go(7)
+nmap <space>b8 <Plug>lightline#bufferline#go(8)
+nmap <space>b9 <Plug>lightline#bufferline#go(9)
+nmap <space>b0 <Plug>lightline#bufferline#go(10)
+
+" nmap <Leader>1 <Plug>lightline#bufferline#go(1)
+" nmap <Leader>2 <Plug>lightline#bufferline#go(2)
+" nmap <Leader>3 <Plug>lightline#bufferline#go(3)
+" nmap <Leader>4 <Plug>lightline#bufferline#go(4)
+" nmap <Leader>5 <Plug>lightline#bufferline#go(5)
+" nmap <Leader>6 <Plug>lightline#bufferline#go(6)
+" nmap <Leader>7 <Plug>lightline#bufferline#go(7)
+" nmap <Leader>8 <Plug>lightline#bufferline#go(8)
+" nmap <Leader>9 <Plug>lightline#bufferline#go(9)
+" nmap <Leader>0 <Plug>lightline#bufferline#go(10)
 
 " vim-highlightedyank
 let g:highlightedyank_highlight_duration = 500
 
 " editorconfig
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
-au FileType gitcommit let b:EditorConfig_disable = 1
+au! FileType gitcommit let b:EditorConfig_disable = 1
+
+" vimscript 
+au! FileType vim nmap <buffer> <leader>= gg=G''
 
 " emmet-vim
 let g:user_emmet_install_global = 0
@@ -360,30 +460,78 @@ map gcc <plug>NERDCommenterToggle
 
 " fzf
 
-function <SID>CtrlP()
-  let l:j1 = system("git -C " . getcwd() . " rev-parse --is-inside-work-tree")
-  let l:j2 = system("git -C " . getcwd() . " rev-parse --is-bare-repository")
-  if l:j1 !~ "true" && l:j2 !~ "true"
-    :Files
+"function <SID>CtrlP()
+"let l:j1 = system("git -C " . getcwd() . " rev-parse --is-inside-work-tree")
+"let l:j2 = system("git -C " . getcwd() . " rev-parse --is-bare-repository")
+"if l:j1 !~ "true" && l:j2 !~ "true"
+":Files
+"else
+":GFiles
+"endif
+"endfunction
+
+
+nnoremap <silent> <C-p> <cmd>GFiles<CR>
+nnoremap <silent> <leader>ff <cmd>Files<CR>
+nnoremap <silent> <leader>fS <cmd>Sessions<CR>
+nnoremap <silent> <leader>fb <cmd>Buffers<CR>
+nnoremap <silent> <leader>fh <cmd>History<CR>
+nnoremap <silent> <leader>fgg <cmd>RG<CR>
+nnoremap <silent> <leader>fgh <cmd>RgAll<CR>
+nnoremap <silent> <leader>fg/ <cmd>BLines<CR>
+"nnoremap <silent> <leader>fgw :<c-u>RG <c-r><c-w><CR>
+
+function! s:build_quickfix_list(lines)
+  call setqflist(map(copy(a:lines), '{ "filename": v:val  }'))
+  copen
+  cc
+endfunction
+
+let g:fzf_action = {
+      \ 'ctrl-q': function('s:build_quickfix_list'),
+      \ 'ctrl-x': 'split',
+      \ 'ctrl-v': 'vsplit'}
+
+let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
+
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.95, 'relative': v:true  }  }
+
+let g:fzf_vim = {}
+let g:fzf_vim.preview_window = ['up,50%', 'ctrl-/'] " actually in windows it is ctrl+minus
+
+
+function! RgRunner(...)
+  let command = 'rg --column --line-number --no-heading --color=always --smart-case '
+  if a:0 == 1
+    return command . ' -- ' . a:1
+  endif 
+
+  let args = copy(a:000)
+  let sArgs = split(join(args, ' '), ' -- ')
+  if len(sArgs) == 2
+    let command = command . sArgs[1] . ' -- ' . sArgs[0]
   else
-    :GFiles
+    let command = command . join(args, ' ')
   endif
+  return command
 endfunction
 
 
-nnoremap <silent> <C-p> :call <SID>CtrlP()<CR>
-nnoremap <silent> <leader>fb :Buffers<CR>
-nnoremap <silent> <leader>fh :History<CR>
-nnoremap <silent> <leader>fs :Rg<CR>
-nnoremap <silent> <leader>fS :Rg <c-r><c-w><CR>
+if executable('rg')
+  command! -bang -nargs=* Rg1 call fzf#vim#grep(RgRunner(<f-args>), fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)
+  command! -bang -nargs=* RgAll call fzf#vim#grep2("rg --column --line-number --no-heading --color=always --smart-case --no-ignore --hidden -- ", <q-args>, fzf#vim#with_preview(), <bang>0)
+  set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+endif
 
-let g:fzf_action = {
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
-
-let g:fzf_preview_window = []
-"let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'relative': v:true  }  }
-
+" neoformat
+"let g:neoformat_try_formatprg = 1
+let g:neoformat_try_node_exe = 1
+let g:neoformat_enabled_javascript = ['prettier']
+let g:neoformat_enabled_typescript = ['prettier']
+let g:neoformat_enabled_html = ['prettier']
+let g:neoformat_enabled_markdown = ['prettier']
+nmap <leader>= <cmd>Neoformat<CR>
+"
 " neoterm
 " let g:neoterm_default_mod = 'belowright'
 " nnoremap <silent> <space>4 :<c-u>Ttoggle<cr><C-w>j
@@ -397,8 +545,8 @@ let g:floaterm_keymap_toggle = "<space>4"
 let g:floaterm_width = 0.9
 let g:floaterm_height = 0.9
 
-nnoremap <silent> <leader>sl :FloatermSend<cr>
-vnoremap <silent> <leader>sl :FloatermSend<cr>
+nnoremap <silent> <leader>fSl <cmd>FloatermSend<cr>
+vnoremap <silent> <leader>fSl <cmd>FloatermSend<cr>
 
 " vimwiki
 "let g:vimwiki_list = [{'path': '~/.vim/vimwiki/',
@@ -413,8 +561,11 @@ let g:undotree_ShortIndicators = 1
 let g:undotree_WindowLayout = 2
 let g:undotree_DiffpanelHeight = 8
 let g:undotree_SplitWidth = 24
-nnoremap <silent> <space>7 :<c-u>UndotreeToggle<cr>
+nnoremap <silent> <space>7 <cmd>UndotreeToggle<cr>
 
+" vim-keystroke 
+"valid theme: 'default', 'bubble', 'mario', 'sword', 'typewriter'
+let g:keystroke_theme = 'typewriter' 
 
 "autopairs
 let g:AutoPairsFlyMode = 0
@@ -425,17 +576,144 @@ let g:AutoPairsMapCh=''
 let g:AutoPairsShortcutBackInsert=''
 
 "ultisnip
-"let g:UltiSnipsEditSplit="vertical"
+" let g:UltiSnipsEditSplit="vertical"
+
+" vim-qf
+
+function! s:on_qf_open() abort
+  nmap <buffer> dd <cmd>.Reject<cr><cmd>copen<cr>
+  map <buffer> gq <cmd>cclose<cr>
+endfunction
+
+autocmd FileType qf call s:on_qf_open()
 
 " LSP config
-"let lspOpts = #{autoHighlightDiags: v:true}
-"autocmd User LspSetup call LspOptionsSet(lspOpts)
+let g:lsp_diagnostics_enabled = 0         " disable diagnostics support
+let g:lsp_fold_enabled = 0
+let g:lsp_format_sync_timeout = 1000
+let g:lsp_inlay_hints_enabled = 1
 
-"let lspServers = [#{
-   "\   name: 'angular',
-   "\   filetype: 'html',
-   "\   path: '/usr/local/bin/ngserver.cmd',
-   "\   args: ['--stdio', '--ngProbeLocations', '/usr/local/bin/@angular/language-service', '--tsProbeLocations', '/usr/local/bin/typescript']
-	"\ }]
+"let g:lsp_log_verbose = 1
+"let g:lsp_log_file = expand('~/vim-lsp.log')
 
-"autocmd User LspSetup call LspAddServer(lspServers)
+function! s:on_lsp_buffer_enabled() abort
+  setlocal omnifunc=lsp#complete
+  setlocal signcolumn=yes
+  if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+  nmap <buffer> <c-]> <plug>(lsp-definition)
+  nmap <buffer> gd <plug>(lsp-declaration)
+  nmap <buffer> gs <plug>(lsp-document-symbol-search)
+  nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
+  nmap <buffer> grr <plug>(lsp-references)
+  nmap <buffer> gri <plug>(lsp-implementation)
+  " nmap <buffer> gt <plug>(lsp-type-definition)
+  nmap <buffer> grn <plug>(lsp-rename)
+  nmap <buffer> gra <plug>(lsp-code-action)
+  nmap <buffer> [d <plug>(lsp-previous-diagnostic)
+  nmap <buffer> ]d <plug>(lsp-next-diagnostic)
+  nmap <buffer> K <plug>(lsp-hover)
+  "nmap <buffer> <leader>= <plug>(lsp-document-format)
+  "vmap <buffer> <leader>= <plug>(lsp-document-range-format)
+
+  let l:servers = filter(lsp#get_allowed_servers(), 'lsp#capabilities#has_document_formatting_provider(v:val)')
+  if len(l:servers) != 0
+    nmap <buffer> <leader>= <plug>(lsp-document-format)
+    vmap <buffer> <leader>= <plug>(lsp-document-range-format)
+  endif
+  " autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
+
+  " refer to doc to add more commands
+endfunction
+
+augroup lsp_install
+  au!
+  " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+  autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
+
+" asyncomplete.vim
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+" Force refresh completion
+" imap <c-space> <Plug>(asyncomplete_force_refresh)
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
+
+function! s:sort_by_priority_preprocessor(options, matches) abort
+  let l:items = []
+  for [l:source_name, l:matches] in items(a:matches)
+    for l:item in l:matches['items']
+      if stridx(l:item['word'], a:options['base']) == 0
+        let l:item['priority'] =
+              \ get(asyncomplete#get_source_info(l:source_name),'priority',0)
+        call add(l:items, l:item)
+      endif
+    endfor
+  endfor
+
+  let l:items = sort(l:items, {a, b -> b['priority'] - a['priority']})
+
+  call asyncomplete#preprocess_complete(a:options, l:items)
+endfunction
+
+let g:asyncomplete_preprocessor = [function('s:sort_by_priority_preprocessor')]
+
+au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
+      \ 'name': 'buffer',
+      \ 'allowlist': ['*'],
+      \ 'blocklist': ['go'],
+      \ 'priority': 100,
+      \ 'completor': function('asyncomplete#sources#buffer#completor'),
+      \ 'config': {
+      \    'max_buffer_size': 5000000,
+      \  },
+      \ }))
+
+au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
+      \ 'name': 'file',
+      \ 'allowlist': ['*'],
+      \ 'priority': 10,
+      \ 'completor': function('asyncomplete#sources#file#completor')
+      \ }))
+
+" disable auto enabled linter
+let g:lsp_ale_auto_enable_linter = 0
+let g:ale_linters = {
+      "\ 'javascript': ['vim-lsp', 'eslint'],
+      "\ 'typescript': ['vim-lsp', 'tslint'],
+      \ }
+
+
+" vim-lsp-settings
+" java 21
+" install-eclipse-jdt-ls.cmd
+" curl -Lo jdt-language-server-latest.tar.gz "https://download.eclipse.org/jdtls/milestones/1.33.0/jdt-language-server-1.33.0-202402151717.tar.gz"
+"
+"
+"
+" vim-which-key
+nnoremap <silent> <leader>      :<c-u>WhichKey ','<CR>
+nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
+nnoremap <silent> <space> :<c-u>WhichKey  ' '<CR>
+
+function! <SID>UnmapFormat()
+  silent! unmap <leader>=
+  silent! unmap <buffer> <localleader>=
+endfunction
+
+command! -nargs=0 FormatDisable call <SID>UnmapFormat()
+
+" <space> key map to enable / disable stuff
+nnoremap <silent> <space>df <cmd>FormatDisable<cr>
+nnoremap <silent> <space>el <cmd>ALEEnable<cr>
+nnoremap <silent> <space>dl <cmd>ALEDisable<cr>
+
+" <space> key map to toggle stuff
+nnoremap <silent> <space>tm <cmd>MarkdownPreviewToggle<cr>
+nnoremap <silent> <space>tk <cmd>KeyStrokeToggle<cr>
+
+" abbreviation
+iab jw Jerry Wang <jerrywang1981@outlook.com>
+iab jwi Jerry Wang <jianjunw@cn.ibm.com>
+iab jwc  .--- . .-. .-. -.--  .-- .- -. --.
