@@ -120,9 +120,6 @@ set guioptions+=a               " Visual selection automatically copied to the c
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove scrollbar
 set guioptions-=L  "remove scrollbar
-" set guioptions-=R
-" set guioptions-=l
-" set guioptions-=b
 
 set selectmode=mouse,key
 set whichwrap+=<,>,h,l
@@ -154,7 +151,6 @@ set cursorline
 set cursorcolumn
 
 set signcolumn=yes
-" set foldmethod=indent
 set colorcolumn=80
 set foldlevel=99
 
@@ -166,7 +162,6 @@ set expandtab
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
-" set laststatus=2
 
 
 let g:loaded_netrw       = 1
@@ -507,7 +502,9 @@ nnoremap <silent> <space>7 <cmd>UndotreeToggle<cr>
 " vim-keystroke 
 "valid theme: 'default', 'bubble', 'mario', 'sword', 'typewriter'
 let g:keystroke_theme = 'typewriter' 
-autocmd VimEnter * KeyStrokeEnable
+if has('sound')
+  autocmd VimEnter * KeyStrokeEnable
+endif
 
 "autopairs
 let g:AutoPairsFlyMode = 0
