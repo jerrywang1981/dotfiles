@@ -47,7 +47,6 @@ call plug#begin()
 "   - Avoid using standard Vim directory names like 'plugin'
 
 " Make sure you use single quotes
-
 Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-sensible'
@@ -86,8 +85,7 @@ Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'sbdchd/neoformat'
 "Plug 'jerrywang1981/morse.vim'
 
-Plug 'romainl/vim-qf'
-
+Plug 'justinmk/vim-sneak'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 " completion
@@ -407,27 +405,13 @@ au! FileType vim nmap <buffer> <leader>= gg=G''
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 
+" vim-sneak
+let g:sneak#label = 1
+
 " vim-rooter
 let g:rooter_silent_chdir = 1
 
-" nerdcommenter
-let g:NERDCreateDefaultMappings = 0
-
-map gcc <plug>NERDCommenterToggle
-
 " fzf
-
-"function <SID>CtrlP()
-"let l:j1 = system("git -C " . getcwd() . " rev-parse --is-inside-work-tree")
-"let l:j2 = system("git -C " . getcwd() . " rev-parse --is-bare-repository")
-"if l:j1 !~ "true" && l:j2 !~ "true"
-":Files
-"else
-":GFiles
-"endif
-"endfunction
-
-
 nnoremap <silent> <C-p> <cmd>GFiles<CR>
 nnoremap <silent> <leader>ff <cmd>Files<CR>
 nnoremap <silent> <leader>fS <cmd>Sessions<CR>
@@ -523,6 +507,7 @@ nnoremap <silent> <space>7 <cmd>UndotreeToggle<cr>
 " vim-keystroke 
 "valid theme: 'default', 'bubble', 'mario', 'sword', 'typewriter'
 let g:keystroke_theme = 'typewriter' 
+autocmd VimEnter * KeyStrokeEnable
 
 "autopairs
 let g:AutoPairsFlyMode = 0
@@ -535,10 +520,33 @@ let g:AutoPairsShortcutBackInsert=''
 "ultisnip
 " let g:UltiSnipsEditSplit="vertical"
 
-" vim-qf
+" quickfix window
+
+function! s:qf_delete(line1, line2)
+  let l:min = min([a:line1, a:line2])
+  if l:min < 1
+    echom "line number should be greater than 1"
+    return
+  endif
+  let l:lines = sort([a:line1, a:line2])
+  let l:list = copy(getqflist())
+
+  if l:lines[0] == 1
+    let l:list = l:list[l:lines[1]:]
+  elseif l:lines[1] == len(l:list)
+    let l:list = l:list[:l:lines[0]-2]
+  else
+    let l:list = l:list[:l:lines[0]-2] + l:list[l:lines[1]:]
+  endif
+  call setqflist(l:list)
+  if len(l:list) > 0
+    call execute(l:lines[0] > len(l:list) ? len(l:list) : l:lines[0])
+  endif
+endfunction 
 
 function! s:on_qf_open() abort
-  nmap <buffer> dd <cmd>.Reject<cr><cmd>copen<cr>
+  command! -buffer -range -nargs=0 QfDelete call s:qf_delete(<line1>, <line2>)
+  nmap <buffer> dd <cmd>QfDelete<cr>
   map <buffer> gq <cmd>cclose<cr>
 endfunction
 
@@ -569,8 +577,6 @@ function! s:on_lsp_buffer_enabled() abort
   nmap <buffer> [d <plug>(lsp-previous-diagnostic)
   nmap <buffer> ]d <plug>(lsp-next-diagnostic)
   nmap <buffer> K <plug>(lsp-hover)
-  "nmap <buffer> <leader>= <plug>(lsp-document-format)
-  "vmap <buffer> <leader>= <plug>(lsp-document-range-format)
 
   let l:servers = filter(lsp#get_allowed_servers(), 'lsp#capabilities#has_document_formatting_provider(v:val)')
   if len(l:servers) != 0
