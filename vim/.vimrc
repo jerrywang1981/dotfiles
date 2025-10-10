@@ -135,11 +135,12 @@ set ignorecase
 set smartcase
 set termguicolors
 set showmatch
+set noshowcmd
 set visualbell
 set hidden
 set noshowmode
 
-" set showtabline=2
+set showtabline=2
 set scrolloff=5
 set updatetime=500
 " set timeoutlen=1000
@@ -158,6 +159,7 @@ set noswapfile
 set autoindent
 set cindent
 set expandtab
+set nostartofline
 
 set tabstop=2
 set softtabstop=2
@@ -352,7 +354,6 @@ let g:lightline#bufferline#ordinal_number_map = {
       \ 0: '₀', 1: '₁', 2: '₂', 3: '₃', 4: '₄',
       \ 5: '₅', 6: '₆', 7: '₇', 8: '₈', 9: '₉' }
 let g:lightline#bufferline#enable_devicons = 1
-let g:lightline#bufferline#disable_more_buffers_indicator = 1
 " let g:lightline#bufferline#shorten_path = 1
 
 function <SID>GoToBuffer()
@@ -638,7 +639,7 @@ au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#source
       \ }))
 
 " disable auto enabled linter
-let g:lsp_ale_auto_enable_linter = 0
+let g:lsp_ale_auto_enable_linter = v:false
 let g:ale_linters = {
       "\ 'javascript': ['vim-lsp', 'eslint'],
       "\ 'typescript': ['vim-lsp', 'tslint'],

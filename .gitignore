@@ -19,3 +19,4 @@ lazy-lock.json
 /emacs/.emacs.d/eclipse.jdt.ls/
 /emacs/.emacs.d/places
 /emacs/.emacs.d/eln-cache/
+*.tar
