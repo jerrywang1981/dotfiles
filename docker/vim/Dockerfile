@@ -1,7 +1,7 @@
 FROM alpine
 
 LABEL author="Jerry Wang <jerrywang1981@outlook.com>"
-LABEL version="quay.io/jerrywang1981/vim:0.0.4"
+LABEL version="quay.io/jerrywang1981/vim:0.0.2"
 
 ARG USERNAME=vscode
 
