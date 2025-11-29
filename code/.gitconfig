@@ -1,12 +1,12 @@
-[includeIf "gitdir:~/personal/"]
-  path = ~/.gitconfig-personal
-[includeIf "gitdir:~/work/"]
-  path = ~/.gitconfig-work
-[credential "https://github.ibm.com"]
-	helper = 
-	helper = !/usr/bin/gh auth git-credential
-[url "git@github.ibm.com:"]
-	insteadOf = https://github.ibm.com/
 [user]
-	name = Jerry Wang
-	email = jianjunw@cn.ibm.com
+    name = Jerry Wang
+    email = jerrywang1981@outlook.com
+    signingkey = jerrywang1981@outlook.com
+[commit]
+    gpgsign = true
+[tag]
+    gpgSign = true
+[pull]
+    rebase = true
+[credential]
+	helper = cache --timeout=3600
